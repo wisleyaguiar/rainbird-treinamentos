@@ -1,0 +1,693 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@font-face
+{
+	font-family: MyriadRegular;
+	src: url(font/MyriadPro-Regular.woff);
+	font-weight:normal;
+}
+
+@font-face
+{
+	font-family: MyriadRegular;
+	src: url(font/MyriadPro-Bold.woff);
+	font-weight:bold;
+}
+
+body {
+	background-color:#d6dbce;
+	font-family:Arial, sans-serif;
+	font-size:0.8em;
+	color:#000;
+}
+
+.clear { clear:both; }
+
+/* copo principa do site */
+.mainContent {
+	border-left:1px solid #709c71;
+	border-right:1px solid #709c71;
+	border-bottom:1px solid #709c71;
+	width:948px;
+	min-height:642px;
+	margin:auto;
+	position:relative;
+	background:#FFF;
+}
+
+.mainContent header {
+	background:url(../images/headBackground.gif) no-repeat center top;
+	height:80px;
+}
+
+.mainContent header .logo {
+	float:left;
+	width:220px;
+	height:32px;
+	margin:10px 10px 0 4px;
+}
+
+.mainContent header .boxMenuHeader {
+	float:left;
+	background:url(../images/mainNavHomeBrasil.png) no-repeat 0 0;
+	width:475px;
+	height:40px;
+	padding:0 0 0 5px;
+}
+
+.mainContent header .boxMenuHeader ul li {
+	display:block;
+	float:left;
+	height:36px;
+}
+
+.mainContent header .boxMenuHeader ul li a:link, .mainContent header .boxMenuHeader ul li a:visited {
+	font-size:14px;
+	color:#FFF;
+	display:block;
+	height:24px;
+	padding-top:12px;
+	padding:12px 6px 0 6px;
+	letter-spacing:1px;
+	text-decoration:none;
+	text-shadow: 0px 0px 4px #000000;
+}
+
+.mainContent header .boxMenuHeader ul li a:hover, .mainContent header .boxMenuHeader ul li a.menuAtivo {
+	background:url(../images/bg-hover.png) repeat center;
+	text-decoration:none;
+}
+
+.mainContent header .boxBusca {
+	float:left;
+	width:185px;
+	padding-top:7px;
+	padding-left:8px;
+}
+
+.mainContent header .boxBusca .inputBusca {
+	width:121px;
+	height:24px;
+	border:1px solid #7a7b7a;
+}
+
+/* conteudos de corpo */
+
+.mainContent .content {
+	position:relative;
+}
+
+.mainContent .boxFullBanners {
+	width:920px;
+	height:372px;
+	position:relative;
+	margin:auto;
+}
+
+.mainContent .boxFullBanners .banner1, .mainContent .boxFullBanners .banner2 {
+	position:absolute;
+	width:455px;
+	height:372px;
+}
+
+.mainContent .boxFullBanners .banner2 {
+	right:0;
+}
+
+.mainContent .boxFullBanners .banner1 img {
+	position:absolute;
+}
+
+a.bt-banners:link, a.bt-banners:visited {
+	background:url(../images/arrow-buttom.png) no-repeat 90% 50%, url(../images/bg-buttom.png) no-repeat 0 0;
+	width:132px;
+	height:28px;
+	font-weight:bold;
+	text-shadow: 1px 1px 1px #000000;
+	position:absolute;
+	z-index:2;
+	color:#FFF!important;
+	text-decoration:none;
+	padding:15px 0 0 23px;
+	letter-spacing:1px;
+	left:25px;
+	top:25px;
+}
+a.bt-banners:hover {
+	font-style:normal!important;
+	text-decoration:none!important;
+}
+
+.mainContent .boxMiniBanners {
+	margin-left:15px;
+	margin-top:15px;
+}
+
+.mainContent .boxMiniBanners .minBanner {
+	width:301px;
+	height:120px;
+	float:left;
+	position:relative;
+	margin-right:10px;
+}
+
+.mainContent .boxMiniBanners .minBanner img {
+	position:absolute;
+}
+
+.mainContent .boxMiniBanners .minBanner h3 {
+	display:block;
+	position:absolute;
+	z-index:3;
+	text-shadow:0px 0px 5px #19131b;
+	font-weight:bold;
+	letter-spacing:1px;
+	color:#FFF;
+	top:97px;
+	left:18px;
+}
+
+.mainContent .boxMiniBanners a.bt-minBanners {
+	display:block;
+	position:absolute;
+	z-index:4;
+	background:url(../images/arrow-borda-sub-banners.png) no-repeat;
+	width:34px;
+	height:27px;
+	overflow:hidden;
+	text-indent:-999999px;
+	right:0;
+	bottom:0;
+}
+
+.mainContent .content h1 {
+	font-size: 1.8em;
+	color: #003399;
+	margin-top: 2px;
+	margin-bottom: 10px;
+	font-weight:bold;
+}
+
+.mainContent .content h2 {
+	font-size: 1.32em;
+	color: #666666;
+	margin-top: 2px;
+	font-weight:bold;
+}
+
+.mainContent .content .verde {
+	color:#10724c;
+}
+
+.mainContent .content p {
+	margin-top: 12px;
+	margin-right: 0;
+	margin-bottom: 12px;
+	margin-left: 0;
+	line-height: 1.5em;
+	text-align:justify;
+}
+
+.mainContent .content p strong {
+	font-weight:bold;
+}
+
+.mainContent .content p.traco {
+	text-decoration:underline;
+}
+
+.mainContent .content a:link, .mainContent .content a:visited {
+	color:#0000FF;
+	text-decoration:none;
+}
+.mainContent .content a:hover {
+	text-decoration:underline;
+}
+
+.mainContent .sidebar {
+	float:left;
+}
+
+.mainContent .sidebar .boxMenuVertical {
+	background:url(../images/top-bar-menu.png) no-repeat top center, url(../images/footer-bar-menu.png) no-repeat bottom center;
+	width:245px;
+	padding:34px 0 37px 0;
+	margin-left:6px;
+}
+
+.mainContent .sidebar .boxMenuVertical ul {
+	background:url(../images/cont-bar-menu.png) repeat-y center;
+}
+
+.mainContent .sidebar .boxMenuVertical ul li {
+	margin-left:14px;	
+}
+
+.mainContent .sidebar .boxMenuVertical ul li a:link, .mainContent .sidebar .boxMenuVertical ul li a:visited{
+	display:table-cell;
+	height:46px;
+	text-align:center;
+	width:134px;
+	color:#FFF;
+	font-size:17px;
+	padding:0 40px 0 40px;
+	vertical-align:middle;
+}
+.mainContent .sidebar .boxMenuVertical ul li a:hover {
+	background:url(../images/bg-hover.png) repeat 0 0;
+	font-style:normal;
+}
+
+.mainContent .sidebar .boxMenuVertical ul li a.ativoMenuVertical {
+	background:url(../images/bg-hover.png) repeat 0 0;
+	font-style:normal;
+}
+
+.mainContent .sidebar .boxMenuVertical ul li a.ativoMenuVerticalCinza {
+	background:url(../images/bg-destaqueSubMenu.png) repeat-y center;
+	font-style:normal;
+	color:#10724c;
+}
+
+.mainContent .sidebar .boxMenuVertical ul li ul.subMenuVertical {
+	background:url(../images/bg-submenu.png) repeat-y center;
+	width:217px;
+	display:block;
+}
+
+.mainContent .sidebar .boxMenuVertical ul li ul.subMenuVertical.ocultar {
+	display:none;	
+}
+
+.mainContent .sidebar .boxMenuVertical ul li ul.subMenuVertical li {
+	margin-left:0;	
+}
+
+.mainContent .content ul.lista {
+	list-style:disc;
+	padding-left:15px;
+	line-height:130%;
+	padding-bottom:10px;
+}
+
+.mainContent .content strong {
+	font-weight:bold;
+}
+
+.mainContent .content h1.traco {
+	border-bottom:1px solid #efefef;
+	padding-bottom:3px;
+	margin-bottom:20px;
+}
+
+.mainContent .content .accordion h3 {
+	line-height:130%;
+	cursor:pointer;
+	outline:none;
+}
+.mainContent .content .accordion h3:hover {
+	background:url(../images/bg-hover.png) repeat 0 0;
+}
+.mainContent .content .accordion h3.ui-state-active {
+	background:url(../images/bg-hover.png) repeat 0 0;
+	outline:none;
+}
+
+.mainContent .content div.caixaProduto {
+	width:133px;
+	float:left;
+	margin-right:17px;
+	text-align:center;
+	height:180px;
+	margin-top:30px;
+}
+
+.mainContent .content div.caixaProduto .produtoThumb {
+	overflow:hidden;
+	width:130px;
+	height:100px;
+	text-align:center;
+	margin-bottom:10px;
+}
+
+.mainContent .content div.caixaProduto h2 {
+	color:#0000FF;
+	text-align:center;
+	font-size:13px;
+	padding-bottom:10px;
+	display:block;
+	height:28px;
+	font-weight:normal;
+	line-height:1.5em;
+}
+
+.mainContent .content div.caixaProduto p {
+	text-align:center;
+}
+
+.mainContent .content h2.tituloProduto {
+	color:#2b77de;
+	font-weight:bold;
+	font-size:24px;
+	border-bottom:1px solid #000;
+	margin-bottom:5px;
+}
+
+.mainContent .content h3.subTituloProduto {
+	margin-bottom:10px;
+}
+
+.mainContent .content div.descricaoProduto {
+	padding:50px 30px 20px 0;	
+}
+
+.mainContent .content div.descricaoProduto p {
+	padding-bottom:20px;
+}
+
+.mainContent .content div#tabs {
+	width:640px;
+	margin-top:20px;
+}
+
+.mainContent .content div#tabs div {
+	padding: 12px;
+	background-color: #FFFFFF;
+	font-size: 1em;
+	line-height: 1.5em;
+	position: relative;
+	z-index: 1;
+	top: -1px;
+	left: 0;
+	color: #333333;
+	border: 1px solid #93A6B4;
+}
+
+.mainContent .content div#tabs div div {
+	border:0;
+	padding:0;
+	min-height:0;
+}
+
+.mainContent .content div#tabs div ul {
+	list-style:disc;
+	padding-left:15px;
+	line-height:130%
+}
+
+.mainContent .content div#tabs div strong, div#tabs div b {
+	font-weight:bold;
+}
+
+.mainContent .content div#tabs ul.abas {
+	display:block;
+	overflow:hidden;
+	position:relative;
+	z-index:2;
+	height:37px;
+}
+
+.mainContent .content div#tabs ul.abas li {
+	display: block;
+	float: left;
+	margin: 0 -1px 0 0;
+}
+
+.mainContent .content div#tabs ul.abas li.ui-state-active {
+	padding: 0;
+	position: relative;
+	z-index: 2;
+}
+
+.mainContent .content div#tabs ul.abas li a {
+	padding: 11px 8px;
+	display: block;
+	float: left;
+	color: #6A8C93;
+	text-decoration: none;
+	background-image: url(../images/tabs09_up.jpg);
+	background-repeat: repeat-x;
+	border: 1px solid #93A6B4;
+	border-bottom: 0;
+	outline:none;
+}
+
+.mainContent .content div#tabs ul.abas li a:hover {
+	color: #93A6B4;
+	text-decoration:none;
+}
+
+.mainContent .content div#tabs ul.abas li.ui-state-active a {
+	background-image: url(../images/tabs09_down.jpg);
+	background-repeat: repeat-x;
+	color: #333333 !important;
+	cursor: default;
+	height:38px;
+}
+
+.mainContent .content div#tabs h2 {
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+.tableBorder {
+	border: thin solid #063;
+	margin-bottom:10px;
+}
+
+.tableHeader {
+	background-color: #063;
+color: #FFF;
+}
+
+.tableAltRow {
+	background-color: #B7CFA0;
+}
+
+/* Conteúdos de rodapé */
+
+footer {
+	padding-top:20px;
+}
+
+footer .menuFooter {
+	margin-left:16px;
+	padding-top:12px;
+	margin-bottom:10px;
+	float:left;
+	height: 23px;
+	background-color:#007b4b;
+	color:#FFF;
+}
+
+footer .menuFooter ul li {
+	display:block;
+	float:left;
+	color:#13931f;
+	border-right:1px solid #709c71;
+	padding:0 4px 0 4px;
+	font-size:12px;
+}
+
+footer .menuFooter ul li:last-child {
+	border:0;
+}
+
+footer .menuFooter ul li a:link, footer .menuFooter ul li a:visited {
+	color:#FFF;
+	text-decoration:none;
+}
+
+footer .menuFooter ul li a:hover {
+	text-decoration:underline;
+}
+
+footer .menuFooter ul li a.ativoMenu {
+	font-weight:bold;
+}
+
+footer .linkOutros {
+	float:right;
+	padding-right:30px;
+}
+
+.boxRedesSociais {
+	width:950px;
+	margin:auto;
+	text-align:center;
+	padding-top:28px;
+	font-size:12px;
+	color:#709c71;
+}
+
+.sideBucket {
+	width: 200px;
+	background-image: url(http://www.rainbird.com/images/sideBucketMidBG.gif);
+}
+.sideBucketTop {
+	background-image: url(http://www.rainbird.com/images/sideBucketTopBG.jpg);
+	background-repeat: no-repeat;
+	height: 20px;
+	width: 180px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #003399;
+	padding: 10px;
+	text-align: center;
+}
+.sideBucketMid {
+	width: 170px;
+	height: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/* 
+  -----------------------------------
+  Tree Menu Magic 2
+  by Project Seven Development
+  www.projectseven.com
+  Style Theme: 05 - Greystone
+  -----------------------------------
+*/
+
+.p7TMM05 {
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	zoom: 1;
+	width:200px;
+	padding: 0;
+	background-image: url(../images/level1.jpg);
+	background-repeat: repeat-y;
+	background-color: #298964;
+	border: 0;
+}
+.p7TMM05 ul {
+	margin: 0;
+	padding: 0px;
+}
+.p7TMM05 ul div {
+	background-image: url(../images/level2.jpg);
+	background-repeat: repeat-y;
+	padding: 0px 0;
+}
+.p7TMM05 ul ul div {
+	background-color: transparent;
+	background-image: none;
+	padding: 0;
+}
+.p7TMM05 ul ul {
+	font-size: 12px;
+}
+.p7TMM05 ul ul ul {
+	font-size: 10px;
+}
+.p7TMM05 ul li {
+	list-style-type: none;
+}
+.p7TMM05 ul ul li {
+	padding-left: 1em;
+}
+.p7TMM05 ul a:link, .p7TMM05 ul a:visited {
+	color: #fff;
+	display: block;
+	margin: 0 2px!important;
+	padding: 10px 8px 10px 18px!important;
+	text-decoration: none;
+	zoom: 1;
+	border-bottom: 1px solid #25664C;
+	outline: 0;
+}
+.p7TMM05 a.tmmfirst {
+}
+.p7TMM05 a.tmmlast {
+	border-bottom: 0px;
+}
+.p7TMM05 ul a:hover, .p7TMM05 ul a:focus, .p7TMM05 ul a:active {
+	background-image: url(../images/level1over.jpg);
+	background-repeat: repeat-y;
+	color: #000;
+	text-decoration: none;
+}
+.p7TMM05 ul ul a:link, .p7TMM05 ul ul a:visited {
+	font-variant: normal;
+	border: 0;
+	padding: 12px 8px 12px 14px!important;
+	color: #fff;
+	background-color: transparent !important;
+	background-image: none;
+}
+.p7TMM05 ul ul a:hover, .p7TMM05 ul ul a:focus, .p7TMM05 ul ul a:active {
+	color: #FFF;
+/*	text-decoration: underline; */
+	background-image: url(../images/level2over.jpg);
+	background-repeat: repeat-y;
+}
+.p7TMM05 a.p7tmm_page {
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+.p7TMM05 ul ul a.p7tmm_page {
+}
+.p7TMM05 a.trig_closed {
+}
+.p7TMM05 ul ul a.trig_closed {
+}
+.p7TMM05 ul a.trig_open {
+	background-image: url(../images/level1over.jpg);
+	background-repeat: repeat-y;
+	color: #000 !important;
+}
+.p7TMM05 ul ul a.trig_open {
+	color: #FFF !important;
+}
+.p7TMM05 ul ul a.trig_closed, .p7TMM05 ul ul a.trig_open {
+	/* letter-spacing: 0.1em; */
+	font-size: 12px;
+}
+.p7TMM05 a.current_mark {
+	font-weight:bold;
+	color:#000;
+}
+.p7TMM05 ul ul a.current_mark {
+	color:#FFF;
+	background-image: url(../images/level2over.jpg);
+	background-repeat: repeat-y;
+}
+.p7TMMtoggle {
+	display:none;
+}
+.p7TMM05_toggle_all {
+	margin: 0 0 12px 0;
+}
+.p7TMM05_toggle_all a:link, .p7TMM05_toggle_all a:visited {
+	color: #000;
+	outline: 0;
+}
+.p7TMM05_toggle_all a:hover, .p7TMM05_toggle_all a:focus, .p7TMM05_toggle_all a:active {
+	color: #06C;
+	text-decoration: underline;
+}
+#navWrapper {
+	background-image: url(../images/navTop2.jpg);
+	background-repeat: no-repeat;
+	padding-top: 27px;
+	margin:0 20px 0 15px
+}
+
+#navWrapper a:link, #navWrapper a:visited {
+	color:#FFF;
+}
+
+#navWrapper a:hover {
+	color:#000;
+	text-decoration:none;
+}
+
+#navWrapper .level_2 a:hover {
+	color:#FFF;
+}
+
+table.ondecomprar td {
+	padding: 0 10px 5px 0;
+}
