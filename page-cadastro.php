@@ -1,5 +1,8 @@
 <?php
-include("header.php"); ?>
+/*
+ * Template Name: Página de Cadastro de Usuários
+ */
+get_header(); ?>
 
 <div class="content" style="overflow:hidden; background:url('images/treinamentos/bg-tela-cadastro.jpg') no-repeat 0 0; height: 552px;">
   <div style="width:690px; float:left; margin-left: 254px; padding-top: 30px;">
@@ -8,7 +11,7 @@ include("header.php"); ?>
     <div class="caixa-cadastro-completo">
       <h2>FICHA DE INSCRIÇÃO</h2>
       <small>TREINAMENTOS RAIN BIRD - 2016</small>
-      <form action="page-cadfatura.php" method="post" id="formCadastroCompleto">
+      <form action="<?php echo home_url(); ?>" method="post" id="formCadastroCompleto">
 
         <div class="linha-input">
           <div class="col-1">
@@ -89,10 +92,10 @@ include("header.php"); ?>
 
         <div class="linha-input">
           <div class="col-6">
-            <p><a href="#" class="bt-verde"><< Voltar</a></p>
+            <p><a href="<?php echo home_url('/'); ?>" class="bt-verde"><< Voltar</a></p>
           </div>
           <div class="col-6">
-            <p class="texto-right"><button type="submit" class="bt-verde">Avançar</button> </p>
+            <p class="texto-right"><button type="submit" class="bt-verde">Avançar</button></p>
           </div>
         </div>
 
@@ -101,4 +104,4 @@ include("header.php"); ?>
 
   </div>
 </div>
-<?php include("footer.php"); ?>
+<?php get_footer(); ?>
