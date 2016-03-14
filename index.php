@@ -1,16 +1,16 @@
 <?php 
 
-include("header.php"); ?>
+get_header(); ?>
 
 <div class="content" style="overflow:hidden;">
   <div class="sidebar">
   <div id="navWrapper">
           <div id="p7TMM_1" class="p7TMM05">
             <ul class="p7TMM level_1" id="p7TMM_1u1">
-              <li><a href="<?php esc_attr_e( $options['urlsite2'] ); ?>/servicos.php?page=projetos">Projetos</a></li>
-              <li><a href="<?php esc_attr_e( $options['urlsite2'] ); ?>/servicos.php?page=treinamentos" class="trig_open">Treinamentos</a></li>
-              <li><a href="<?php esc_attr_e( $options['urlsite2'] ); ?>/servicos.php?page=auditoria-sistemas">Auditoria de Sistemas</a></li>
-              <li><a href="<?php esc_attr_e( $options['urlsite2'] ); ?>/servicos.php?page=supervisao-partida-assistida">Supervisão e Partida Assistida</a></li>
+              <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/servicos.php?page=projetos">Projetos</a></li>
+              <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/servicos.php?page=treinamentos" class="trig_open">Treinamentos</a></li>
+              <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/servicos.php?page=auditoria-sistemas">Auditoria de Sistemas</a></li>
+              <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/servicos.php?page=supervisao-partida-assistida">Supervisão e Partida Assistida</a></li>
             </ul>
             <!--[if lte IE 6]>
 <style>.p7TMM05 .p7TMM, .p7TMM05 a, .p7TMM05 li {height:1%;}</style>
@@ -35,7 +35,7 @@ P7_TMMop('p7TMM_1',1,0,0,3,1,0,1,0,-1,150);
             nosso site, faça o login abaixo.</p>
       <div class="caixa-login">
         <p>Já tenho Cadastro</p>
-          <form action="page-treinamentos.php" method="post" id="caixa-login">
+          <form action="<?php echo home_url(); ?>" method="post" id="caixa-login">
               <p>login<br>
               <input type="text" name="login" id="login"> </p>
               <p>senha<br>
@@ -137,4 +137,4 @@ P7_TMMop('p7TMM_1',1,0,0,3,1,0,1,0,-1,150);
     </div>
   </div>
 </div>
-<?php include("footer.php"); ?>
+<?php get_footer(); ?>

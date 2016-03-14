@@ -3,11 +3,11 @@
   	<div class="menuFooter">
     	<nav id="boxMenuFooter">
         	<ul>
-            	<li><a href="<?php esc_attr_e( $options['urlsite2'] ); ?>/sobre-rain-bird.php">Sobre a Rain Bird</a></li>
-                <li><a href="<?php esc_attr_e( $options['urlsite2'] ); ?>/uso-inteligente-agua.php">O Uso Inteligente da Água</a></li>
-                <li><a href="<?php esc_attr_e( $options['urlsite2'] ); ?>/politica-privacidade.php">Política de Privacidade</a></li>
-                <li><a href="<?php esc_attr_e( $options['urlsite2'] ); ?>/termos-uso.php">Termos de Uso</a></li>
-                <li><a href="<?php esc_attr_e( $options['urlsite2'] ); ?>/contatos.php">Contatos</a></li>
+            	<li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/sobre-rain-bird.php">Sobre a Rain Bird</a></li>
+                <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/uso-inteligente-agua.php">O Uso Inteligente da Água</a></li>
+                <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/politica-privacidade.php">Política de Privacidade</a></li>
+                <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/termos-uso.php">Termos de Uso</a></li>
+                <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/contatos.php">Contatos</a></li>
             </ul>
         </nav>
     </div>

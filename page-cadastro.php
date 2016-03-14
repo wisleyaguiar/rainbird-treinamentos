@@ -16,88 +16,88 @@ get_header(); ?>
         <div class="linha-input">
           <div class="col-1">
             <label>Nome</label>
-            <input type="text" name="nomeCompleto" id="nomeCompleto" class="input-form">
+            <input type="text" name="nomeCompleto" id="nomeCompleto" class="input-form" required>
           </div>
         </div>
 
         <div class="linha-input">
           <div class="col-1">
             <label>Endereço</label>
-            <input type="text" name="endereco" id="endereco" class="input-form">
+            <input type="text" name="endereco" id="endereco" class="input-form" required>
           </div>
         </div>
 
         <div class="linha-input">
           <div class="col-1">
             <label>Bairro</label>
-            <input type="text" name="bairro" id="bairro" class="input-form">
+            <input type="text" name="bairro" id="bairro" class="input-form" required>
           </div>
         </div>
 
         <div class="linha-input">
           <div class="col-2">
             <label>Cidade</label>
-            <input type="text" name="cidade" id="cidade" class="input-form">
+            <input type="text" name="cidade" id="cidade" class="input-form" required>
           </div>
           <div class="col-3">
             <label>Estado</label>
-            <input type="text" name="estado" id="estado" class="input-form">
+            <input type="text" name="estado" id="estado" class="input-form" required>
           </div>
         </div>
 
         <div class="linha-input">
           <div class="col-4">
             <label>CEP</label>
-            <input type="text" name="cep" id="cep" class="input-form">
+            <input type="text" name="cep" id="cep" class="input-form" required>
           </div>
           <div class="col-5">
             <label>E-mail</label>
-            <input type="text" name="email" id="email" class="input-form" value="<?php echo $_POST['email'] ?>">
+            <input type="email" name="email" id="email" class="input-form" value="<?php echo $_POST['email'] ?>" required>
           </div>
         </div>
 
         <div class="linha-input">
           <div class="col-6">
             <label>Telefone Fixo</label>
-            <input type="text" name="telfixo" id="telfixo" class="input-form">
+            <input type="text" name="telfixo" id="telfixo" class="input-form" required>
           </div>
           <div class="col-7">
             <label>Telefone Celular</label>
-            <input type="text" name="cel" id="cel" class="input-form">
+            <input type="text" name="cel" id="cel" class="input-form" required>
           </div>
         </div>
 
         <div class="linha-input">
           <div class="col-6">
-            <label><input type="radio" name="sexo" id="sexo_1" value="M" class="radio-form"> Masculino</label>
+            <label><input type="radio" name="sexo" id="sexo_1" value="M" class="radio-form" required> Masculino</label>
           </div>
           <div class="col-7">
-            <label><input type="radio" name="sexo" id="sexo_2" value="F" class="radio-form"> Feminino</label>
+            <label><input type="radio" name="sexo" id="sexo_2" value="F" class="radio-form" required> Feminino</label>
           </div>
         </div>
 
         <div class="linha-input">
               <div class="col-6">
                 <label>CPF</label>
-                <input type="text" name="cpf" id="cpf" class="input-form">
+                <input type="text" name="cpf" id="cpf" class="input-form" required>
               </div>
             <div class="col-7">
                 <label>RG</label>
-                <input type="text" name="rg" id="rg" class="input-form">
+                <input type="text" name="rg" id="rg" class="input-form" required>
             </div>
         </div>
 
           <div class="linha-input">
               <div class="col-1">
                   <label>Nome de Usuário (somente letras e números)</label>
-                  <input type="text" name="nome_user" id="nome_user" class="input-form">
+                  <input type="text" name="nome_user" id="nome_user" class="input-form" required>
               </div>
           </div>
 
           <div class="linha-input">
               <div class="col-1">
                   <label>Senha (crie uma senha segura)</label>
-                  <input type="password" name="senha_user" id="senha_user" class="input-form">
+                  <input type="password" name="senha_user" id="senha_user" class="input-form" required>
               </div>
           </div>
 

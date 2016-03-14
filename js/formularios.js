@@ -4,5 +4,10 @@
 (function($) {
 
     // Cadastro de Usuários
+    $("#formCadastroCompleto").validate({
+        submitHandler: function(form) {
+            $(form).ajaxSubmit();
+        }
+    });
 
 })( jQuery );
