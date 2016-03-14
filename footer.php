@@ -26,14 +26,9 @@
         <area shape="rect" coords="449,2,606,28" href="http://www.linkedin.com/company/rain-bird?trk=fc_badge">
       </map>
 	</div>
-    <p>Copyright © 1996-2014 Rain Bird Brasil</p>
+    <p>Copyright &copy; 1996-2016 Rain Bird Brasil</p>
 </div>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script src="js/custom.js"></script>
+<?php wp_footer(); ?>
 </body>
 </html>

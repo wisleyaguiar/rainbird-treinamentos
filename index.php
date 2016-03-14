@@ -1,5 +1,5 @@
 <?php 
-$link = "servicos";
+
 include("header.php"); ?>
 
 <div class="content" style="overflow:hidden;">
@@ -30,17 +30,30 @@ P7_TMMop('p7TMM_1',1,0,0,3,1,0,1,0,-1,150);
 
   <div style="width:690px; float:left;">
     
-    <div class="sideBucket" style="float:right; margin-left:20px; margin-right:20px;">
-          <div class="sideBucketTop">Academia Rain Bird Internacional</div>
-          <div class="sideBucketMid">
-            <div align="center"><a href="upload/Guia-de-Treinamento-2016-2.pdf" class="APEdownload APEinternal"><img src="upload/ANUNCIO_alterado_salvador.png" alt="" name="product" width="110" border="0" id="product3"></a>
-              <p align="center" style="text-align:center"><a href="upload/Guia-de-Treinamento-2016-2.pdf" class="APEdownload APEinternal"><img src="http://www.rainbird.com/images/icon_pdf_sm.gif" width="18" height="18" border="0">Guia de Treinamento para Irrigação 2016</a></p>
-              <p align="center" style="text-align:center"><a href="upload/FICHA-DE-INSCRICAO_Salvador_2016.doc" class="APEdownload APEinternal"><img src="http://www.rainbird.com/images/icon_word_sm.gif" width="22" height="18" border="0">FICHA DE INSCRIÇÃO<br>
-              TREINAMENTOS RAIN BIRD -  2016</a></p>
-</div>
-          </div>
-          <div><img src="http://www.rainbird.com/images/sideBucketBotBG.gif" width="200" height="20"><br>
-          </div>
+    <div class="sidebar-login">
+          <p>Se você já possui cadastro em
+            nosso site, faça o login abaixo.</p>
+      <div class="caixa-login">
+        <p>Já tenho Cadastro</p>
+          <form action="page-treinamentos.php" method="post" id="caixa-login">
+              <p>login<br>
+              <input type="text" name="login" id="login"> </p>
+              <p>senha<br>
+              <input type="password" name="senha" id="senha"></p>
+              <p class="texto-right"><a href="#">Esqueceu sua senha?</a> <button type="submit" name="logar" class="bt-verde">Entrar</button> </p>
+          </form>
+      </div>
+        <p>Caso ainda não tenha seu cadastro,
+            basta preencher seu e-mail, e seguir
+            os passos.</p>
+        <div class="caixa-cadastro">
+            <p>Não tenho cadastro<br><span>Criar cadastro</span></p>
+            <form action="page-cadastro.php" method="post" id="caixa-cadastro">
+                <p>e-mail<br>
+                <input type="email" name="email" id="email"></p>
+                <p class="texto-right"><button type="submit" name="cadastrar" class="bt-verde">Criar Cadastro</button> </p>
+            </form>
+        </div>
     </div>
         
     <h1>Treinamentos</h1>

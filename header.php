@@ -1,29 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html <?php language_attributes(); ?>>
 <head>
-<meta charset="UTF-8">
+<meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="SHORTCUT ICON" href="favicon.ico" />
-<title>Rain Bird :: Treinamentos</title>
+<link rel="SHORTCUT ICON" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" />
+<title><?php wp_title(); ?></title>
 
-<!-- reset css -->
-<link href="css/reset.css" rel="stylesheet">
-<!-- Estilos -->
-<link href="css/style.css" rel="stylesheet">
-
-<link href="css/prettyPhoto.css" rel="stylesheet">
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+  <?php wp_head(); ?>
 </head>
 <body>
 <div class="mainContent">
   <header>
-    <div class="logo"><a href="index.php" title="Voltar à Home"><img src="images/RainBirdLogo.gif" width="220" height="50" alt=""/></a></div>
+    <div class="logo"><a href="<?php echo home_url(); ?>" title="Voltar à Home"><img src="images/RainBirdLogo.gif" width="220" height="50" alt=""/></a></div>
     <div class="boxMenuHeader">
       <nav id="menuHeader">
         <ul>
@@ -54,14 +49,6 @@
   })();
 </script>
 <gcse:search></gcse:search>
-      <!--form name="formBusca" id="formBusca" action="#" method="get">
-        <div style="float:left; margin-right:2px;">
-          <input type="text" name="termo" id="termo" class="inputBusca">
-        </div>
-        <div>
-          <input type="image" src="images/bt-busca.png" width="58" height="27">
-        </div>
-      </form-->
     </div>
     <div class="clear"></div>
 </header>
