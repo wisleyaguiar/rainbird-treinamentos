@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Rain Bird - Servidor" uploadOnCheckin="65e1690f-f418-41e9-8496-efd2bb63920d">
+    <serverData>
+      <paths name="Rain Bird - Servidor">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/wp-content/themes/rainbird-treinamentos" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myUploadOnCheckinName" value="Rain Bird - Servidor" />
+  </component>
+</project>

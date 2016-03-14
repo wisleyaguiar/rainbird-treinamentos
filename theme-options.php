@@ -176,8 +176,9 @@ function theme_options_do_page() {
 						<label class="description" for="sample_theme_options[sometextarea]"><?php _e( 'Sample text box', 'sampletheme' ); ?></label>
 					</td>
 				</tr>
-			</table>*/
+			*/
 			?>
+			</table>
 
 			<p class="submit">
 				<input type="submit" class="button-primary" value="<?php _e( 'Salvar Alterações', 'sampletheme' ); ?>" />

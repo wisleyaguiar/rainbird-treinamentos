@@ -3,22 +3,22 @@
   	<div class="menuFooter">
     	<nav id="boxMenuFooter">
         	<ul>
-            	<li><a href="sobre-rain-bird.php">Sobre a Rain Bird</a></li>
-                <li><a href="uso-inteligente-agua.php">O Uso Inteligente da Água</a></li>
-                <li><a href="politica-privacidade.php">Política de Privacidade</a></li>
-                <li><a href="termos-uso.php">Termos de Uso</a></li>
-                <li><a href="contatos.php">Contatos</a></li>
+            	<li><a href="<?php esc_attr_e( $options['urlsite2'] ); ?>/sobre-rain-bird.php">Sobre a Rain Bird</a></li>
+                <li><a href="<?php esc_attr_e( $options['urlsite2'] ); ?>/uso-inteligente-agua.php">O Uso Inteligente da Água</a></li>
+                <li><a href="<?php esc_attr_e( $options['urlsite2'] ); ?>/politica-privacidade.php">Política de Privacidade</a></li>
+                <li><a href="<?php esc_attr_e( $options['urlsite2'] ); ?>/termos-uso.php">Termos de Uso</a></li>
+                <li><a href="<?php esc_attr_e( $options['urlsite2'] ); ?>/contatos.php">Contatos</a></li>
             </ul>
         </nav>
     </div>
     <div class="linkOutros">
-    	<a href="http://rainbird.com/worldwide/index.htm" target="_blank"><img src="images/bt-rain-bird-outros-paises.jpg" width="147" height="27" alt=""/></a>
+    	<a href="http://rainbird.com/worldwide/index.htm" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/bt-rain-bird-outros-paises.jpg" width="147" height="27" alt=""/></a>
     </div>
   </footer>
   <div class="clear"></div>
 </div>
 <div class="boxRedesSociais">
-	<div><img src="images/redes-sociais.png" alt="" width="610" height="34" usemap="#MapRedes"/>
+	<div><img src="<?php echo get_template_directory_uri(); ?>/images/redes-sociais.png" alt="" width="610" height="34" usemap="#MapRedes"/>
       <map name="MapRedes">
         <area shape="rect" coords="2,2,93,29" href="http://www.facebook.com/RainBirdCorp">
         <area shape="rect" coords="115,0,252,28" href="http://www.youtube.com/RainBirdCorp">
