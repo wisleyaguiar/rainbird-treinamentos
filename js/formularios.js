@@ -5,6 +5,7 @@
 
     // Cadastro de Usuários
     $("#formCadastroCompleto").validate({
+        lang: 'pt_BR',
         submitHandler: function(form) {
             $(form).ajaxSubmit();
         }
