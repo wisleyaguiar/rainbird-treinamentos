@@ -4,7 +4,7 @@
  */
 get_header(); ?>
 
-<div class="content" style="overflow:hidden; background:url('images/treinamentos/bg-tela-cadastro.jpg') no-repeat 0 0; height: 552px;">
+<div class="content" style="overflow:hidden; background:url('<?php echo get_template_directory_uri(); ?>/images/treinamentos/bg-tela-cadastro.jpg') no-repeat 0 0; height: 552px;">
   <div style="width:690px; float:left; margin-left: 254px; padding-top: 30px;">
     <h1 style="color: #10724c; font-size: 20px;">Cadastro de pessoa física - Treinamentos Rain Bird</h1>
 
@@ -77,18 +77,29 @@ get_header(); ?>
         </div>
 
         <div class="linha-input">
-          <div class="col-1">
-            <label>CPF</label>
-            <input type="text" name="cpf" id="cpf" class="input-form">
-          </div>
+              <div class="col-6">
+                <label>CPF</label>
+                <input type="text" name="cpf" id="cpf" class="input-form">
+              </div>
+            <div class="col-7">
+                <label>RG</label>
+                <input type="text" name="rg" id="rg" class="input-form">
+            </div>
         </div>
 
-        <div class="linha-input">
-          <div class="col-1">
-            <label>RG</label>
-            <input type="text" name="rg" id="rg" class="input-form">
+          <div class="linha-input">
+              <div class="col-1">
+                  <label>Nome de Usuário (somente letras e números)</label>
+                  <input type="text" name="nome_user" id="nome_user" class="input-form">
+              </div>
           </div>
-        </div>
+
+          <div class="linha-input">
+              <div class="col-1">
+                  <label>Senha (crie uma senha segura)</label>
+                  <input type="password" name="senha_user" id="senha_user" class="input-form">
+              </div>
+          </div>
 
         <div class="linha-input">
           <div class="col-6">
