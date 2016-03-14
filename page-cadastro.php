@@ -5,7 +5,7 @@
 get_header(); ?>
 
 <div class="content" style="overflow:hidden; background:url('<?php echo get_template_directory_uri(); ?>/images/treinamentos/bg-tela-cadastro.jpg') no-repeat 0 0; height: 552px;">
-  <div style="width:690px; float:left; margin-left: 254px; padding-top: 30px;">
+  <div style="width:690px; float:left; margin-left: 254px; padding-top: 20px;">
     <h1 style="color: #10724c; font-size: 20px;">Cadastro de pessoa física - Treinamentos Rain Bird</h1>
 
     <div class="caixa-cadastro-completo">
