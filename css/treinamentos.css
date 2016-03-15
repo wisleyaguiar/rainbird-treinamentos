@@ -327,4 +327,6 @@ table.tabela-comerce label {
 
 label.error {
     color: red;
+    display: block;
+    position: absolute;
 }
