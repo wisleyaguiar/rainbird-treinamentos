@@ -109,7 +109,7 @@
                 dataType: 'json',
                 method:'POST',
                 error: function(){
-                    $('#preloading').hide();
+                    $('#preloading').remove();
                     $( "#dialog-message" ).dialog({
                         modal: true,
                         buttons: {
