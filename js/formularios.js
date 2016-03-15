@@ -54,6 +54,18 @@
 
     }, "Informe um CPF válido");
 
+    // Validar CEP
+    $.validator.addMethod("cep", function(value, element){
+       value = jQuery.trim(value);
+        var retorno = true;
+
+        exp = /\d{2}\.\d{3}\-\d{3}/
+        if(!exp.test(value.val()))
+            retorno = false;
+
+        return this.optional(element) || retorno;
+    },"Informe um CEP válido");
+
     // Cadastro de Usuários
 
     $("#caixa-cadastro").validate({lang: 'pt_BR'});
@@ -65,6 +77,9 @@
             },
             cpf: {
                 cpf: true
+            },
+            cep: {
+                cep: true
             }
         },
         submitHandler: function(form) {
