@@ -5,7 +5,7 @@
 get_header(); ?>
 
 <div id="preloading" class="preloading">
-  <p><img src="images/preloading.gif" alt="Preloading" /><br>Processando...</p>
+  <p><img src="<?php echo get_template_directory_uri(); ?>/images/preloading.gif" alt="Preloading" /><br>Processando...</p>
 </div>
 <div class="content" style="overflow:hidden; background:url('<?php echo get_template_directory_uri(); ?>/images/treinamentos/bg-tela-cadastro.jpg') no-repeat 0 0; height: 552px;">
   <div style="width:690px; float:left; margin-left: 254px; padding-top: 20px;">
