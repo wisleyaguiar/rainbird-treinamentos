@@ -50,7 +50,7 @@ P7_TMMop('p7TMM_1',1,0,0,3,1,0,1,0,-1,150);
             <p>Não tenho cadastro<br><span>Criar cadastro</span></p>
             <form action="<?php echo home_url('/cadastro'); ?>" method="post" id="caixa-cadastro">
                 <p>e-mail<br>
-                <input type="email" name="email" id="email"></p>
+                <input type="email" name="email" id="email" required></p>
                 <p class="texto-right"><button type="submit" name="cadastrar" class="bt-verde">Criar Cadastro</button> </p>
             </form>
         </div>
