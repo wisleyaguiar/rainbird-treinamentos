@@ -117,7 +117,7 @@
                             }
                         }
                     });
-                    $('.preloading').remove();
+                    $('.preloading').hide();
                 }
             }).done(function(resp){
                 $( "#dialog-message" ).dialog({
@@ -128,7 +128,7 @@
                         }
                     }
                 });
-                $('.preloading').remove();
+                $('.preloading').hide();
             });
         }
     });
