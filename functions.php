@@ -20,6 +20,8 @@ function treinamentosrb_enqueue_script() {
     wp_enqueue_script( 'validate', get_template_directory_uri() . '/js/jqueryvalidate/jquery.validate.min.js', array('jquery'), false, true );
     wp_enqueue_script( 'validate-msg', get_template_directory_uri() . '/js/jqueryvalidate/localization/messages_pt_BR.js', array(), false, true );
     wp_enqueue_script( 'formularios', get_template_directory_uri() . '/js/formularios.js', array('jquery'), false, true );
+    wp_localize_script( 'formularios', 'ajax_object',
+        array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
 
 }
 
