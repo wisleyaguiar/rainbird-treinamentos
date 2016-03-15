@@ -18,8 +18,8 @@ get_header(); ?>
 
         <div class="linha-input">
           <div class="col-1">
-            <label>Nome</label>
-            <input type="text" name="nomeCompleto" id="nomeCompleto" class="input-form" required>
+            <label>Nome Completo</label>
+            <input type="text" name="nomeCompleto" id="nomeCompleto" class="input-form" style="text-transform: uppercase;" required>
           </div>
         </div>
 
