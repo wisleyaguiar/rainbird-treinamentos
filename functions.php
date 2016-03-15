@@ -12,6 +12,7 @@ function treinamentosrb_enqueue_style() {
     wp_enqueue_style( 'style', get_template_directory_uri() . '/css/style.css', false );
     wp_enqueue_style( 'prettyPhoto', get_template_directory_uri() . '/css/prettyPhoto.css', false );
     wp_enqueue_style( 'treinamentos', get_template_directory_uri() . '/css/treinamentos.css', false );
+    wp_enqueue_style( 'jquery-ui', '//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css', false );
 }
 
 function treinamentosrb_enqueue_script() {

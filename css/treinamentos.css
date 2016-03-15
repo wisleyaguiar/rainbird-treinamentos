@@ -330,3 +330,7 @@ label.error {
     display: block;
     position: absolute;
 }
+
+#dialog-message {
+    display: none;
+}
