@@ -16,6 +16,15 @@
   <?php wp_head(); ?>
 </head>
 <body>
+<div id="dialog-message" title="Download complete">
+  <p>
+    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+    Your files have downloaded successfully into the My Downloads folder.
+  </p>
+  <p>
+    Currently using <b>36% of your storage space</b>.
+  </p>
+</div>
 <div class="mainContent">
   <header>
     <div class="logo"><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>" title="Voltar à Home"><img src="<?php echo get_template_directory_uri(); ?>/images/RainBirdLogo.gif" width="220" height="50" alt=""/></a></div>

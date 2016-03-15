@@ -107,9 +107,27 @@
                 },
                 data: dados,
                 dataType: 'json',
-                method:'POST'
+                method:'POST',
+                error: function(){
+                    $('#preloading').hide();
+                    $( "#dialog-message" ).dialog({
+                        modal: true,
+                        buttons: {
+                            Ok: function() {
+                                $( this ).dialog( "close" );
+                            }
+                        }
+                    });
+                }
             }).done(function(resp){
-
+                $( "#dialog-message" ).dialog({
+                    modal: true,
+                    buttons: {
+                        Ok: function() {
+                            $( this ).dialog( "close" );
+                        }
+                    }
+                });
             });
         }
     });
