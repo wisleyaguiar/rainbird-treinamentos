@@ -103,13 +103,13 @@
             $.ajax({
                 url: ajax_object.ajax_url,
                 beforeSend: function(){
-                    $('#preloading').show();
+                    $('.preloading').show();
                 },
                 data: dados,
                 dataType: 'json',
                 method:'POST',
                 error: function(){
-                    $('#preloading').remove();
+                    $('.preloading').remove();
                     $( "#dialog-message" ).dialog({
                         modal: true,
                         buttons: {
