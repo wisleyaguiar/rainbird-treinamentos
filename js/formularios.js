@@ -109,7 +109,6 @@
                 dataType: 'json',
                 method:'POST',
                 error: function(){
-                    $('.preloading').remove();
                     $( "#dialog-message" ).dialog({
                         modal: true,
                         buttons: {
@@ -118,6 +117,7 @@
                             }
                         }
                     });
+                    $('.preloading').remove();
                 }
             }).done(function(resp){
                 $( "#dialog-message" ).dialog({
@@ -128,6 +128,7 @@
                         }
                     }
                 });
+                $('.preloading').remove();
             });
         }
     });
