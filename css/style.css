@@ -700,4 +700,5 @@ table.ondecomprar td {
     color: #FFF;
     text-align: center;
     top: 0;
+    z-index: 999;
 }
