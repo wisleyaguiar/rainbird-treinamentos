@@ -702,3 +702,9 @@ table.ondecomprar td {
     top: 0;
     z-index: 999;
 }
+
+.preloading p {
+    padding-top: 300px;
+    font-size: 20px;
+    font-weight: bold;
+}
