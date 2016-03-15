@@ -4,6 +4,7 @@
 (function($) {
 
     // Cadastro de Usuários
+    $("#caixa-cadastro").validate();
     $("#formCadastroCompleto").validate({
         lang: 'pt_BR',
         submitHandler: function(form) {
