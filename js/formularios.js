@@ -12,4 +12,7 @@
         }
     });
 
+    // Login de usuário
+    $("#caixa-login").validate({lang: 'pt_BR'});
+
 })( jQuery );

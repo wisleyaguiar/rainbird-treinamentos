@@ -37,9 +37,9 @@ P7_TMMop('p7TMM_1',1,0,0,3,1,0,1,0,-1,150);
         <p>Já tenho Cadastro</p>
           <form action="<?php echo home_url(); ?>" method="post" id="caixa-login">
               <p>login<br>
-              <input type="text" name="login" id="login"> </p>
+              <input type="text" name="login" id="login" required> </p>
               <p>senha<br>
-              <input type="password" name="senha" id="senha"></p>
+              <input type="password" name="senha" id="senha" required></p>
               <p class="texto-right"><a href="#">Esqueceu sua senha?</a> <button type="submit" name="logar" class="bt-verde">Entrar</button> </p>
           </form>
       </div>
