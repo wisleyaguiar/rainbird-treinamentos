@@ -324,3 +324,7 @@ table.tabela-comerce tr.branco {
 table.tabela-comerce label {
     cursor: pointer;
 }
+
+label.error {
+    color: red;
+}

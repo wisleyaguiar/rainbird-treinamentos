@@ -5,7 +5,7 @@
       <webServer id="65e1690f-f418-41e9-8496-efd2bb63920d" name="Rain Bird - Servidor" url="http://www.rainbird.com.br/treinamentos">
         <fileTransfer host="rainbird1.hospedagemdesites.ws" port="21" rootFolder="/public_html/treinamentos" password="dff8dfcbdfc3dfc4df9bdf98dfc4dfcfdfde" username="rainbird1">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
+            <advancedOptions compatibilityMode="true" dataProtectionLevel="Private" passiveMode="true" accurateTimestamps="NEVER" />
           </advancedOptions>
         </fileTransfer>
       </webServer>
