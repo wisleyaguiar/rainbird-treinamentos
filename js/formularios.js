@@ -55,16 +55,9 @@
     }, "Informe um CPF válido");
 
     // Validar CEP
-    $.validator.addMethod("cep", function(value, element){
-       value = jQuery.trim(value);
-        var retorno = true;
-
-        exp = /\d{2}\.\d{3}\-\d{3}/
-        if(!exp.test(value.val()))
-            retorno = false;
-
-        return this.optional(element) || retorno;
-    },"Informe um CEP válido");
+    jQuery.validator.addMethod("cep", function(value, element) {
+        return this.optional(element) || /^[0-9]{5}-[0-9]{3}$/.test(value);
+    }, "Por favor, digite um CEP válido");
 
     // Cadastro de Usuários
 
