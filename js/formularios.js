@@ -106,7 +106,7 @@
                     $('.preloading').show();
                 },
                 data: dados,
-                dataType: 'html',
+                dataType: 'json',
                 method:'POST',
                 error: function(){
                     $( "#dialog-message" ).dialog({
@@ -121,17 +121,21 @@
                     $('.preloading').hide();
                 }
             }).done(function(resp){
-                $( "#dialog-message").html(resp);
-                $( "#dialog-message" ).dialog({
-                    modal: true,
-                    title: "Aviso",
-                    buttons: {
-                        Ok: function() {
-                            $( this ).dialog( "close" );
+                if(resp.erro) {
+                    $( "#dialog-message").html(resp.msg);
+                    $( "#dialog-message" ).dialog({
+                        modal: true,
+                        title: "Aviso",
+                        buttons: {
+                            Ok: function() {
+                                $( this ).dialog( "close" );
+                            }
                         }
-                    }
-                });
-                $('.preloading').hide();
+                    });
+                    $('.preloading').hide();
+                } else {
+                    window.location = '/cadastro-de-faturamento';
+                }
             });
         }
     });
