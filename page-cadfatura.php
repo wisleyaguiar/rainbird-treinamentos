@@ -1,5 +1,8 @@
 <?php
-include("header.php"); ?>
+/*
+ * Template Name: Cadastro de Faturamento
+ */
+get_header(); ?>
 
 <div class="content" style="overflow:hidden; background:url('images/treinamentos/bg-tela-cadastro.jpg') no-repeat 0 0; height: 552px;">
   <div style="width:690px; float:left; margin-left: 254px; padding-top: 30px;">
@@ -8,7 +11,7 @@ include("header.php"); ?>
     <div class="caixa-cadastro-completo">
       <h2>FATURAMENTO</h2>
       <P>A Rain Bird  Ltda. emitirá nota fiscal de serviços aos participantes. Favor informar os dados abaixo, somente se houver necessidade de emissão da Nota Fiscal para Pessoa Jurídica:</P>
-      <form action="page-cadsucesso.php" method="post" id="formCadastroCompleto">
+      <form action="<?php echo home_url(); ?>" method="post" id="formCadastroCompleto">
 
         <div class="linha-input">
           <div class="col-1">
@@ -77,4 +80,4 @@ include("header.php"); ?>
 
   </div>
 </div>
-<?php include("footer.php"); ?>
+<?php get_footer(); ?>

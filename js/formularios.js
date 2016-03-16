@@ -106,11 +106,12 @@
                     $('.preloading').show();
                 },
                 data: dados,
-                dataType: 'json',
+                dataType: 'html',
                 method:'POST',
                 error: function(){
                     $( "#dialog-message" ).dialog({
                         modal: true,
+                        title: "Aviso",
                         buttons: {
                             Ok: function() {
                                 $( this ).dialog( "close" );
@@ -120,8 +121,10 @@
                     $('.preloading').hide();
                 }
             }).done(function(resp){
+                $( "#dialog-message").html(resp);
                 $( "#dialog-message" ).dialog({
                     modal: true,
+                    title: "Aviso",
                     buttons: {
                         Ok: function() {
                             $( this ).dialog( "close" );
