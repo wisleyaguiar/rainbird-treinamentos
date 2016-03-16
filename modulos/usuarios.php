@@ -47,7 +47,7 @@ function cad_new_user_callback() {
         ));
         // verifica se o nome de usuário ou email já foram usados
         if(is_wp_error($user_id)){
-            $resposta['msg'] = "Não foi possível finalizar o cadastro. Verifique o nome de usuário";
+            $resposta['msg'] = "Não foi possível finalizar o cadastro. Usuário e/ou Email já cadastrados.";
         } else {
             // Salvando os outros dados
             add_user_meta($user_id, 'endereco', $endereco);
