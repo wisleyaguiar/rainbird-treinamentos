@@ -52,3 +52,6 @@ add_theme_support( 'custom-logo', array( 'size' => 'treinamentosrb-logo-size' ) 
 
 // Temas Opções
 require_once "theme-options.php";
+
+// Usuários
+require_once "modulos/usuarios.php";
