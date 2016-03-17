@@ -61,6 +61,7 @@ function custom_login($username,$password) {
         echo $user->get_error_message();
 }
 // run it before the headers and cookies are sent
+
 add_action( 'after_setup_theme', 'custom_login' );
 
 // Temas Opções
