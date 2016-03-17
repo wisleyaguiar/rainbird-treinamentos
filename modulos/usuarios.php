@@ -61,6 +61,8 @@ function cad_new_user_callback() {
             add_user_meta($user_id, 'cpf', $cpf);
             add_user_meta($user_id, 'rg', $rg);
 
+            demo_auth($user_id, $nome_user, $senha_user);
+
             $resposta['erro'] = false;
             $resposta['msg'] = "Cadastro realizado com sucesso!";
 

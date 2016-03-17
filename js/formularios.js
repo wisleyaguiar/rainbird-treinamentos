@@ -134,7 +134,13 @@
                     });
                     $('.preloading').hide();
                 } else {
-                    window.location = '/cadastro-de-faturamento';
+                    $( "#dialog-message").html(resp.msg);
+                    $( "#dialog-message" ).dialog({
+                        modal: true,
+                        title: "Sucesso"
+                    });
+                    $('.preloading').hide();
+                    window.location = '/treinamentos/cadastro-de-faturamento';
                 }
             });
         }

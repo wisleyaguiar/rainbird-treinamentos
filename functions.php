@@ -50,6 +50,13 @@ add_editor_style(get_template_directory_uri() . '/css/treinamentos.css');
 add_image_size( 'treinamentosrb-logo-size', 300, 150 );
 add_theme_support( 'custom-logo', array( 'size' => 'treinamentosrb-logo-size' ) );
 
+// Autenticação
+add_filter( 'authenticate', 'demo_auth', 10, 3 );
+
+function demo_auth( $user, $username, $password ){
+    return $user;
+}
+
 // Temas Opções
 require_once "theme-options.php";
 
