@@ -51,12 +51,17 @@ add_image_size( 'treinamentosrb-logo-size', 300, 150 );
 add_theme_support( 'custom-logo', array( 'size' => 'treinamentosrb-logo-size' ) );
 
 // Autenticação
-add_filter( 'authenticate', 'demo_auth', 10, 3 );
-
-function demo_auth( $user, $username, $password ){
-
-    return $user;
+function custom_login($username,$password) {
+    $creds = array();
+    $creds['user_login'] = $username;
+    $creds['user_password'] = $password;
+    $creds['remember'] = true;
+    $user = wp_signon( $creds, false );
+    if ( is_wp_error($user) )
+        echo $user->get_error_message();
 }
+// run it before the headers and cookies are sent
+add_action( 'after_setup_theme', 'custom_login' );
 
 // Temas Opções
 require_once "theme-options.php";
