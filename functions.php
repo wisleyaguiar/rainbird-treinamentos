@@ -54,6 +54,7 @@ add_theme_support( 'custom-logo', array( 'size' => 'treinamentosrb-logo-size' ) 
 add_filter( 'authenticate', 'demo_auth', 10, 3 );
 
 function demo_auth( $user, $username, $password ){
+
     return $user;
 }
 
