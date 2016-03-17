@@ -61,13 +61,8 @@ function cad_new_user_callback() {
             add_user_meta($user_id, 'cpf', $cpf);
             add_user_meta($user_id, 'rg', $rg);
 
-            $creds = array();
-            $creds['user_login'] = $nome_user;
-            $creds['user_password'] = $senha_user;
-            $creds['remember'] = true;
-            $user = wp_signon( $creds, false );
-            if ( is_wp_error($user) )
-                $resposta['msg'] = $user->get_error_message();
+            // Autenticar
+            custom_login($nome_user,$senha_user);
 
             $resposta['erro'] = false;
             $resposta['msg'] = "Cadastro realizado com sucesso!";
