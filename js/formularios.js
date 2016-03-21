@@ -6,6 +6,7 @@
     // Cadastro de Usuários
 
     $('#cep').mask('00000-000');
+    $('#cepFatura').mask('00000-000');
 
     var SPMaskBehavior = function (val) {
             return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
@@ -19,6 +20,7 @@
     $('#cel').mask(SPMaskBehavior, spOptions);
     $('#telfixo').mask('(00) 0000-0000');
     $('#cpf').mask('000.000.000-00', {reverse: true});
+    $("#cnpjFatura").mask("99.999.999/9999-99", {reverse:true});
 
     // Validando Espeços em Branco
     $.validator.addMethod("noSpace", function(value, element) {
@@ -53,6 +55,61 @@
         return this.optional(element) || retorno;
 
     }, "Informe um CPF válido");
+
+    // Validando um CNPJ
+    $.validator.addMethod("cnpj", function(cnpj, element) {
+
+        var numeros, digitos, soma, resultado, pos, tamanho,
+            digitos_iguais = true;
+
+        if (cnpj.length < 14 && cnpj.length > 15)
+            return false;
+
+        for (var i = 0; i < cnpj.length - 1; i++)
+            if (cnpj.charAt(i) != cnpj.charAt(i + 1)) {
+                digitos_iguais = false;
+                break;
+            }
+
+        if (!digitos_iguais) {
+            tamanho = cnpj.length - 2
+            numeros = cnpj.substring(0,tamanho);
+            digitos = cnpj.substring(tamanho);
+            soma = 0;
+            pos = tamanho - 7;
+
+            for (i = tamanho; i >= 1; i--) {
+                soma += numeros.charAt(tamanho - i) * pos--;
+                if (pos < 2)
+                    pos = 9;
+            }
+
+            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+
+            if (resultado != digitos.charAt(0))
+                return false;
+
+            tamanho = tamanho + 1;
+            numeros = cnpj.substring(0,tamanho);
+            soma = 0;
+            pos = tamanho - 7;
+
+            for (i = tamanho; i >= 1; i--) {
+                soma += numeros.charAt(tamanho - i) * pos--;
+                if (pos < 2)
+                    pos = 9;
+            }
+
+            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+
+            if (resultado != digitos.charAt(1))
+                return false;
+
+            return true;
+        }
+
+        return false;
+    }, "Informe um CNPJ v&aacute;lido.");
 
     // Validar CEP
     jQuery.validator.addMethod("cep", function(value, element) {
@@ -148,5 +205,75 @@
 
     // Login de usuário
     $("#caixa-login").validate({lang: 'pt_BR'});
+    
+    // Cadastro Faturamento
+    $("#formCadFatura").validate({
+        lang: 'pt_BR',
+        rules: {
+            cnpjFatura: {
+                cnpj: true
+            },
+            cepFatura: {
+                cep: true
+            }
+        },
+        submitHandler: function(form) {
+            var dados = {
+                'nomeNota': $('#nomeNota').val(),
+                'enderecoFatura': $('#enderecoFatura').val(),
+                'bairroFatura': $('#bairroFatura').val(),
+                'cidadeFatura': $('#cidadeFatura').val(),
+                'estadoFatura': $('#estadoFatura').val(),
+                'cepFatura': $('#cepFatura').val(),
+                'cnpjFatura': $('#cnpjFatura').val(),
+                'ieFatura': $('#ieFatura').val(),
+                'user_id': $('#user_id').val(),
+                'action': 'cad_fatura_user'
+            };
+            $.ajax({
+                url: ajax_object.ajax_url,
+                beforeSend: function(){
+                    $('.preloading').show();
+                },
+                data: dados,
+                dataType: 'json',
+                method:'POST',
+                error: function(){
+                    $( "#dialog-message" ).dialog({
+                        modal: true,
+                        title: "Aviso",
+                        buttons: {
+                            Ok: function() {
+                                $( this ).dialog( "close" );
+                            }
+                        }
+                    });
+                    $('.preloading').hide();
+                }
+            }).done(function(resp){
+                if(resp.erro) {
+                    $( "#dialog-message").html(resp.msg);
+                    $( "#dialog-message" ).dialog({
+                        modal: true,
+                        title: "Aviso",
+                        buttons: {
+                            Ok: function() {
+                                $( this ).dialog( "close" );
+                            }
+                        }
+                    });
+                    $('.preloading').hide();
+                } else {
+                    $( "#dialog-message").html(resp.msg);
+                    $( "#dialog-message" ).dialog({
+                        modal: true,
+                        title: "Sucesso"
+                    });
+                    $('.preloading').hide();
+                    window.location = '/treinamentos/sucesso';
+                }
+            });
+        }
+    });
 
 })( jQuery );

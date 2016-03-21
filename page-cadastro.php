@@ -19,7 +19,7 @@ get_header(); ?>
         <div class="linha-input">
           <div class="col-1">
             <label>Nome Completo</label>
-            <input type="text" name="nomeCompleto" id="nomeCompleto" class="input-form" style="text-transform: uppercase;" required>
+            <input type="text" name="nomeCompleto" id="nomeCompleto" class="input-form" style="text-transform: uppercase;" minlength="3" required>
           </div>
         </div>
 
@@ -91,11 +91,11 @@ get_header(); ?>
         <div class="linha-input">
           <div class="col-6">
             <label>Telefone Fixo</label>
-            <input type="text" name="telfixo" id="telfixo" class="input-form" required>
+            <input type="text" name="telfixo" id="telfixo" class="input-form" minlength="14" maxlength="15" required>
           </div>
           <div class="col-7">
             <label>Telefone Celular</label>
-            <input type="text" name="cel" id="cel" class="input-form" required>
+            <input type="text" name="cel" id="cel" class="input-form" minlength="14" maxlength="15" required>
           </div>
         </div>
 
@@ -111,11 +111,11 @@ get_header(); ?>
         <div class="linha-input">
               <div class="col-6">
                 <label>CPF</label>
-                <input type="text" name="cpf" id="cpf" class="input-form" required>
+                <input type="text" name="cpf" id="cpf" class="input-form" maxlength="14" minlength="14" required>
               </div>
             <div class="col-7">
                 <label>RG</label>
-                <input type="text" name="rg" id="rg" class="input-form" required>
+                <input type="text" name="rg" id="rg" class="input-form" minlength="4" required>
             </div>
         </div>
 
