@@ -102,7 +102,7 @@ get_header(); ?>
             <a href="<?php echo home_url('/cadastro'); ?>" class="bt-verde" style="margin-top: 5px; padding: 6px"><< Voltar</a>
           </div>
           <div class="col-6">
-            <input type="hidden" id="user_id" name="user_id" value="<?php echo $get_current_user_id(); ?>">
+            <input type="hidden" id="user_id" name="user_id" value="<?php echo get_current_user_id(); ?>">
             <p class="texto-right"><button type="submit" class="bt-verde">Avançar</button> </p>
           </div>
         </div>
