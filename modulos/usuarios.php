@@ -105,6 +105,7 @@ function cad_fatura_user_callback() {
     } else {
         // Insere os dados no custom post faturamento
 
+
         // verifica se a inserção aconteceu com sucesso.
         if(is_wp_error($user_id)){
             $resposta['msg'] = "Não foi possível finalizar o cadastro. Usuário e/ou Email já cadastrados.";
@@ -317,4 +318,31 @@ function faturamento_meta_boxes( $meta_boxes ) {
         ),
     );
     return $meta_boxes;
+}
+
+// Colunas de faturamento
+add_filter( 'manage_faturamento_posts_columns', 'set_custom_edit_faturamento_columns' );
+add_action( 'manage_faturamento_posts_custom_column' , 'custom_faturamento_column', 10, 2 );
+
+function set_custom_edit_compra_columns($columns) {
+    unset($columns['title']);
+    $columns['author'] = __('Usuário', 'treinamentos-rainbird');
+    $columns['nome_nota'] = __('Nome na Nota', 'treinamentos-rainbird');
+    $columns['cnpj_fatura'] = __('CNPJ', 'treinamentos-rainbird');
+    $columns['date'] = __( 'Data de Cadastro', 'treinamentos-rainbird' );
+
+    return $columns;
+}
+
+function custom_compra_column( $column, $post_id ) {
+    switch ( $column ) {
+
+        case 'nome_nota' :
+            echo rwmb_meta( 'nome_nota' );
+            break;
+
+        case 'cnpj_fatura' :
+            echo rwmb_meta( 'cnpj_fatura' );
+            break;
+    }
 }
