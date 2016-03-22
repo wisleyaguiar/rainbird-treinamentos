@@ -104,16 +104,31 @@ function cad_fatura_user_callback() {
         $resposta['erro'] = true;
     } else {
         // Insere os dados no custom post faturamento
+        // Gather post data.
+        $dados_faturamento = array(
+            'post_status'   => 'private',
+            'post_author'   => $user_id
+        );
 
+        $fatura_id = wp_insert_post( $dados_faturamento, true );
 
         // verifica se a inserção aconteceu com sucesso.
-        if(is_wp_error($user_id)){
-            $resposta['msg'] = "Não foi possível finalizar o cadastro. Usuário e/ou Email já cadastrados.";
+        if(is_wp_error($fatura_id)){
+            $resposta['msg'] = "Não foi possível finalizar o cadastro. Erro ao salvar faturamento.";
         } else {
+            add_post_meta( $fatura_id, 'nome_nota', $nomeNota, true );
+            add_post_meta( $fatura_id, 'endereco_faturamento', $enderecoFatura, true );
+            add_post_meta( $fatura_id, 'bairro_fatura', $bairroFatura, true );
+            add_post_meta( $fatura_id, 'cidade_fatura', $cidadeFatura, true );
+            add_post_meta( $fatura_id, 'estado_fatura', $estadoFatura, true );
+            add_post_meta( $fatura_id, 'cep_fatura', $cepFatura, true );
+            add_post_meta( $fatura_id, 'cnpj_fatura', $cnpjFatura, true );
+            add_post_meta( $fatura_id, 'ie_fatura', $ieFatura, true );
 
+            add_user_meta($user_id, 'id_faturamento', $fatura_id);
 
             $resposta['erro'] = false;
-            $resposta['msg'] = "Cadastro realizado com sucesso!";
+            $resposta['msg'] = "Faturamento salvo com sucesso!";
 
         }
     }
