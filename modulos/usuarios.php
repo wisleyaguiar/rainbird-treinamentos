@@ -336,7 +336,6 @@ function set_custom_edit_compra_columns($columns) {
 
 function custom_compra_column( $column, $post_id ) {
     switch ( $column ) {
-
         case 'nome_nota' :
             echo rwmb_meta( 'nome_nota' );
             break;
