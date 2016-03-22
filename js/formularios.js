@@ -210,9 +210,6 @@
     $("#formCadFatura").validate({
         lang: 'pt_BR',
         rules: {
-            cnpjFatura: {
-                cnpj: true
-            },
             cepFatura: {
                 cep: true
             }
