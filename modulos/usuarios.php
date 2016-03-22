@@ -324,7 +324,7 @@ function faturamento_meta_boxes( $meta_boxes ) {
 add_filter( 'manage_faturamento_posts_columns', 'set_custom_edit_faturamento_columns' );
 add_action( 'manage_faturamento_posts_custom_column' , 'custom_faturamento_column', 10, 2 );
 
-function set_custom_edit_compra_columns($columns) {
+function set_custom_edit_faturamento_columns($columns) {
     unset($columns['title']);
     $columns['author'] = __('Usuário', 'treinamentos-rainbird');
     $columns['nome_nota'] = __('Nome na Nota', 'treinamentos-rainbird');
@@ -334,7 +334,7 @@ function set_custom_edit_compra_columns($columns) {
     return $columns;
 }
 
-function custom_compra_column( $column, $post_id ) {
+function custom_faturamento_column( $column, $post_id ) {
     switch ( $column ) {
         case 'nome_nota' :
             echo rwmb_meta( 'nome_nota' );
