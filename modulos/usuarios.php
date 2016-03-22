@@ -244,7 +244,7 @@ function custom_faturamento() {
         'exclude_from_search'   => true,
         'publicly_queryable'    => true,
         'rewrite'               => false,
-        'capability_type'       => 'page',
+        'capability_type'       => 'post',
     );
     register_post_type( 'faturamento', $args );
 
