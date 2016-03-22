@@ -20,7 +20,7 @@
     $('#cel').mask(SPMaskBehavior, spOptions);
     $('#telfixo').mask('(00) 0000-0000');
     $('#cpf').mask('000.000.000-00', {reverse: true});
-    $("#cnpjFatura").mask("99.999.999/9999-99", {reverse:true});
+    $("#cnpjFatura").mask("99.999.999/9999-99");
 
     // Validando Espeços em Branco
     $.validator.addMethod("noSpace", function(value, element) {
