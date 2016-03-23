@@ -2,7 +2,9 @@
 /*
  * Template Name: Cadastro de Faturamento
  */
-get_header(); ?>
+get_header();
+include "status-logado.php";
+?>
 <div class="preloading">
     <p><img src="<?php echo get_template_directory_uri(); ?>/images/preloading.gif" alt="Preloading" /><br>Processando...</p>
 </div>
