@@ -8,6 +8,6 @@
 
 if(get_current_user_id()==0){
     echo '<script>alert("Usuário não autenticado!");</script>';
-    echo '<script>window.open("' . get_option("urlsite2") . '/treinamentos");</script>';
+    echo '<script>window.open("' . get_option("urlsite2") . '/treinamentos","_self");</script>';
     exit;
 }
