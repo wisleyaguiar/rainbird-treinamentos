@@ -106,3 +106,4 @@ require_once "theme-options.php";
 
 // Usuários
 require_once "modulos/usuarios.php";
+require_once "modulos/treinamentos.php";
