@@ -17,13 +17,35 @@ get_header(); ?>
     <h1 style="color: #10724c; font-size: 20px;">Escolha abaixo o evento/curso que deseja se inscrever.</h1>
 
     <ul class="lista-eventos">
+<?php // WP_Query arguments
+$args = array (
+    'post_type'              => array( 'treinamento' ),
+    'post_status'            => array( 'publish' ),
+    'posts_per_page'         => '-1',
+    'order'                  => 'ASC',
+    'orderby'                => 'menu_order',
+);
 
+// The Query
+$query_lista_treinamentos = new WP_Query( $args );
+
+// The Loop
+if ( $query_lista_treinamentos->have_posts() ) {
+while ( $query_lista_treinamentos->have_posts() ) {
+$query_lista_treinamentos->the_post(); ?>
       <li>
-        <a href="page-modulos.php" class="box-capa"><img src="images/treinamentos/capa-treinamento.jpg" alt="Treinamentos"></a>
-        <h2 class="tituloEvento">Academia Rain Bird<br>Salvador/BA<br>29/fev a 04/mar</h2>
-        <a href="page-modulos.php" class="bt-entrar">Entrar</a>
+        <a href="<?php echo home_url('/modulos/'); ?>?treinamento=<?php echo $post->ID; ?>" class="box-capa"><?php the_post_thumbnail('capa-treinamento'); ?></a>
+        <h2 class="tituloEvento"><?php the_title(); ?></h2>
+        <a href="<?php echo home_url('/modulos/'); ?>?treinamento=<?php echo $post->ID; ?>" class="bt-entrar">Entrar</a>
       </li>
+<?php }
+} else {
+    // no posts found ?>
+    <li>Nenhum Treinamento/Curso cadastrado no momento.</li>
+<?php }
 
+// Restore original Post Data
+wp_reset_postdata(); ?>
     </ul>
   </div>
 
