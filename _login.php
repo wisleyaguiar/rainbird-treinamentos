@@ -7,7 +7,7 @@ include("header.php"); ?>
     <div class="sidebar-login" style="float: none; margin: 0">
     <div class="caixa-login">
       <br>
-      <form action="admin-sistema.php" method="post" id="caixa-login">
+      <form action="_admin-sistema.php" method="post" id="caixa-login">
         <p>login<br>
           <input type="text" name="login" id="login"> </p>
         <p>senha<br>

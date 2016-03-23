@@ -6,6 +6,9 @@ if(isset($_GET['logoff'])&&$_GET['logoff']==true) {
 }
 ?>
 
+<div class="preloading">
+    <p><img src="<?php echo get_template_directory_uri(); ?>/images/preloading.gif" alt="Preloading" /><br>Processando...</p>
+</div>
 <div class="content" style="overflow:hidden;">
   <div class="sidebar">
   <div id="navWrapper">
@@ -44,7 +47,7 @@ P7_TMMop('p7TMM_1',1,0,0,3,1,0,1,0,-1,150);
               <input type="text" name="login" id="login" required> </p>
               <p>senha<br>
               <input type="password" name="senha" id="senha" required></p>
-              <p class="texto-right"><a href="#">Esqueceu sua senha?</a> <button type="submit" name="logar" class="bt-verde">Entrar</button> </p>
+              <p class="texto-right"><a href="<?php echo home_url(); ?>/wp-login.php?action=lostpassword">Esqueceu sua senha?</a> <button type="submit" name="logar" class="bt-verde">Entrar</button> </p>
           </form>
       </div>
         <p>Caso ainda não tenha seu cadastro,

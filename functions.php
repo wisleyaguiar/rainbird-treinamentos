@@ -58,8 +58,49 @@ function custom_login($username,$password) {
     $creds['remember'] = true;
     $user = wp_signon( $creds, false );
     if ( is_wp_error($user) )
-        echo $user->get_error_message();
+        return $resposta['msg'] = $user->get_error_message();
 }
+
+// Ajax de login
+add_action( 'wp_ajax_user_login', 'user_login_callback' );
+add_action( 'wp_ajax_nopriv_user_login', 'user_login_callback' );
+
+function user_login_callback() {
+    // Recebendo variáveis
+    $login = trim(strip_tags($_POST["login"]));
+    $senha = trim(strip_tags($_POST["senha"]));
+
+    $resposta['msg'] = "Erros encontrados:";
+    $erros = 0;
+
+    if(empty($login) || empty($senha)){
+        $erros++;
+        $resposta['msg'] .= "Campos obrigatórios não preenchidos.";
+    }
+
+    if($erros>0) {
+        $resposta['erro'] = true;
+    } else {
+        $creds = array();
+        $creds['user_login'] = $login;
+        $creds['user_password'] = $senha;
+        $creds['remember'] = true;
+        $user = wp_signon( $creds, false );
+
+        // verifica se o nome de usuário ou email já foram usados
+        if(is_wp_error($user)){
+            $resposta['erro'] = true;
+            $resposta['msg'] = $user->get_error_message();
+        } else {
+            $resposta['erro'] = false;
+            $resposta['msg'] = "Login realizado com sucesso!";
+        }
+    }
+    echo json_encode($resposta);
+    wp_die();
+}
+
+
 // Temas Opções
 require_once "theme-options.php";
 

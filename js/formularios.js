@@ -204,7 +204,59 @@
     });
 
     // Login de usuário
-    $("#caixa-login").validate({lang: 'pt_BR'});
+    $("#caixa-login").validate({
+        lang: 'pt_BR',
+        submitHandler: function(form) {
+            var dados = {
+                'login': $('#login').val(),
+                'senha': $('#senha').val(),
+                'action': 'user_login'
+            };
+            $.ajax({
+                url: ajax_object.ajax_url,
+                beforeSend: function(){
+                    $('.preloading').show();
+                },
+                data: dados,
+                dataType: 'json',
+                method:'POST',
+                error: function(){
+                    $( "#dialog-message" ).dialog({
+                        modal: true,
+                        title: "Aviso",
+                        buttons: {
+                            Ok: function() {
+                                $( this ).dialog( "close" );
+                            }
+                        }
+                    });
+                    $('.preloading').hide();
+                }
+            }).done(function(resp){
+                if(resp.erro) {
+                    $( "#dialog-message").html(resp.msg);
+                    $( "#dialog-message" ).dialog({
+                        modal: true,
+                        title: "Aviso",
+                        buttons: {
+                            Ok: function() {
+                                $( this ).dialog( "close" );
+                            }
+                        }
+                    });
+                    $('.preloading').hide();
+                } else {
+                    $( "#dialog-message").html(resp.msg);
+                    $( "#dialog-message" ).dialog({
+                        modal: true,
+                        title: "Sucesso"
+                    });
+                    $('.preloading').hide();
+                    window.location = '/treinamentos/cursos';
+                }
+            });
+        }
+    });
     
     // Cadastro Faturamento
     $("#formCadFatura").validate({
