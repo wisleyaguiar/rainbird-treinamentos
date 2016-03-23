@@ -61,8 +61,8 @@ function custom_treinamentos() {
 add_action( 'init', 'custom_treinamentos', 0 );
 
 // Variáveis customizadas dos treinamentos
-add_filter( 'rwmb_meta_boxes', 'your_prefix_meta_boxes' );
-function your_prefix_meta_boxes( $meta_boxes ) {
+add_filter( 'rwmb_meta_boxes', 'treinamentos_meta_boxes' );
+function treinamentos_meta_boxes( $meta_boxes ) {
     $meta_boxes[] = array(
         'title'      => __( 'Dados do Treinamento/Curso', 'textdomain' ),
         'post_types' => 'treinamento',
@@ -178,3 +178,5 @@ function your_prefix_meta_boxes( $meta_boxes ) {
 
     return $meta_boxes;
 }
+
+// Colunas
