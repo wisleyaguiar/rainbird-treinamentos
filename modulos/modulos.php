@@ -158,10 +158,10 @@ function modulos_meta_boxes( $meta_boxes ) {
                 // jQuery datetime picker options.
                 // For date options, see here http://api.jqueryui.com/datepicker
                 // For time options, see here http://trentrichardson.com/examples/timepicker/
-                'js_options' => array(
+                /*'js_options' => array(
                     'stepHour' => 8,
                     'stepMinute' => 0,
-                ),
+                ),*/
             ),
             array(
                 'name'       => __( 'Horário de Término', 'your-prefix' ),
@@ -170,10 +170,10 @@ function modulos_meta_boxes( $meta_boxes ) {
                 // jQuery datetime picker options.
                 // For date options, see here http://api.jqueryui.com/datepicker
                 // For time options, see here http://trentrichardson.com/examples/timepicker/
-                'js_options' => array(
+                /*'js_options' => array(
                     'stepHour' => 8,
                     'stepMinute' => 0,
-                ),
+                ),*/
             ),
             // HEADING
             array(
@@ -201,10 +201,10 @@ function modulos_meta_boxes( $meta_boxes ) {
                 // jQuery datetime picker options.
                 // For date options, see here http://api.jqueryui.com/datepicker
                 // For time options, see here http://trentrichardson.com/examples/timepicker/
-                'js_options' => array(
+                /*'js_options' => array(
                     'stepHour' => 8,
                     'stepMinute' => 0,
-                ),
+                ),*/
             ),
             array(
                 'name'       => __( 'Horário de Término', 'your-prefix' ),
@@ -213,10 +213,10 @@ function modulos_meta_boxes( $meta_boxes ) {
                 // jQuery datetime picker options.
                 // For date options, see here http://api.jqueryui.com/datepicker
                 // For time options, see here http://trentrichardson.com/examples/timepicker/
-                'js_options' => array(
+                /*'js_options' => array(
                     'stepHour' => 8,
                     'stepMinute' => 0,
-                ),
+                ),*/
             ),
             // HEADING
             array(
@@ -257,7 +257,7 @@ function modulos_meta_boxes( $meta_boxes ) {
                 'id'   => "num_desc_vista",
                 'type' => 'number',
                 'min'  => 0,
-                'step' => 5,
+                'step' => 1,
             ),
         ),
     );
