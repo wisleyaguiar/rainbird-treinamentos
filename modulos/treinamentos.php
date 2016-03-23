@@ -109,6 +109,22 @@ function treinamentos_meta_boxes( $meta_boxes ) {
                     'showButtonPanel' => true,
                 ),
             ),
+            // NUMBER
+            array(
+                'name' => __( 'Total de Salas', 'your-prefix' ),
+                'id'   => "total_salas",
+                'type' => 'number',
+                'min'  => 1,
+                'step' => 1,
+            ),
+            // NUMBER
+            array(
+                'name' => __( '% do Desconto à Vista', 'your-prefix' ),
+                'id'   => "num_desc_vista",
+                'type' => 'number',
+                'min'  => 0,
+                'step' => 1,
+            ),
         ),
     );
 

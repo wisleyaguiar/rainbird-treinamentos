@@ -41,7 +41,7 @@ function custom_post_type_modulos() {
         'description'           => __( 'Módulos dos Treinamentos', 'rainbird-treinamentos' ),
         'labels'                => $labels,
         'supports'              => array( 'title', 'page-attributes', ),
-        'taxonomies'            => array( 'sala' ),
+        'taxonomies'            => array(),
         'hierarchical'          => false,
         'public'                => false,
         'show_ui'               => true,
@@ -61,46 +61,6 @@ function custom_post_type_modulos() {
 
 }
 add_action( 'init', 'custom_post_type_modulos', 0 );
-
-// Register Custom Taxonomy Salas
-function custom_taxonomy_salas() {
-
-    $labels = array(
-        'name'                       => _x( 'Salas', 'Taxonomy General Name', 'treinamentos-rainbird' ),
-        'singular_name'              => _x( 'Sala', 'Taxonomy Singular Name', 'treinamentos-rainbird' ),
-        'menu_name'                  => __( 'Sala', 'treinamentos-rainbird' ),
-        'all_items'                  => __( 'Todas as Salas', 'treinamentos-rainbird' ),
-        'parent_item'                => __( 'Sala Pai', 'treinamentos-rainbird' ),
-        'parent_item_colon'          => __( 'Sala Pai:', 'treinamentos-rainbird' ),
-        'new_item_name'              => __( 'Nova Sala', 'treinamentos-rainbird' ),
-        'add_new_item'               => __( 'Criar Nova Sala', 'treinamentos-rainbird' ),
-        'edit_item'                  => __( 'Editar Sala', 'treinamentos-rainbird' ),
-        'update_item'                => __( 'Atualizar Sala', 'treinamentos-rainbird' ),
-        'view_item'                  => __( 'Ver Sala', 'treinamentos-rainbird' ),
-        'separate_items_with_commas' => __( 'Separar salas por vírgula', 'treinamentos-rainbird' ),
-        'add_or_remove_items'        => __( 'Criar ou Remover Salas', 'treinamentos-rainbird' ),
-        'choose_from_most_used'      => __( 'Escolher Salas Mais Usadas', 'treinamentos-rainbird' ),
-        'popular_items'              => __( 'Salas Populares', 'treinamentos-rainbird' ),
-        'search_items'               => __( 'Buscar Salas', 'treinamentos-rainbird' ),
-        'not_found'                  => __( 'Nenhuma Sala', 'treinamentos-rainbird' ),
-        'no_terms'                   => __( 'Sem Salas', 'treinamentos-rainbird' ),
-        'items_list'                 => __( 'Lista de Salas', 'treinamentos-rainbird' ),
-        'items_list_navigation'      => __( 'Navegar Lista de Salas', 'treinamentos-rainbird' ),
-    );
-    $args = array(
-        'labels'                     => $labels,
-        'hierarchical'               => true,
-        'public'                     => true,
-        'show_ui'                    => true,
-        'show_admin_column'          => true,
-        'show_in_nav_menus'          => true,
-        'show_tagcloud'              => true,
-        'rewrite'                    => false,
-    );
-    register_taxonomy( 'sala', array( 'modulo' ), $args );
-
-}
-add_action( 'init', 'custom_taxonomy_salas', 0 );
 
 // Variáveis customizadas dos modulos
 add_filter( 'rwmb_meta_boxes', 'modulos_meta_boxes' );
@@ -124,6 +84,14 @@ function modulos_meta_boxes( $meta_boxes ) {
                     'post_status'    => 'publish',
                     'posts_per_page' => - 1,
                 ),
+            ),
+            // NUMBER
+            array(
+                'name' => __( 'Nº da Sala', 'your-prefix' ),
+                'id'   => "sala_modulo",
+                'type' => 'number',
+                'min'  => 1,
+                'step' => 1,
             ),
             array(
                 // Field name - Will be used as label
@@ -250,14 +218,6 @@ function modulos_meta_boxes( $meta_boxes ) {
                 // Field description (optional)
                 'desc'  => __( 'Inserir valores absolutos sem virgula. Separar moedas com ponto (.): Ex: 1200.50', 'your-prefix' ),
                 'type'  => 'text'
-            ),
-            // NUMBER
-            array(
-                'name' => __( '% do Desconto à Vista', 'your-prefix' ),
-                'id'   => "num_desc_vista",
-                'type' => 'number',
-                'min'  => 0,
-                'step' => 1,
             ),
         ),
     );
