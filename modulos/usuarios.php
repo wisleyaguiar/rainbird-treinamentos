@@ -61,6 +61,7 @@ function cad_new_user_callback() {
             add_user_meta($user_id, 'sexo', $sexo);
             add_user_meta($user_id, 'cpf', $cpf);
             add_user_meta($user_id, 'rg', $rg);
+            add_user_meta($user_id, 'cod_rainbird', '0');
 
             // Autenticar
             custom_login($nome_user,$senha_user);
@@ -145,14 +146,11 @@ function cad_fatura_user_callback() {
 
 //add columns to User panel list page
 function add_user_columns($column) {
-    $column['endereco'] = 'Endereço';
-    $column['bairro'] = 'Bairro';
+    $column['cod_rainbird'] = 'Código na Rain Bird';
     $column['cidade'] = 'Cidade';
     $column['estado'] = 'Estado';
-    $column['cep'] = 'CEP';
     $column['telfixo'] = 'Telefone Fixo';
     $column['cel'] = 'Celular';
-    $column['sexo'] = 'Sexo';
     $column['cpf'] = 'CPF';
     $column['rg'] = 'RG';
 
@@ -165,11 +163,8 @@ function add_user_column_data( $val, $column_name, $user_id ) {
     $user = get_userdata($user_id);
 
     switch ($column_name) {
-        case 'endereco' :
-            return $user->endereco;
-            break;
-        case 'bairro' :
-            return $user->bairro;
+        case 'cod_rainbird' :
+            return $user->cod_rainbird;
             break;
         case 'cidade' :
             return $user->cidade;
@@ -177,17 +172,11 @@ function add_user_column_data( $val, $column_name, $user_id ) {
         case 'estado' :
             return $user->estado;
             break;
-        case 'cep' :
-            return $user->cep;
-            break;
         case 'telfixo' :
             return $user->telfixo;
             break;
         case 'cel' :
             return $user->cel;
-            break;
-        case 'sexo' :
-            return $user->sexo;
             break;
         case 'cpf' :
             return $user->cpf;
@@ -200,6 +189,173 @@ function add_user_column_data( $val, $column_name, $user_id ) {
     return;
 }
 add_filter( 'manage_users_custom_column', 'add_user_column_data', 10, 3 );
+
+// Mostrar dados Extras do usuário
+add_action( 'show_user_profile', 'my_show_extra_profile_fields' );
+add_action( 'edit_user_profile', 'my_show_extra_profile_fields' );
+
+function my_show_extra_profile_fields( $user ) { ?>
+
+    <h3>Informações de Cadastro</h3>
+
+    <table class="form-table">
+
+        <tr>
+            <th><label for="cod_rainbird">Código no sistema Rain Bird</label></th>
+
+            <td>
+                <input type="text" name="cod_rainbird" id="cod_rainbird" value="<?php echo esc_attr( get_the_author_meta( 'cod_rainbird', $user->ID ) ); ?>" class="regular-text" /><br />
+                <span class="description"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th><label for="endereco">Endereço</label></th>
+
+            <td>
+                <input type="text" name="endereco" id="endereco" value="<?php echo esc_attr( get_the_author_meta( 'endereco', $user->ID ) ); ?>" class="regular-text" /><br />
+                <span class="description"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th><label for="bairro">Bairro</label></th>
+
+            <td>
+                <input type="text" name="bairro" id="bairro" value="<?php echo esc_attr( get_the_author_meta( 'bairro', $user->ID ) ); ?>" class="regular-text" /><br />
+                <span class="description"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th><label for="cidade">Cidade</label></th>
+
+            <td>
+                <input type="text" name="cidade" id="cidade" value="<?php echo esc_attr( get_the_author_meta( 'cidade', $user->ID ) ); ?>" class="regular-text" /><br />
+                <span class="description"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th><label for="estado">Estado</label></th>
+
+            <td>
+                <select name="estado" id="estado">
+                    <option value="">Selecione</option>
+                    <option value="AC"<?php if(get_the_author_meta( 'estado', $user->ID )=='AC') { ?> selected<?php } ?>>Acre</option>
+                    <option value="AL"<?php if(get_the_author_meta( 'estado', $user->ID )=='AL') { ?> selected<?php } ?>>Alagoas</option>
+                    <option value="AP"<?php if(get_the_author_meta( 'estado', $user->ID )=='AP') { ?> selected<?php } ?>>Amapá</option>
+                    <option value="AM"<?php if(get_the_author_meta( 'estado', $user->ID )=='AM') { ?> selected<?php } ?>>Amazonas</option>
+                    <option value="BA"<?php if(get_the_author_meta( 'estado', $user->ID )=='BA') { ?> selected<?php } ?>>Bahia</option>
+                    <option value="CE"<?php if(get_the_author_meta( 'estado', $user->ID )=='CE') { ?> selected<?php } ?>>Ceará</option>
+                    <option value="DF"<?php if(get_the_author_meta( 'estado', $user->ID )=='DF') { ?> selected<?php } ?>>Distrito Federal</option>
+                    <option value="ES"<?php if(get_the_author_meta( 'estado', $user->ID )=='ES') { ?> selected<?php } ?>>Espirito Santo</option>
+                    <option value="GO"<?php if(get_the_author_meta( 'estado', $user->ID )=='GO') { ?> selected<?php } ?>>Goiás</option>
+                    <option value="MA"<?php if(get_the_author_meta( 'estado', $user->ID )=='MA') { ?> selected<?php } ?>>Maranhão</option>
+                    <option value="MS"<?php if(get_the_author_meta( 'estado', $user->ID )=='MS') { ?> selected<?php } ?>>Mato Grosso do Sul</option>
+                    <option value="MT"<?php if(get_the_author_meta( 'estado', $user->ID )=='MT') { ?> selected<?php } ?>>Mato Grosso</option>
+                    <option value="MG"<?php if(get_the_author_meta( 'estado', $user->ID )=='MG') { ?> selected<?php } ?>>Minas Gerais</option>
+                    <option value="PA"<?php if(get_the_author_meta( 'estado', $user->ID )=='PA') { ?> selected<?php } ?>>Pará</option>
+                    <option value="PB"<?php if(get_the_author_meta( 'estado', $user->ID )=='PB') { ?> selected<?php } ?>>Paraíba</option>
+                    <option value="PR"<?php if(get_the_author_meta( 'estado', $user->ID )=='PR') { ?> selected<?php } ?>>Paraná</option>
+                    <option value="PE"<?php if(get_the_author_meta( 'estado', $user->ID )=='PE') { ?> selected<?php } ?>>Pernambuco</option>
+                    <option value="PI"<?php if(get_the_author_meta( 'estado', $user->ID )=='PI') { ?> selected<?php } ?>>Piauí</option>
+                    <option value="RJ"<?php if(get_the_author_meta( 'estado', $user->ID )=='RJ') { ?> selected<?php } ?>>Rio de Janeiro</option>
+                    <option value="RN"<?php if(get_the_author_meta( 'estado', $user->ID )=='RN') { ?> selected<?php } ?>>Rio Grande do Norte</option>
+                    <option value="RS"<?php if(get_the_author_meta( 'estado', $user->ID )=='RS') { ?> selected<?php } ?>>Rio Grande do Sul</option>
+                    <option value="RO"<?php if(get_the_author_meta( 'estado', $user->ID )=='RO') { ?> selected<?php } ?>>Rondônia</option>
+                    <option value="RR"<?php if(get_the_author_meta( 'estado', $user->ID )=='RR') { ?> selected<?php } ?>>Roraima</option>
+                    <option value="SC"<?php if(get_the_author_meta( 'estado', $user->ID )=='SC') { ?> selected<?php } ?>>Santa Catarina</option>
+                    <option value="SP"<?php if(get_the_author_meta( 'estado', $user->ID )=='SP') { ?> selected<?php } ?>>São Paulo</option>
+                    <option value="SE"<?php if(get_the_author_meta( 'estado', $user->ID )=='SE') { ?> selected<?php } ?>>Sergipe</option>
+                    <option value="TO"<?php if(get_the_author_meta( 'estado', $user->ID )=='TO') { ?> selected<?php } ?>>Tocantins</option>
+                </select>
+                <br />
+                <span class="description"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th><label for="cep">CEP</label></th>
+
+            <td>
+                <input type="text" name="cep" id="cep" value="<?php echo esc_attr( get_the_author_meta( 'cep', $user->ID ) ); ?>" class="regular-text" /><br />
+                <span class="description"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th><label for="telfixo">Telefone Fixo</label></th>
+
+            <td>
+                <input type="text" name="telfixo" id="telfixo" value="<?php echo esc_attr( get_the_author_meta( 'telfixo', $user->ID ) ); ?>" class="regular-text" /><br />
+                <span class="description"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th><label for="cel">Celular</label></th>
+
+            <td>
+                <input type="text" name="cel" id="cel" value="<?php echo esc_attr( get_the_author_meta( 'cel', $user->ID ) ); ?>" class="regular-text" /><br />
+                <span class="description"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Sexo</th>
+
+            <td>
+                <label><input type="radio" name="sexo" id="sexo_1" value="M"<?php if(get_the_author_meta( 'sexo', $user->ID )=='M') { ?> checked<?php } ?>> Masculino</label>
+                <label><input type="radio" name="sexo" id="sexo_2" value="F"<?php if(get_the_author_meta( 'sexo', $user->ID )=='F') { ?> checked<?php } ?>> Feminino</label>
+                <br>
+                <span class="description"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th><label for="cpf">CPF</label></th>
+
+            <td>
+                <input type="text" name="cpf" id="cpf" value="<?php echo esc_attr( get_the_author_meta( 'cpf', $user->ID ) ); ?>" class="regular-text" /><br />
+                <span class="description"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th><label for="rg">RG</label></th>
+
+            <td>
+                <input type="text" name="rg" id="rg" value="<?php echo esc_attr( get_the_author_meta( 'rg', $user->ID ) ); ?>" class="regular-text" /><br />
+                <span class="description"></span>
+            </td>
+        </tr>
+
+    </table>
+<?php }
+
+// Salvando os dados extras
+add_action( 'personal_options_update', 'my_save_extra_profile_fields' );
+add_action( 'edit_user_profile_update', 'my_save_extra_profile_fields' );
+
+function my_save_extra_profile_fields( $user_id ) {
+
+    if ( !current_user_can( 'edit_user', $user_id ) )
+        return false;
+
+    /* Copy and paste this line for additional fields. Make sure to change 'twitter' to the field ID. */
+    update_usermeta( $user_id, 'cod_rainbird', $_POST['cod_rainbird'] );
+    update_usermeta( $user_id, 'endereco', $_POST['endereco'] );
+    update_usermeta( $user_id, 'bairro', $_POST['bairro'] );
+    update_usermeta( $user_id, 'cidade', $_POST['cidade'] );
+    update_usermeta( $user_id, 'estado', $_POST['estado'] );
+    update_usermeta( $user_id, 'cep', $_POST['cep'] );
+    update_usermeta( $user_id, 'telfixo', $_POST['telfixo'] );
+    update_usermeta( $user_id, 'cel', $_POST['cel'] );
+    update_usermeta( $user_id, 'sexo', $_POST['sexo'] );
+    update_usermeta( $user_id, 'cpf', $_POST['cpf'] );
+    update_usermeta( $user_id, 'rg', $_POST['rg'] );
+}
 
 // Register Custom Post Type
 function custom_faturamento() {
