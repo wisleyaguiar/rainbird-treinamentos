@@ -34,9 +34,9 @@ if ( $query_lista_treinamentos->have_posts() ) {
 while ( $query_lista_treinamentos->have_posts() ) {
 $query_lista_treinamentos->the_post(); ?>
       <li>
-        <a href="<?php echo home_url('/modulos/'); ?>?treinamento=<?php echo $post->ID; ?>" class="box-capa"><?php the_post_thumbnail('capa-treinamento'); ?></a>
+        <a href="<?php echo home_url('/modulos/'); ?>?curso_id=<?php echo $post->ID; ?>" class="box-capa"><?php the_post_thumbnail('capa-treinamento'); ?></a>
         <h2 class="tituloEvento"><?php the_title(); ?></h2>
-        <a href="<?php echo home_url('/modulos/'); ?>?treinamento=<?php echo $post->ID; ?>" class="bt-entrar">Entrar</a>
+        <a href="<?php echo home_url('/modulos/'); ?>?curso_id=<?php echo $post->ID; ?>" class="bt-entrar">Entrar</a>
       </li>
 <?php }
 } else {
