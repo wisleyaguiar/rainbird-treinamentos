@@ -108,7 +108,7 @@ function modulos_meta_boxes( $meta_boxes ) {
 
     $meta_boxes[] = array(
         'title'      => __( 'Dados do Módulo', 'textdomain' ),
-        'post_types' => 'treinamento',
+        'post_types' => 'modulo',
         'fields'     => array(
             array(
                 'name'        => __( 'Treinamento/Curso Associado', 'your-prefix' ),
