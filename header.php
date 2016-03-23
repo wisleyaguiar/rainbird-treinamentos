@@ -19,15 +19,15 @@
 <div id="dialog-message"></div>
 <div class="mainContent">
   <header>
-    <div class="logo"><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>" title="Voltar à Home"><img src="<?php echo get_template_directory_uri(); ?>/images/RainBirdLogo.gif" width="220" height="50" alt=""/></a></div>
+    <div class="logo"><a href="<?php echo get_option('urlsite2'); ?>" title="Voltar à Home"><img src="<?php echo get_template_directory_uri(); ?>/images/RainBirdLogo.gif" width="220" height="50" alt=""/></a></div>
     <div class="boxMenuHeader">
       <nav id="menuHeader">
         <ul>
-          <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/sobre-rain-bird.php">Institucional</a></li>
-          <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/golf.php">Golf</a></li>
-          <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/mineracao.php">Mineração</a></li>
-          <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/servicos.php" class="menuAtivo">Serviços</a></li>
-          <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/onde-comprar.php">Rede de Atendimento</a></li>
+          <li><a href="<?php echo get_option('urlsite2'); ?>/sobre-rain-bird.php">Institucional</a></li>
+          <li><a href="<?php echo get_option('urlsite2'); ?>/golf.php">Golf</a></li>
+          <li><a href="<?php echo get_option('urlsite2'); ?>/mineracao.php">Mineração</a></li>
+          <li><a href="<?php echo get_option('urlsite2'); ?>/servicos.php" class="menuAtivo">Serviços</a></li>
+          <li><a href="<?php echo get_option('urlsite2'); ?>/onde-comprar.php">Rede de Atendimento</a></li>
         </ul>
       </nav>
     </div>
