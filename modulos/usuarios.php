@@ -107,6 +107,8 @@ function cad_fatura_user_callback() {
         // Insere os dados no custom post faturamento
         // Gather post data.
         $dados_faturamento = array(
+            'post_content'  => '',
+            'post_title'    => $nomeNota,
             'post_status'   => 'private',
             'post_author'   => $user_id
         );
