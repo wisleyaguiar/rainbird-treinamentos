@@ -40,6 +40,30 @@ if ( function_exists( 'add_theme_support' ) ) {
     add_image_size( 'capa-treinamento', 142, 187, true ); //300 pixels wide (and unlimited height)
 }
 
+// Custom Admin Login Logo
+function my_login_logo() { ?>
+    <style type="text/css">
+        body.login div#login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri() ?>/images/RainBirdLogo.gif);
+            padding-bottom: 0px;
+            background-size:contain;
+            width:220px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+//Link na tela de login para a página inicial
+function my_login_logo_url() {
+    return get_bloginfo( 'url' );
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+function my_login_logo_url_title() {
+    return 'Rain Bird';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
 // Barra de Títulos das páginas
 add_theme_support( 'title-tag' );
 
