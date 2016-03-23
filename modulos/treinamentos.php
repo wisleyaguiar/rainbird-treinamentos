@@ -123,10 +123,10 @@ function treinamentos_meta_boxes( $meta_boxes ) {
                 // jQuery datetime picker options.
                 // For date options, see here http://api.jqueryui.com/datepicker
                 // For time options, see here http://trentrichardson.com/examples/timepicker/
-                'js_options' => array(
+                /*'js_options' => array(
                     'stepHour' => 0,
                     'stepMinute' => 0,
-                ),
+                ),*/
             ),
             array(
                 'name'       => __( 'Horário de Término', 'your-prefix' ),
@@ -135,10 +135,10 @@ function treinamentos_meta_boxes( $meta_boxes ) {
                 // jQuery datetime picker options.
                 // For date options, see here http://api.jqueryui.com/datepicker
                 // For time options, see here http://trentrichardson.com/examples/timepicker/
-                'js_options' => array(
+                /*'js_options' => array(
                     'stepHour' => 0,
                     'stepMinute' => 0,
-                ),
+                ),*/
             ),
             // HEADING
             array(
