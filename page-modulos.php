@@ -1,13 +1,17 @@
 <?php 
+/*
+  * Template Name: Página de Módulos ou Cursos
+  */
+get_header(); ?>
 
-include("header.php"); ?>
+<?php include "status-logado.php"; ?>
 
-<div class="content" style="overflow:hidden; background:url('images/treinamentos/bg-tela-cadastro.jpg') no-repeat 0 0; height: 552px;">
+<div class="content" style="overflow:hidden; background:url('<?php echo get_template_directory_uri(); ?>/images/treinamentos/bg-tela-cadastro.jpg') no-repeat 0 0; height: 552px;">
 
 <?php include "sidebar-user.php"; ?>
 
   <div style="width:612px; float:left; margin-left: 154px; padding-top: 30px; margin-right: 20px;">
-    <h1 style="color: #10724c; font-size: 20px;">Escolha os cursos que deseja participar na <br>Academia Rain Brid - Salvador/BA</h1>
+    <h1 style="color: #10724c; font-size: 20px;">Escolha o(s) módulo(s) que deseja participar na <br>Academia Rain Brid - Salvador/BA</h1>
 
       <form action="page-pagamento.php" method="post" id="formEscolhaModulos">
           <table border="0" class="tabela-comerce">
@@ -71,8 +75,6 @@ include("header.php"); ?>
               </tbody>
           </table>
 
-
-
           <p class="texto-right"><button type="submit" class="bt-verde">Avançar</button> </p>
 
       </form>
@@ -80,4 +82,4 @@ include("header.php"); ?>
   </div>
 
 </div>
-<?php include("footer.php"); ?>
+<?php get_footer(); ?>

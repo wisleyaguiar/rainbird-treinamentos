@@ -1,16 +1,20 @@
-<?php 
+<?php get_header();
 
-get_header(); ?>
+// Deslogar Usuário
+if(isset($_GET['logoff'])&&$_GET['logoff']==true) {
+    wp_logout();
+}
+?>
 
 <div class="content" style="overflow:hidden;">
   <div class="sidebar">
   <div id="navWrapper">
           <div id="p7TMM_1" class="p7TMM05">
             <ul class="p7TMM level_1" id="p7TMM_1u1">
-              <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/servicos.php?page=projetos">Projetos</a></li>
-              <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/servicos.php?page=treinamentos" class="trig_open">Treinamentos</a></li>
-              <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/servicos.php?page=auditoria-sistemas">Auditoria de Sistemas</a></li>
-              <li><a href="<?php echo esc_attr_e( $options['urlsite2'] ); ?>/servicos.php?page=supervisao-partida-assistida">Supervisão e Partida Assistida</a></li>
+              <li><a href="<?php echo get_option('urlsite2'); ?>/servicos.php?page=projetos">Projetos</a></li>
+              <li><a href="<?php echo get_option('urlsite2'); ?>/servicos.php?page=treinamentos" class="trig_open">Treinamentos</a></li>
+              <li><a href="<?php echo get_option('urlsite2'); ?>/servicos.php?page=auditoria-sistemas">Auditoria de Sistemas</a></li>
+              <li><a href="<?php echo get_option('urlsite2'); ?>/servicos.php?page=supervisao-partida-assistida">Supervisão e Partida Assistida</a></li>
             </ul>
             <!--[if lte IE 6]>
 <style>.p7TMM05 .p7TMM, .p7TMM05 a, .p7TMM05 li {height:1%;}</style>

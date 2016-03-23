@@ -1,7 +1,12 @@
 <?php
-include("header.php"); ?>
+/*
+ * Template Name: Página Sucesso Inscrição
+ */
+get_header(); ?>
 
-<div class="content" style="overflow:hidden; background:url('images/treinamentos/bg-tela-conclusao.jpg') no-repeat 0 0; height: 552px;">
+<?php include "status-logado.php"; ?>
+
+<div class="content" style="overflow:hidden; background:url('<?php echo get_template_directory_uri(); ?>/images/treinamentos/bg-tela-conclusao.jpg') no-repeat 0 0; height: 552px;">
   <div style="width:690px; float:left; margin-left: 338px; padding-top: 30px;">
 
     <h1 style="color: #FFF; font-size: 20px; text-shadow: 2px 2px 2px #000; font-family: 'Trebuchet MS', sans-serif; margin-top: 175px">Conclusão de Inscrição - Treinamentos Rain Bird</h1>
@@ -13,4 +18,4 @@ include("header.php"); ?>
         <a href="page-minhaconta.php"  style="color: #FFF!important; text-shadow: 2px 2px 2px #000;">Clique aqui</a> para visualizar as informações sobre seus cursos.</p>
   </div>
 </div>
-<?php include("footer.php"); ?>
+<?php get_footer(); ?>

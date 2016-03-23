@@ -1,21 +1,14 @@
 <?php
-include("header.php"); ?>
+/*
+ * Template Name: Página de Pagamento
+ */
+get_header(); ?>
 
-<div class="content" style="overflow:hidden; background:url('images/treinamentos/bg-tela-cadastro.jpg') no-repeat 0 0; height: 552px;">
+<?php include "status-logado.php"; ?>
 
-  <div class="sidebar-usuario">
-    <p>Seja bem vindo, <br><strong>Leandro Ribeiro</strong></p>
-    <ul class="op-user">
-      <li><a href="page-minhaconta.php">Minha Conta</a></li>
-      <li><a href="index.php">Sair</a></li>
-    </ul>
-    <ul class="lista-eventos" style="margin-top: 30px;">
-      <li>
-        <a href="#" class="box-capa"><img src="images/treinamentos/capa-treinamento.jpg" alt="Treinamentos"></a>
-        <h2 class="tituloEvento">Academia Rain Bird<br>Salvador/BA<br>29/fev a 04/mar</h2>
-      </li>
-    </ul>
-  </div>
+<div class="content" style="overflow:hidden; background:url('<?php echo get_template_directory_uri(); ?>/images/treinamentos/bg-tela-cadastro.jpg') no-repeat 0 0; height: 552px;">
+
+  <?php include "sidebar-user.php"; ?>
 
   <div style="width:612px; float:left; margin-left: 154px; padding-top: 30px; margin-right: 20px;">
     <h1 style="color: #10724c; font-size: 20px;">Conclusão de sua inscrição - Pagamento</h1>

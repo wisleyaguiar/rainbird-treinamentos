@@ -9,7 +9,7 @@ get_header(); ?>
 
     <h1 style="color: #FFF; font-size: 20px; text-shadow: 2px 2px 2px #000; font-family: 'Trebuchet MS', sans-serif; margin-top: 175px">Cadastro de pessoa física - Treinamentos Rain Bird</h1>
       <p class="mensagem">Seu cadastro foi<br>concluído com sucesso!</p>
-      <p class="linkmsg"><a href="page-treinamentos.php">Clique aqui</a> para entrar e fazer sua inscrição<br>nos Treinamentos da Rain Bird.</p>
+      <p class="linkmsg"><a href="<?php echo home_url('/cursos'); ?>">Clique aqui</a> para entrar e fazer sua inscrição<br>nos Treinamentos da Rain Bird.</p>
   </div>
 </div>
 <?php get_footer(); ?>

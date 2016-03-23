@@ -1,20 +1,19 @@
 <?php
-include("header.php"); ?>
+/*
+ * Template Name: Página Minha Conta
+ */
+get_header(); ?>
 
-<div class="content" style="overflow:hidden; background:url('images/treinamentos/bg-tela-cadastro.jpg') no-repeat 0 0; height: 552px;">
+<?php include "status-logado.php"; ?>
 
-  <div class="sidebar-usuario">
-    <p>Seja bem vindo, <br><strong>Leandro Ribeiro</strong></p>
-    <ul class="op-user">
-      <li><a href="page-minhaconta.php">Minha Conta</a></li>
-      <li><a href="index.php">Sair</a></li>
-    </ul>
-  </div>
+<div class="content" style="overflow:hidden; background:url('<?php echo get_template_directory_uri(); ?>/images/treinamentos/bg-tela-cadastro.jpg') no-repeat 0 0; height: 552px;">
+
+  <?php include "sidebar-user.php"; ?>
 
   <div style="width:612px; float:left; margin-left: 154px; padding-top: 30px; margin-right: 20px;">
     <h1 style="color: #10724c; font-size: 20px; margin-bottom: 30px;">Minha Conta</h1>
 
-    <?php if(!isset($_GET['p'])) { ?>
+    <?php if(!isset($_GET['op'])) { ?>
     <ul class="lista-eventos">
       <li>
         <a href="page-minhaconta.php?p=meus-dados" class="box-capa"><i class="fa fa-list-alt"></i></a>
@@ -34,7 +33,7 @@ include("header.php"); ?>
     </ul>
     <?php } ?>
 
-    <?php if(isset($_GET['p']) && $_GET['p']=='meus-dados') { ?>
+    <?php if(isset($_GET['op']) && $_GET['op']=='meus-dados') { ?>
       <div class="caixa-cadastro-completo">
         <h2>Meus Dados Pessoais</h2>
         <form action="page-minhaconta.php" method="post" id="formAtualizaCadastro">
@@ -120,7 +119,7 @@ include("header.php"); ?>
       </div>
     <?php } ?>
 
-    <?php if(isset($_GET['p']) && $_GET['p']=='minhas-inscricoes') { ?>
+    <?php if(isset($_GET['op']) && $_GET['op']=='minhas-inscricoes') { ?>
       <h2>Minhas Inscrições</h2>
       <br/>
       <table width="100%" border="0" class="tabela-comerce">
@@ -151,7 +150,7 @@ include("header.php"); ?>
       </table>
     <?php } ?>
 
-    <?php if(isset($_GET['p']) && $_GET['p']=='meus-certificados') { ?>
+    <?php if(isset($_GET['op']) && $_GET['op']=='meus-certificados') { ?>
         <h2>Meus Certificados</h2>
         <br/>
         <table width="100%" border="0" class="tabela-comerce">
@@ -181,4 +180,4 @@ include("header.php"); ?>
   </div>
 
 </div>
-<?php include("footer.php"); ?>
+<?php get_footer(); ?>
