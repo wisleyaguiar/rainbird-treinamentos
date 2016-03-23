@@ -47,6 +47,7 @@ function cad_new_user_callback() {
         ));
         // verifica se o nome de usuário ou email já foram usados
         if(is_wp_error($user_id)){
+            $resposta['erro'] = true;
             $resposta['msg'] = "Não foi possível finalizar o cadastro. Usuário e/ou Email já cadastrados.";
         } else {
             // Salvando os outros dados
@@ -114,6 +115,7 @@ function cad_fatura_user_callback() {
 
         // verifica se a inserção aconteceu com sucesso.
         if(is_wp_error($fatura_id)){
+            $resposta['erro'] = true;
             $resposta['msg'] = "Não foi possível finalizar o cadastro. Erro ao salvar faturamento.";
         } else {
             add_post_meta( $fatura_id, 'nome_nota', $nomeNota, true );
