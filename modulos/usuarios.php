@@ -116,7 +116,7 @@ function cad_fatura_user_callback() {
         // verifica se a inserção aconteceu com sucesso.
         if(is_wp_error($fatura_id)){
             $resposta['erro'] = true;
-            $resposta['msg'] = "Não foi possível finalizar o cadastro. Erro ao salvar faturamento.";
+            $resposta['msg'] = "Não foi possível finalizar o cadastro. Erro ao salvar faturamento. " . $fatura_id->get_error_message();
         } else {
             add_post_meta( $fatura_id, 'nome_nota', $nomeNota, true );
             add_post_meta( $fatura_id, 'endereco_faturamento', $enderecoFatura, true );
