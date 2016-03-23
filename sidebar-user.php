@@ -2,7 +2,7 @@
     <p>Seja bem vindo, <br><strong><?php echo $user_dados->first_name; ?></strong></p>
     <ul class="op-user">
         <li><a href="<?php echo home_url('/minha-conta'); ?>">Minha Conta</a></li>
-        <li><a href="<?php echo home_url('/?logoff=true'); ?>">Sair</a></li>
+        <li><a href="<?php echo wp_logout_url( home_url() ); ?>">Sair</a></li>
     </ul>
     
     <ul class="lista-eventos" style="margin-top: 30px;">
