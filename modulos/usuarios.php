@@ -48,7 +48,7 @@ function cad_new_user_callback() {
         // verifica se o nome de usuário ou email já foram usados
         if(is_wp_error($user_id)){
             $resposta['erro'] = true;
-            $resposta['msg'] = "Não foi possível finalizar o cadastro. Usuário e/ou Email já cadastrados.";
+            $resposta['msg'] = "Não foi possível finalizar o cadastro. Usuário e/ou Email já cadastrados. " . $user_id->get_error_message();
         } else {
             // Salvando os outros dados
             add_user_meta($user_id, 'endereco', $endereco);
@@ -110,7 +110,8 @@ function cad_fatura_user_callback() {
             'post_content'  => '',
             'post_title'    => $nomeNota,
             'post_status'   => 'private',
-            'post_author'   => $user_id
+            'post_author'   => $user_id,
+            'post_type'     => 'faturamento'
         );
 
         $fatura_id = wp_insert_post( $dados_faturamento, true );
@@ -120,14 +121,14 @@ function cad_fatura_user_callback() {
             $resposta['erro'] = true;
             $resposta['msg'] = "Não foi possível finalizar o cadastro. Erro ao salvar faturamento. " . $fatura_id->get_error_message();
         } else {
-            add_post_meta( $fatura_id, 'nome_nota', $nomeNota, true );
-            add_post_meta( $fatura_id, 'endereco_faturamento', $enderecoFatura, true );
-            add_post_meta( $fatura_id, 'bairro_fatura', $bairroFatura, true );
-            add_post_meta( $fatura_id, 'cidade_fatura', $cidadeFatura, true );
-            add_post_meta( $fatura_id, 'estado_fatura', $estadoFatura, true );
-            add_post_meta( $fatura_id, 'cep_fatura', $cepFatura, true );
-            add_post_meta( $fatura_id, 'cnpj_fatura', $cnpjFatura, true );
-            add_post_meta( $fatura_id, 'ie_fatura', $ieFatura, true );
+            update_post_meta( $fatura_id, 'nome_nota', $nomeNota, true );
+            update_post_meta( $fatura_id, 'endereco_faturamento', $enderecoFatura, true );
+            update_post_meta( $fatura_id, 'bairro_fatura', $bairroFatura, true );
+            update_post_meta( $fatura_id, 'cidade_fatura', $cidadeFatura, true );
+            update_post_meta( $fatura_id, 'estado_fatura', $estadoFatura, true );
+            update_post_meta( $fatura_id, 'cep_fatura', $cepFatura, true );
+            update_post_meta( $fatura_id, 'cnpj_fatura', $cnpjFatura, true );
+            update_post_meta( $fatura_id, 'ie_fatura', $ieFatura, true );
 
             add_user_meta($user_id, 'id_faturamento', $fatura_id);
 
