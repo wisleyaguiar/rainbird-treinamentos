@@ -124,7 +124,7 @@ function treinamentos_meta_boxes( $meta_boxes ) {
                 // For date options, see here http://api.jqueryui.com/datepicker
                 // For time options, see here http://trentrichardson.com/examples/timepicker/
                 'js_options' => array(
-                    'stepHour' => 8,
+                    'stepHour' => 0,
                     'stepMinute' => 0,
                 ),
             ),
@@ -136,7 +136,7 @@ function treinamentos_meta_boxes( $meta_boxes ) {
                 // For date options, see here http://api.jqueryui.com/datepicker
                 // For time options, see here http://trentrichardson.com/examples/timepicker/
                 'js_options' => array(
-                    'stepHour' => 8,
+                    'stepHour' => 0,
                     'stepMinute' => 0,
                 ),
             ),
