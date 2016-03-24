@@ -26,12 +26,12 @@ get_header(); ?>
       <li>
         <a href="<?php echo home_url('/minha-conta'); ?>/?op=minhas-inscricoes" class="box-capa"><i class="fa fa-calendar-check-o"></i></a>
         <h2 class="tituloEvento">Minhas Inscrições</h2>
-        <a href="<?php echo home_url('/minha-conta'); ?>/?p=minhas-inscricoes" class="bt-entrar">Entrar</a>
+        <a href="<?php echo home_url('/minha-conta'); ?>/?op=minhas-inscricoes" class="bt-entrar">Entrar</a>
       </li>
       <li>
         <a href="<?php echo home_url('/minha-conta'); ?>/?op=meus-certificados" class="box-capa"><i class="fa fa-graduation-cap"></i></a>
         <h2 class="tituloEvento">Meus Certificados</h2>
-        <a href="<?php echo home_url('/minha-conta'); ?>/?p=meus-certificados" class="bt-entrar">Entrar</a>
+        <a href="<?php echo home_url('/minha-conta'); ?>/?op=meus-certificados" class="bt-entrar">Entrar</a>
       </li>
     </ul>
     <?php } ?>
