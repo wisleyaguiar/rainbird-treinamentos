@@ -35,27 +35,27 @@ setlocale(LC_MONETARY, 'pt_BR');
               <tbody>
               <tr>
                   <td width="5%"><input type="radio" name="formapagamento" id="formapagamento_1" value="boleto"></td>
-                  <td><strong>Boleto Bancário</strong></td>
+                  <td><label for="formapagamento_1"><strong>Boleto Bancário</strong></label></td>
               </tr>
               <tr>
                   <td>&nbsp;</td>
-                  <td><img src="<?php echo get_template_directory_uri(); ?>/images/treinamentos/boleto.png" alt="Boleto" height="50%"></td>
+                  <td><label for="formapagamento_1"><img src="<?php echo get_template_directory_uri(); ?>/images/treinamentos/boleto.png" alt="Boleto" height="50%"></td>
               </tr>
               <tr>
                   <td><input type="radio" name="formapagamento" id="formapagamento_2" value="cartao-credito"></td>
-                  <td><strong>Cartão de Crédito</strong></td>
+                  <td><label for="formapagamento_2"><strong>Cartão de Crédito</strong></label></td>
               </tr>
               <tr>
                   <td>&nbsp;</td>
-                  <td><img src="<?php echo get_template_directory_uri(); ?>/images/treinamentos/cartoes-credito.png" alt="Cartões de Crédito" height="50%"></td>
+                  <td><label for="formapagamento_2"><img src="<?php echo get_template_directory_uri(); ?>/images/treinamentos/cartoes-credito.png" alt="Cartões de Crédito" height="50%"></td>
               </tr>
               <tr>
                   <td><input type="radio" name="formapagamento" id="formapagamento_3" value="debito"></td>
-                  <td><strong>Débito em Conta</strong></td>
+                  <td><label for="formapagamento_3"><strong>Débito em Conta</strong></label></td>
               </tr>
               <tr>
                   <td>&nbsp;</td>
-                  <td><img src="<?php echo get_template_directory_uri(); ?>/images/treinamentos/debito-financiamento.png" alt="Debito Online" height="50%"></td>
+                  <td><label for="formapagamento_3"><img src="<?php echo get_template_directory_uri(); ?>/images/treinamentos/debito-financiamento.png" alt="Debito Online" height="50%"></label></td>
               </tr>
               </tbody>
           </table>
