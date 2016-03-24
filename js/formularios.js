@@ -336,7 +336,9 @@
     });
     
     // Submissão formulário de inscrição
-    $('#formEscolhaModulos').submit(function(){
+    $('#formEscolhaModulos').submit(function(e){
+        e.preventDefault();
+        
         if(!$('input[type=checkbox]').is(':checked')) {
             $( "#dialog-message").html("Você deve marcar ao menos um módulo.");
             $( "#dialog-message" ).dialog({
@@ -364,7 +366,7 @@
             return false;
         }
         else {
-            return false;
+            return true;
         }
         
         
