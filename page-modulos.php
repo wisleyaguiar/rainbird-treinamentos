@@ -21,7 +21,7 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
     <h1 style="color: #10724c; font-size: 20px;">Escolha o(s) módulo(s) que deseja participar na <br><?php echo get_post($curso_id)->post_title; ?></h1>
       <?php $tipo_curso = get_post_meta($curso_id, 'tipo_treinamento', true); ?>
 
-      <form action="<?php echo home_url('/'); ?>" method="post" id="formEscolhaModulos">
+      <form action="<?php echo home_url('/pagamento'); ?>" method="post" id="formEscolhaModulos">
           <?php if($tipo_curso=='tipo_modulo') { ?>
           <?php
               $total_salas = get_post_meta($curso_id, 'total_salas', true);
@@ -163,7 +163,9 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
           <?php } else { ?>
             <p>Tipo de Curso não definido.</p>
           <?php } ?>
-
+          
+          <input type="hidden" name="curso_id" id="curso_id" value="<?php echo $curso_id; ?>">
+          
       </form>
     <?php } else { ?>
         <h1 style="color: #10724c; font-size: 20px;">Nenhum curso/treinamento escolhido.</h1>

@@ -20,8 +20,7 @@ get_header(); ?>
 
       <p><strong style="font-size: 15px;color: #10724c">Módulos Selecionados:</strong></p>
 
-      <p><strong>A2 - Produtos de Irrigação para Jardins e Gramados</strong><br><strong>DBL:</strong> R$ 900</p>
-      <p><strong>C2 - Sistemas de Bombeamento</strong><br><strong>SGL:</strong> R$ 675</p>
+      <?php print_r($_POST); ?>
 
       <p><strong style="font-size: 15px;color: #10724c">Total da sua compra:</strong><br>R$ 1.575</p>
 
