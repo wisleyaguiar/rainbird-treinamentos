@@ -93,8 +93,8 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
                   <td><label><input type="radio" name="modulo-<?php echo $cod_modulo; ?>-hosp" id="modulo-<?php echo $cod_modulo; ?>-sgl" value="<?php echo $valor_apto_solteiro; ?>"><?php echo money_format('%.2n', $valor_apto_solteiro) ?></label></td>
                   <td><label><input type="radio" name="modulo-<?php echo $cod_modulo; ?>-hosp" id="modulo-<?php echo $cod_modulo; ?>-dbl" value="<?php echo $valor_apto_duplo; ?>"><?php echo money_format('%.2n', $valor_apto_duplo) ?></label></td>
                   <td><label><input type="radio" name="modulo-<?php echo $cod_modulo; ?>-hosp" id="modulo-<?php echo $cod_modulo; ?>-sh" value="<?php echo $valor_sem_hospedagem; ?>"><?php echo money_format('%.2n', $valor_sem_hospedagem) ?></label></td>
-                  <td><?php echo substr($data_inicio_modulo_1,0,5); ?> das <?php echo $horario_inicio_modulo_1; ?> às <?php echo $horario_termino_modulo_1; ?><br>
-                      <?php echo substr($data_inicio_modulo_2,0,5); ?> <?php echo $horario_inicio_modulo_2; ?> às <?php echo $horario_termino_modulo_2; ?></td>
+                  <td><?php echo substr($data_inicio_modulo_1,0,5); ?> das <?php echo substr($horario_inicio_modulo_1,0,2); ?>h às <?php echo substr($horario_termino_modulo_1,0,2); ?>h<br>
+                      <?php echo substr($data_inicio_modulo_2,0,5); ?> das <?php echo substr($horario_inicio_modulo_2,0,2); ?>h às <?php echo substr($horario_termino_modulo_2,0,2); ?>h</td>
               </tr>
               <?php }
                   $percentual_desconto = get_post_meta($curso_id, 'num_desc_vista', true) / 100;
