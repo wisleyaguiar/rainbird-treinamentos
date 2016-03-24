@@ -334,5 +334,40 @@
             $('input[name=' + checkbox.val() + '-hosp]').attr("disabled",true).attr("checked",false);
         }
     });
+    
+    // Submissão formulário de inscrição
+    $('#formEscolhaModulos').submit(function(){
+        if(!$('input[type=checkbox]').is(':checked')) {
+            $( "#dialog-message").html("Você deve marcar ao menos um módulo.");
+            $( "#dialog-message" ).dialog({
+                modal: true,
+                title: "Aviso",
+                buttons: {
+                    Ok: function() {
+                        $( this ).dialog( "close" );
+                    }
+                }
+            });
+            return false;
+        }
+        else if(!$('input[type=radio]').is(':checked')) {
+            $( "#dialog-message").html("Você deve marcar ao menos um valor de inscrição.");
+            $( "#dialog-message" ).dialog({
+                modal: true,
+                title: "Aviso",
+                buttons: {
+                    Ok: function() {
+                        $( this ).dialog( "close" );
+                    }
+                }
+            });
+            return false;
+        }
+        else {
+            return true;
+        }
+
+
+    });
 
 })( jQuery );
