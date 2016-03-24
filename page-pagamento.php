@@ -2,7 +2,9 @@
 /*
  * Template Name: Página de Pagamento
  */
-get_header(); ?>
+get_header();
+setlocale(LC_MONETARY, 'pt_BR');
+?>
 
 <?php include "status-logado.php"; ?>
 
@@ -16,13 +18,16 @@ get_header(); ?>
   <div style="width:612px; float:left; margin-left: 154px; padding-top: 30px; margin-right: 20px;">
     <h1 style="color: #10724c; font-size: 20px;">Conclusão de sua inscrição - Pagamento</h1>
 
-      <p><strong style="font-size: 15px; color: #10724c">Treinamento escolhido:</strong><br>Academia Rain Brid - Salvador/BA - 29/fev a 04/mar</p>
+    <?php if(isset($_POST)&&is_array($_POST)) {
+        $curso_id = $_POST['curso_id'];
+    ?>
+      <p><strong style="font-size: 15px; color: #10724c">Treinamento escolhido:</strong><br><?php echo get_post($curso_id)->post_title; ?></p>
 
       <p><strong style="font-size: 15px;color: #10724c">Módulos Selecionados:</strong></p>
 
       <?php print_r($_POST); ?>
 
-      <p><strong style="font-size: 15px;color: #10724c">Total da sua compra:</strong><br>R$ 1.575</p>
+      <p><strong style="font-size: 15px;color: #10724c">Total da sua compra:</strong><br></p>
 
       <p><strong style="font-size: 15px;color: #10724c">Formas de Pagamento:</strong></p>
       <form action="page-inscsucesso.php" method="post" id="formPagamento">
@@ -34,7 +39,7 @@ get_header(); ?>
               </tr>
               <tr>
                   <td>&nbsp;</td>
-                  <td><img src="images/treinamentos/boleto.png" alt="Boleto" height="50%"></td>
+                  <td><img src="<?php echo get_template_directory_uri(); ?>/images/treinamentos/boleto.png" alt="Boleto" height="50%"></td>
               </tr>
               <tr>
                   <td><input type="radio" name="formapagamento" id="formapagamento_2" value="cartao-credito"></td>
@@ -42,7 +47,7 @@ get_header(); ?>
               </tr>
               <tr>
                   <td>&nbsp;</td>
-                  <td><img src="images/treinamentos/cartoes-credito.png" alt="Cartões de Crédito" height="50%"></td>
+                  <td><img src="<?php echo get_template_directory_uri(); ?>/images/treinamentos/cartoes-credito.png" alt="Cartões de Crédito" height="50%"></td>
               </tr>
               <tr>
                   <td><input type="radio" name="formapagamento" id="formapagamento_3" value="debito"></td>
@@ -50,13 +55,15 @@ get_header(); ?>
               </tr>
               <tr>
                   <td>&nbsp;</td>
-                  <td><img src="images/treinamentos/debito-financiamento.png" alt="Debito Online" height="50%"></td>
+                  <td><img src="<?php echo get_template_directory_uri(); ?>/images/treinamentos/debito-financiamento.png" alt="Debito Online" height="50%"></td>
               </tr>
               </tbody>
           </table>
           <p><button type="submit" class="bt-verde">Concluir Cobrança</button> </p>
       </form>
-
+    <?php } else { ?>
+        <p>Dados de Inscrição não selecionados.</p>
+    <?php } ?>
   </div>
 
 </div>
