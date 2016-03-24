@@ -329,9 +329,9 @@
     $('#formEscolhaModulos input[type=checkbox]').click(function(){
         var checkbox = $(this);
         if(checkbox.is(':checked')) {
-            $('input[id=' + checkbox.attr('id') + '-hosp]').attr("disabled",false);
+            $('input[name=' + checkbox.attr('id') + '-hosp]').attr("disabled",false);
         } else {
-            $('input[id=' + checkbox.attr('id') + '-hosp]').attr("disabled",true).attr("checked",false);
+            $('input[name=' + checkbox.attr('id') + '-hosp]').attr("disabled",true).attr("checked",false);
         }
     });
     
