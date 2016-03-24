@@ -109,9 +109,9 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
                       <td></td>
                       <td><input type="checkbox" name="modulo-todos-<?php echo $i; ?>" id="modulo-todos-<?php echo $i; ?>" value="<?php echo $i; ?>"></td>
                       <td><label>Todos os Módulos</label></td>
-                      <td><label><input type="radio" name="modulo-<?php echo $i; ?>-hosp" id="modulo-<?php echo $i; ?>-sgl" value="<?php echo $valor_final_apto_solteiro; ?>"><?php echo money_format('%.2n', $valor_final_apto_solteiro) ?></label></td>
-                      <td><label><input type="radio" name="modulo-<?php echo $i; ?>-hosp" id="modulo-<?php echo $i; ?>-dbl" value="<?php echo $valor_final_apto_duplo; ?>"><?php echo money_format('%.2n', $valor_final_apto_duplo) ?></label></td>
-                      <td><label><input type="radio" name="modulo-<?php echo $i; ?>-hosp" id="modulo-<?php echo $i; ?>-sh" value="<?php echo $valor_final_sem_hospedagem; ?>"><?php echo money_format('%.2n', $valor_final_sem_hospedagem) ?></label></td>
+                      <td><label><input type="radio" disabled name="modulo-<?php echo $i; ?>-hosp" id="modulo-<?php echo $i; ?>-sgl" value="<?php echo $valor_final_apto_solteiro; ?>"><?php echo money_format('%.2n', $valor_final_apto_solteiro) ?></label></td>
+                      <td><label><input type="radio" disabled name="modulo-<?php echo $i; ?>-hosp" id="modulo-<?php echo $i; ?>-dbl" value="<?php echo $valor_final_apto_duplo; ?>"><?php echo money_format('%.2n', $valor_final_apto_duplo) ?></label></td>
+                      <td><label><input type="radio" disabled name="modulo-<?php echo $i; ?>-hosp" id="modulo-<?php echo $i; ?>-sh" value="<?php echo $valor_final_sem_hospedagem; ?>"><?php echo money_format('%.2n', $valor_final_sem_hospedagem) ?></label></td>
                       <td>Aproveite o desconto de <?php echo get_post_meta($curso_id, 'num_desc_vista', true) ?>% todos os módulos</td>
                   </tr>
               <?php } else {
