@@ -61,6 +61,12 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
 
               // The Loop
               if ( $query_modulos->have_posts() ) {
+
+                  // Total do valor dos aptos
+                  $total_apto_solteiro = 0;
+                  $total_apto_duplo = 0;
+                  $total_sem_hospedagem = 0;
+
                   while ( $query_modulos->have_posts() ) {
                       $query_modulos->the_post();
                       // Variávies
@@ -74,11 +80,16 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
                       $valor_apto_solteiro = get_post_meta($post->ID,'valor_apto_solteiro', true);
                       $valor_apto_duplo = get_post_meta($post->ID,'valor_apto_duplo', true);
                       $valor_sem_hospedagem = get_post_meta($post->ID,'valor_sem_hospedagem', true);
+
+                      // Total do apto solterio
+                      $total_apto_solteiro = $total_apto_solteiro + $valor_apto_solteiro;
+                      $total_apto_duplo = $total_apto_duplo + $valor_apto_duplo;
+                      $total_sem_hospedagem = $total_sem_hospedagem + $valor_sem_hospedagem;
               ?>
               <tr>
                   <td><?php echo $cod_modulo; ?></td>
                   <td><input type="checkbox" name="modulo-<?php echo $cod_modulo; ?>" id="modulo-<?php echo $cod_modulo; ?>" value="<?php echo $cod_modulo; ?>"></td>
-                  <td><label></label></td>
+                  <td><label><?php the_title(); ?></label></td>
                   <td><label><input type="radio" name="modulo-<?php echo $cod_modulo; ?>-hosp" id="modulo-<?php echo $cod_modulo; ?>-sgl" value="<?php echo $valor_apto_solteiro; ?>"><?php echo money_format('%.2n', $valor_apto_solteiro) ?></label></td>
                   <td><label><input type="radio" name="modulo-<?php echo $cod_modulo; ?>-hosp" id="modulo-<?php echo $cod_modulo; ?>-dbl" value="<?php echo $valor_apto_duplo; ?>"><?php echo money_format('%.2n', $valor_apto_duplo) ?></label></td>
                   <td><label><input type="radio" name="modulo-<?php echo $cod_modulo; ?>-hosp" id="modulo-<?php echo $cod_modulo; ?>-sh" value="<?php echo $valor_sem_hospedagem; ?>"><?php echo money_format('%.2n', $valor_sem_hospedagem) ?></label></td>
@@ -86,7 +97,21 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
                       <?php echo $data_inicio_modulo_2; ?> <?php echo $horario_inicio_modulo_2; ?> às <?php echo $horario_termino_modulo_2; ?></td>
               </tr>
               <?php }
-              } else {
+                  $percentual_desconto = get_post_meta($curso_id, 'num_desc_vista', true) / 100;
+                  $valor_final_apto_solteiro = $total_apto_solteiro - ($percentual_desconto * $total_apto_solteiro);
+                  $valor_final_apto_duplo = $total_apto_duplo - ($percentual_desconto * $total_apto_duplo);
+                  $valor_final_sem_hospedagem = $total_sem_hospedagem - ($percentual_desconto * $total_sem_hospedagem);
+              ?>
+                  <tr>
+                      <td></td>
+                      <td><input type="checkbox" name="modulo-todos-<?php echo $i; ?>" id="modulo-todos-<?php echo $i; ?>" value="<?php echo $i; ?>"></td>
+                      <td><label>Todos os Módulos</label></td>
+                      <td><label><input type="radio" name="modulo-<?php echo $i; ?>-hosp" id="modulo-<?php echo $i; ?>-sgl" value="<?php echo $valor_final_apto_solteiro; ?>"><?php echo money_format('%.2n', $valor_final_apto_solteiro) ?></label></td>
+                      <td><label><input type="radio" name="modulo-<?php echo $i; ?>-hosp" id="modulo-<?php echo $i; ?>-dbl" value="<?php echo $valor_final_apto_duplo; ?>"><?php echo money_format('%.2n', $valor_final_apto_duplo) ?></label></td>
+                      <td><label><input type="radio" name="modulo-<?php echo $i; ?>-hosp" id="modulo-<?php echo $i; ?>-sh" value="<?php echo $valor_final_sem_hospedagem; ?>"><?php echo money_format('%.2n', $valor_final_sem_hospedagem) ?></label></td>
+                      <td>Aproveite o desconto de <?php echo get_post_meta($curso_id, 'num_desc_vista', true) ?>% todos os módulos</td>
+                  </tr>
+              <?php } else {
                   // no posts found
                   echo '<tr><td colspan="7">Nenhum módulo cadastrado</td></tr>';
               }
