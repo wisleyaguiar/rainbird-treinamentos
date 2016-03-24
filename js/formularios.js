@@ -328,14 +328,8 @@
     // Formulário de compra de inscrição
     $('#formEscolhaModulos input[type=checkbox]').click(function(){
         var checkbox = $(this);
-        var labe = $('#formEscolhaModulos label');
         if(checkbox.is(':checked')) {
             $('input[name=' + checkbox.val() + '-hosp]').attr("disabled",false);
-            if(labe.attr('for') === checkbox.val()) {
-                if(labe.text() === 'Todos os Módulos') {
-                    $('#formEscolhaModulos input[type=checkbox]').attr("checked",true);
-                }
-            }
         } else {
             $('input[name=' + checkbox.val() + '-hosp]').attr("disabled",true).attr("checked",false);
         }
