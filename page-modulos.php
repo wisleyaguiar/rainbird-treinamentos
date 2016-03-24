@@ -25,7 +25,7 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
           <?php if($tipo_curso=='tipo_modulo') { ?>
           <?php
               $total_salas = get_post_meta($curso_id, 'total_salas', true);
-              for($i=1;$i<$total_salas;$i++) { ?>
+              for($i=1;$i<=$total_salas;$i++) { ?>
           <table border="0" class="tabela-comerce">
               <tbody>
               <tr>
