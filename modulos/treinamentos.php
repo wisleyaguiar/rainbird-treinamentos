@@ -125,6 +125,13 @@ function treinamentos_meta_boxes( $meta_boxes ) {
                 'min'  => 0,
                 'step' => 1,
             ),
+            // URL
+            array(
+                'name' => __( 'Link(URL) para baixar material', 'your-prefix' ),
+                'id'   => "material_url",
+                'desc' => __( 'Link disponibilizado para os inscritos baixarem o material em servidor de arquivos (Ex.: DropBox)', 'your-prefix' ),
+                'type' => 'url'
+            ),
         ),
     );
 

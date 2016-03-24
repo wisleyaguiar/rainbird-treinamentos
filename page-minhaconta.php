@@ -19,19 +19,19 @@ get_header(); ?>
     <?php if(!isset($_GET['op'])) { ?>
     <ul class="lista-eventos">
       <li>
-        <a href="page-minhaconta.php?p=meus-dados" class="box-capa"><i class="fa fa-list-alt"></i></a>
+        <a href="<?php echo home_url('/minha-conta'); ?>/?op=meus-dados" class="box-capa"><i class="fa fa-list-alt"></i></a>
         <h2 class="tituloEvento">Atualizar Dados Cadastrais</h2>
-        <a href="page-minhaconta.php?p=meus-dados" class="bt-entrar">Entrar</a>
+        <a href="<?php echo home_url('/minha-conta'); ?>/?op=meus-dados" class="bt-entrar">Entrar</a>
       </li>
       <li>
-        <a href="page-minhaconta.php?p=minhas-inscricoes" class="box-capa"><i class="fa fa-calendar-check-o"></i></a>
+        <a href="<?php echo home_url('/minha-conta'); ?>/?op=minhas-inscricoes" class="box-capa"><i class="fa fa-calendar-check-o"></i></a>
         <h2 class="tituloEvento">Minhas Inscrições</h2>
-        <a href="page-minhaconta.php?p=minhas-inscricoes" class="bt-entrar">Entrar</a>
+        <a href="<?php echo home_url('/minha-conta'); ?>/?p=minhas-inscricoes" class="bt-entrar">Entrar</a>
       </li>
       <li>
-        <a href="page-minhaconta.php?p=meus-certificados" class="box-capa"><i class="fa fa-graduation-cap"></i></a>
+        <a href="<?php echo home_url('/minha-conta'); ?>/?op=meus-certificados" class="box-capa"><i class="fa fa-graduation-cap"></i></a>
         <h2 class="tituloEvento">Meus Certificados</h2>
-        <a href="page-minhaconta.php?p=meus-certificados" class="bt-entrar">Entrar</a>
+        <a href="<?php echo home_url('/minha-conta'); ?>/?p=meus-certificados" class="bt-entrar">Entrar</a>
       </li>
     </ul>
     <?php } ?>
@@ -39,59 +39,59 @@ get_header(); ?>
     <?php if(isset($_GET['op']) && $_GET['op']=='meus-dados') { ?>
       <div class="caixa-cadastro-completo">
         <h2>Meus Dados Pessoais</h2>
-        <form action="page-minhaconta.php" method="post" id="formAtualizaCadastro">
+        <form action="<?php echo home_url('/minha-conta'); ?>" method="post" id="formAtualizaCadastro">
 
           <div class="linha-input">
             <div class="col-1">
               <label>Nome</label>
-              <input type="text" name="nomeCompleto" id="nomeCompleto" class="input-form">
+              <input type="text" name="nomeCompleto" id="nomeCompleto" class="input-form" value="<?php echo $user_dados->first_name; ?>">
             </div>
           </div>
 
           <div class="linha-input">
             <div class="col-1">
               <label>Endereço</label>
-              <input type="text" name="endereco" id="endereco" class="input-form">
+              <input type="text" name="endereco" id="endereco" class="input-form" value="<?php echo $user_dados->endereco; ?>">
             </div>
           </div>
 
           <div class="linha-input">
             <div class="col-1">
               <label>Bairro</label>
-              <input type="text" name="bairro" id="bairro" class="input-form">
+              <input type="text" name="bairro" id="bairro" class="input-form" value="<?php echo $user_dados->bairro; ?>">
             </div>
           </div>
 
           <div class="linha-input">
             <div class="col-2">
               <label>Cidade</label>
-              <input type="text" name="cidade" id="cidade" class="input-form">
+              <input type="text" name="cidade" id="cidade" class="input-form" value="<?php echo $user_dados->cidade; ?>">
             </div>
             <div class="col-3">
               <label>Estado</label>
-              <input type="text" name="estado" id="estado" class="input-form">
+              <input type="text" name="estado" id="estado" class="input-form" value="<?php echo $user_dados->estado; ?>">
             </div>
           </div>
 
           <div class="linha-input">
             <div class="col-4">
               <label>CEP</label>
-              <input type="text" name="cep" id="cep" class="input-form">
+              <input type="text" name="cep" id="cep" class="input-form" <?php echo $user_dados->cep; ?>>
             </div>
             <div class="col-5">
               <label>E-mail</label>
-              <input type="text" name="email" id="email" class="input-form">
+              <input type="text" name="email" id="email" class="input-form" <?php echo $user_dados->email; ?>>
             </div>
           </div>
 
           <div class="linha-input">
             <div class="col-6">
               <label>Telefone Fixo</label>
-              <input type="text" name="telfixo" id="telfixo" class="input-form">
+              <input type="text" name="telfixo" id="telfixo" class="input-form" value="<?php echo $user_dados->telfixo; ?>">
             </div>
             <div class="col-7">
               <label>Telefone Celular</label>
-              <input type="text" name="cel" id="cel" class="input-form">
+              <input type="text" name="cel" id="cel" class="input-form" value="<?php echo $user_dados->cel; ?>">
             </div>
           </div>
 
@@ -107,14 +107,14 @@ get_header(); ?>
           <div class="linha-input">
             <div class="col-1">
               <label>CPF</label>
-              <input type="text" name="cpf" id="cpf" class="input-form">
+              <input type="text" name="cpf" id="cpf" class="input-form" value="<?php echo $user_dados->cpf; ?>">
             </div>
           </div>
 
           <div class="linha-input">
             <div class="col-1">
               <label>RG</label>
-              <input type="text" name="rg" id="rg" class="input-form">
+              <input type="text" name="rg" id="rg" class="input-form" value="<?php echo $user_dados->rg; ?>">
             </div>
           </div>
           <p class="texto-right"><button type="submit" class="bt-verde">Salvar Dados</button> </p>
@@ -125,6 +125,7 @@ get_header(); ?>
     <?php if(isset($_GET['op']) && $_GET['op']=='minhas-inscricoes') { ?>
       <h2>Minhas Inscrições</h2>
       <br/>
+      <?php if(false) { ?>
       <table width="100%" border="0" class="tabela-comerce">
         <tbody>
         <tr>
@@ -151,11 +152,15 @@ get_header(); ?>
         </tr>
         </tbody>
       </table>
+      <?php } else { ?>
+          <p>Nenhuma inscrição cadastrada no momento.</p>
+      <?php } ?>
     <?php } ?>
 
     <?php if(isset($_GET['op']) && $_GET['op']=='meus-certificados') { ?>
         <h2>Meus Certificados</h2>
         <br/>
+        <?php if(false) { ?>
         <table width="100%" border="0" class="tabela-comerce">
             <tbody>
             <tr>
@@ -178,6 +183,9 @@ get_header(); ?>
             </tr>
             </tbody>
         </table>
+        <?php } else { ?>
+        <p>Nenhum certificado cadastrado no momento.</p>
+        <?php } ?>
     <?php } ?>
 
   </div>

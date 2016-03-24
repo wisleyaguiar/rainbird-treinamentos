@@ -366,10 +366,50 @@
             return false;
         }
         else {
-            alert($(this).serialize());
+            $.ajax({
+                url: ajax_object.ajax_url,
+                beforeSend: function(){
+                    $('.preloading').show();
+                },
+                data: $(this).serialize(),
+                dataType: 'json',
+                method:'POST',
+                error: function(){
+                    $( "#dialog-message" ).dialog({
+                        modal: true,
+                        title: "Aviso",
+                        buttons: {
+                            Ok: function() {
+                                $( this ).dialog( "close" );
+                            }
+                        }
+                    });
+                    $('.preloading').hide();
+                }
+            }).done(function(resp){
+                if(resp.erro) {
+                    $( "#dialog-message").html(resp.msg);
+                    $( "#dialog-message" ).dialog({
+                        modal: true,
+                        title: "Aviso",
+                        buttons: {
+                            Ok: function() {
+                                $( this ).dialog( "close" );
+                            }
+                        }
+                    });
+                    $('.preloading').hide();
+                } else {
+                    $( "#dialog-message").html(resp.msg);
+                    $( "#dialog-message" ).dialog({
+                        modal: true,
+                        title: "Sucesso"
+                    });
+                    $('.preloading').hide();
+                    window.location = '/treinamentos/pagamento/';
+                }
+            });
         }
-        
-        
     });
 
 })( jQuery );

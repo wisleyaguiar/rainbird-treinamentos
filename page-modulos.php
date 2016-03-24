@@ -21,7 +21,7 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
     <h1 style="color: #10724c; font-size: 20px;">Escolha o(s) módulo(s) que deseja participar na <br><?php echo get_post($curso_id)->post_title; ?></h1>
       <?php $tipo_curso = get_post_meta($curso_id, 'tipo_treinamento', true); ?>
 
-      <form action="<?php echo home_url('/pagamento/'); ?>" method="post" id="formEscolhaModulos">
+      <form action="<?php echo home_url(); ?>" method="post" id="formEscolhaModulos">
           <?php if($tipo_curso=='tipo_modulo') { ?>
           <?php
               $total_salas = get_post_meta($curso_id, 'total_salas', true);
@@ -151,11 +151,11 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
                       <td>&nbsp;</td>
                       <td>&nbsp;</td>
                       <td><label><?php echo get_post($curso_id)->post_title; ?></label></td>
-                      <td><label><input type="radio" name="curso-<?php echo $curso_id; ?>" id="curso-<?php echo $curso_id; ?>-sgl" value="<?php echo $valor_apto_solteiro; ?>"><?php echo money_format('%.2n', $valor_apto_solteiro) ?></label></td>
-                      <td><label><input type="radio" name="curso-<?php echo $curso_id; ?>" id="curso-<?php echo $curso_id; ?>-dbl" value="<?php echo $valor_apto_duplo; ?>"><?php echo money_format('%.2n', $valor_apto_duplo) ?></label></td>
-                      <td><label><input type="radio" name="curso-<?php echo $curso_id; ?>" id="curso-<?php echo $curso_id; ?>-sh" value="<?php echo $valor_sem_hospedagem; ?>"><?php echo money_format('%.2n', $valor_sem_hospedagem) ?></label></td>
-                      <td>De <?php echo $data_inicio_treinamento; ?> à <?php echo $data_termino_treinamento; ?><br>
-                          <?php echo $horario_inicio; ?> - <?php echo $horario_termino; ?></td>
+                      <td><label><input type="radio" name="curso-hosp[]" id="curso-<?php echo $curso_id; ?>-sgl" value="<?php echo $valor_apto_solteiro; ?>"><?php echo money_format('%.2n', $valor_apto_solteiro) ?></label></td>
+                      <td><label><input type="radio" name="curso-hosp[]" id="curso-<?php echo $curso_id; ?>-dbl" value="<?php echo $valor_apto_duplo; ?>"><?php echo money_format('%.2n', $valor_apto_duplo) ?></label></td>
+                      <td><label><input type="radio" name="curso-hosp[]" id="curso-<?php echo $curso_id; ?>-sh" value="<?php echo $valor_sem_hospedagem; ?>"><?php echo money_format('%.2n', $valor_sem_hospedagem) ?></label></td>
+                      <td>De <?php echo substr($data_inicio_treinamento,0,5); ?> à <?php echo substr($data_termino_treinamento,0,5); ?><br>
+                          <?php echo substr($horario_inicio,0,2); ?> - <?php echo substr($horario_termino,0,2); ?></td>
                   </tr>
                   </tbody>
               </table>
@@ -163,7 +163,9 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
           <?php } else { ?>
             <p>Tipo de Curso não definido.</p>
           <?php } ?>
-
+          <input type="hidden" name="user_cad" id="user_cad" value="<?php echo get_current_user_id(); ?>">
+          <input type="hidden" name="tipo_curso" id="tipo_curso" value="<?php echo $tipo_curso; ?>">
+          <input type="hidden" name="action" id="action" value="processar_inscricao">
           <input type="hidden" name="curso_id" id="curso_id" value="<?php echo $curso_id; ?>">
           
       </form>

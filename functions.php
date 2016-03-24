@@ -132,3 +132,5 @@ require_once "theme-options.php";
 require_once "modulos/usuarios.php";
 require_once "modulos/treinamentos.php";
 require_once "modulos/modulos.php";
+require_once "modulos/inscricoes.php";
+require_once "modulos/certificados.php";
