@@ -366,7 +366,7 @@
             return false;
         }
         else {
-            $(this).submit();
+            alert($(this).serialize());
         }
         
         
