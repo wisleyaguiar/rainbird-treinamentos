@@ -18,7 +18,7 @@ setlocale(LC_MONETARY, 'pt_BR');
   <div style="width:612px; float:left; margin-left: 154px; padding-top: 30px; margin-right: 20px;">
     <h1 style="color: #10724c; font-size: 20px;">Conclusão de sua inscrição - Pagamento</h1>
 
-    <?php if(isset($_POST)&&is_array($_POST)) {
+    <?php if(isset($_POST)&&is_array($_POST)&&!empty($_POST)) {
         $curso_id = $_POST['curso_id'];
     ?>
       <p><strong style="font-size: 15px; color: #10724c">Treinamento escolhido:</strong><br><?php echo get_post($curso_id)->post_title; ?></p>
