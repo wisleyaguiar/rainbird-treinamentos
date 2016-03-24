@@ -331,7 +331,7 @@
         if(checkbox.is(':checked')) {
             $('input[name=' + checkbox.val() + '-hosp]').attr("disabled",false);
         } else {
-            $('input[name=' + checkbox.val() + '-hosp]').attr("disabled",true);
+            $('input[name=' + checkbox.val() + '-hosp]').attr("disabled",true).attr("checked",false);
         }
     });
 
