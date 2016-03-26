@@ -76,11 +76,11 @@ get_header(); ?>
           <div class="linha-input">
             <div class="col-4">
               <label>CEP</label>
-              <input type="text" name="cep" id="cep" class="input-form" <?php echo $user_dados->cep; ?>>
+              <input type="text" name="cep" id="cep" class="input-form" value="<?php echo $user_dados->cep; ?>">
             </div>
             <div class="col-5">
               <label>E-mail</label>
-              <input type="text" name="email" id="email" class="input-form" <?php echo $user_dados->email; ?>>
+              <input type="text" name="email" id="email" class="input-form" value="<?php echo $user_dados->email; ?>">
             </div>
           </div>
 
@@ -97,10 +97,10 @@ get_header(); ?>
 
           <div class="linha-input">
             <div class="col-6">
-              <label><input type="radio" name="sexo" id="sexo_1" value="M" class="radio-form"> Masculino</label>
+              <label><input type="radio" name="sexo" id="sexo_1" value="M" class="radio-form"<?php if($user_dados->sexo == "M") { ?> checked<?php } ?>> Masculino</label>
             </div>
             <div class="col-7">
-              <label><input type="radio" name="sexo" id="sexo_2" value="F" class="radio-form"> Feminino</label>
+              <label><input type="radio" name="sexo" id="sexo_2" value="F" class="radio-form"<?php if($user_dados->sexo == "F") { ?> checked<?php } ?>> Feminino</label>
             </div>
           </div>
 
