@@ -333,7 +333,7 @@
             $('#sala-' + checkbox.val() + ' input[type=checkbox]').attr('checked',false).attr('disabled',true);
             $('input[type=radio]').attr("disabled",true).attr("checked",false);
             checkbox.attr('checked',true).attr('disabled',false);
-            $('input[name=modulo-todos-' + checkbox.val() + '-valor]').attr("disabled",false);
+            $('#sala-' + checkbox.val() + 'input[name=modulo-todos-' + checkbox.val() + '-valor]').attr("disabled",false);
         }
         else if(checkbox.is(':checked')) {
             $('input[name=modulo-' + checkbox.val() + '-valor]').attr("disabled",false);
@@ -342,16 +342,11 @@
             $('#sala-' + checkbox.val() + ' input[type=checkbox]').attr('checked',false).attr('disabled',false);
             $('input[type=radio]').attr("disabled",true).attr("checked",false);
             checkbox.attr('checked',false);
-            $('input[name=modulo-todos-' + checkbox.val() + '-valor]').attr("disabled",true);
+            $('#sala-' + checkbox.val() + 'input[name=modulo-todos-' + checkbox.val() + '-valor]').attr("disabled",true);
         } else {
             $('input[name=modulo-' + checkbox.val() + '-valor]').attr("disabled",true).attr("checked",false);
         }
 
-        /*if(checkbox.is(':checked')) {
-            $('input[name=' + checkbox.attr('id') + '-hosp]').attr("disabled",false);
-        } else {
-            $('input[name=' + checkbox.attr('id') + '-hosp]').attr("disabled",true).attr("checked",false);
-        }*/
     });
     
     // Submissão formulário de inscrição
