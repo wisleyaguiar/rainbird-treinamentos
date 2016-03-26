@@ -89,7 +89,7 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
               <tr>
                   <td><?php echo $cod_modulo; ?></td>
                   <td><input type="checkbox" name="modulo[<?php echo $i; ?>][]" id="modulo-<?php echo $post->ID; ?>" value="<?php echo $post->ID; ?>"></td>
-                  <td><label for=""><?php the_title(); ?></label></td>
+                  <td><label for="modulo-<?php echo $post->ID; ?>"><?php the_title(); ?></label></td>
                   <td><label><input type="radio" disabled name="modulo-<?php echo $post->ID; ?>-valor" id="<?php echo $post->ID; ?>-valor-sgl" value="<?php echo $valor_apto_solteiro; ?>"><?php echo money_format('%.2n', $valor_apto_solteiro) ?></label></td>
                   <td><label><input type="radio" disabled name="modulo-<?php echo $post->ID; ?>-valor" id="<?php echo $post->ID; ?>-valor-dbl" value="<?php echo $valor_apto_duplo; ?>"><?php echo money_format('%.2n', $valor_apto_duplo) ?></label></td>
                   <td><label><input type="radio" disabled name="modulo-<?php echo $post->ID; ?>-valor" id="<?php echo $post->ID; ?>-valor-sh" value="<?php echo $valor_sem_hospedagem; ?>"><?php echo money_format('%.2n', $valor_sem_hospedagem) ?></label></td>
@@ -107,8 +107,8 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
               ?>
                   <tr>
                       <td></td>
-                      <td><input type="checkbox" name="modulo_todos" class="modulo_todos" value="<?php echo $i; ?>"></td>
-                      <td><label for="">Todos os Módulos</label></td>
+                      <td><input type="checkbox" name="modulo_todos" id="modulo_todos_<?php echo $i; ?>" value="<?php echo $i; ?>"></td>
+                      <td><label for="modulo_todos_<?php echo $i; ?>">Todos os Módulos</label></td>
                       <td><label><input type="radio" disabled name="modulo-todos-<?php echo $i; ?>-valor" id="<?php echo $i; ?>-valor-sgl" value="<?php echo $valor_final_apto_solteiro; ?>"><?php echo money_format('%.2n', $valor_final_apto_solteiro) ?></label></td>
                       <td><label><input type="radio" disabled name="modulo-todos-<?php echo $i; ?>-valor" id="<?php echo $i; ?>-valor-dbl" value="<?php echo $valor_final_apto_duplo; ?>"><?php echo money_format('%.2n', $valor_final_apto_duplo) ?></label></td>
                       <td><label><input type="radio" disabled name="modulo-todos-<?php echo $i; ?>-valor" id="<?php echo $i; ?>-valor-sh" value="<?php echo $valor_final_sem_hospedagem; ?>"><?php echo money_format('%.2n', $valor_final_sem_hospedagem) ?></label></td>
