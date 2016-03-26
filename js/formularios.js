@@ -343,6 +343,8 @@
             $('input[type=radio]').attr("disabled",true).attr("checked",false);
             checkbox.attr('checked',false);
             $('input[name=modulo-todos-' + checkbox.val() + '-valor]').attr("disabled",true);
+        } else {
+            $('input[name=modulo-' + checkbox.val() + '-valor]').attr("disabled",true).attr("checked",false);
         }
 
         /*if(checkbox.is(':checked')) {
