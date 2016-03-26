@@ -331,6 +331,7 @@
 
         if(checkbox.is(':checked') && checkbox.attr('name') === 'modulo_todos') {
             $('#sala-' + checkbox.val() + ' input[type=checkbox]').attr('checked',false).attr('disabled',true);
+            $('input[type=radio]').attr("disabled",true).attr("checked",false);
             checkbox.attr('checked',true).attr('disabled',false);
         }
 
