@@ -339,7 +339,7 @@
             $('input[name=modulo-' + checkbox.val() + '-valor]').attr("disabled",false);
         }
         else if(checkbox.is(':checked')===false && checkbox.attr('name') === 'modulo_todos') {
-            $('#sala-' + checkbox.val() + ' input[type=checkbox]').attr('checked',true).attr('disabled',false);
+            $('#sala-' + checkbox.val() + ' input[type=checkbox]').attr('checked',false).attr('disabled',false);
             $('input[type=radio]').attr("disabled",true).attr("checked",false);
             checkbox.attr('checked',false).attr('disabled',true);
             $('input[name=modulo-todos-' + checkbox.val() + '-valor]').attr("disabled",true);
