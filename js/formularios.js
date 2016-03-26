@@ -328,11 +328,17 @@
     // Formulário de compra de inscrição
     $('#formEscolhaModulos input[type=checkbox]').click(function(){
         var checkbox = $(this);
-        if(checkbox.is(':checked')) {
+
+        if(checkbox.attr('name') === 'modulo_todos') {
+            $('#sala-' + checkbox.val() + ' input[type=checkbox]').attr('checked',false).attr('disabled',true);
+            checkbox.attr('checked',true);
+        }
+
+        /*if(checkbox.is(':checked')) {
             $('input[name=' + checkbox.attr('id') + '-hosp]').attr("disabled",false);
         } else {
             $('input[name=' + checkbox.attr('id') + '-hosp]').attr("disabled",true).attr("checked",false);
-        }
+        }*/
     });
     
     // Submissão formulário de inscrição
