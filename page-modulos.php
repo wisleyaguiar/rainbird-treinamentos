@@ -149,7 +149,7 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
                   </tr>
                   <tr>
                       <td>&nbsp;</td>
-                      <td>&nbsp;</td>
+                      <td><input type="checkbox" checked disabled /></td>
                       <td><label><?php echo get_post($curso_id)->post_title; ?></label></td>
                       <td><label><input type="radio" name="curso-hosp[]" id="curso-<?php echo $curso_id; ?>-sgl" value="<?php echo $valor_apto_solteiro; ?>"><?php echo money_format('%.2n', $valor_apto_solteiro) ?></label></td>
                       <td><label><input type="radio" name="curso-hosp[]" id="curso-<?php echo $curso_id; ?>-dbl" value="<?php echo $valor_apto_duplo; ?>"><?php echo money_format('%.2n', $valor_apto_duplo) ?></label></td>
