@@ -338,6 +338,10 @@
         else if(checkbox.is(':checked')) {
             $('input[name=modulo-' + checkbox.val() + '-valor]').attr("disabled",false);
         }
+        else if(checkbox.is(':checked')===false && checkbox.attr('name') === 'modulo_todos') {
+            $('#sala-' + checkbox.val() + ' input[type=checkbox]').attr('checked',true).attr('disabled',false);
+            $('input[name=modulo-todos-' + checkbox.val() + '-valor]').attr("disabled",true);
+        }
 
         /*if(checkbox.is(':checked')) {
             $('input[name=' + checkbox.attr('id') + '-hosp]').attr("disabled",false);
