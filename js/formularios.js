@@ -333,6 +333,7 @@
             $('#sala-' + checkbox.val() + ' input[type=checkbox]').attr('checked',false).attr('disabled',true);
             $('input[type=radio]').attr("disabled",true).attr("checked",false);
             checkbox.attr('checked',true).attr('disabled',false);
+            $('input[name=modulo-todos-' + checkbox.val() + '-valor]').attr("disabled",false);
         }
         else if(checkbox.is(':checked')) {
             $('input[name=modulo-' + checkbox.val() + '-valor]').attr("disabled",false);
