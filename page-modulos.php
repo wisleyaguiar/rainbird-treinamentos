@@ -155,7 +155,7 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
                       <td><label><input type="radio" name="curso-hosp[]" id="curso-<?php echo $curso_id; ?>-dbl" value="<?php echo $valor_apto_duplo; ?>"><?php echo money_format('%.2n', $valor_apto_duplo) ?></label></td>
                       <td><label><input type="radio" name="curso-hosp[]" id="curso-<?php echo $curso_id; ?>-sh" value="<?php echo $valor_sem_hospedagem; ?>"><?php echo money_format('%.2n', $valor_sem_hospedagem) ?></label></td>
                       <td>De <?php echo substr($data_inicio_treinamento,0,5); ?> à <?php echo substr($data_termino_treinamento,0,5); ?><br>
-                          <?php echo substr($horario_inicio,0,2); ?> - <?php echo substr($horario_termino,0,2); ?></td>
+                          Das <?php echo substr($horario_inicio,0,2); ?>h às <?php echo substr($horario_termino,0,2); ?>h</td>
                   </tr>
                   </tbody>
               </table>
