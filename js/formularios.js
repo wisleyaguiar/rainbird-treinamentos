@@ -334,6 +334,9 @@
             $('input[type=radio]').attr("disabled",true).attr("checked",false);
             checkbox.attr('checked',true).attr('disabled',false);
         }
+        else if(checkbox.is(':checked') && checkbox.attr('name') != 'modulo_todos') {
+            $('input[name=modulo-' + checkbox.val() + '-valor]').attr("disabled",false);
+        }
 
         /*if(checkbox.is(':checked')) {
             $('input[name=' + checkbox.attr('id') + '-hosp]').attr("disabled",false);
