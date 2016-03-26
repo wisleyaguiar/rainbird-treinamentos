@@ -20,7 +20,7 @@ get_header(); ?>
     <ul class="lista-eventos">
       <li>
         <a href="<?php echo home_url('/minha-conta'); ?>/?op=meus-dados" class="box-capa"><i class="fa fa-list-alt"></i></a>
-        <h2 class="tituloEvento">Atualizar Dados Cadastrais</h2>
+        <h2 class="tituloEvento">Dados Cadastrais</h2>
         <a href="<?php echo home_url('/minha-conta'); ?>/?op=meus-dados" class="bt-entrar">Entrar</a>
       </li>
       <li>
