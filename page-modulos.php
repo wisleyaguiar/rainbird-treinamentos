@@ -26,7 +26,7 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
           <?php
               $total_salas = get_post_meta($curso_id, 'total_salas', true);
               for($i=1;$i<=$total_salas;$i++) { ?>
-          <table border="0" class="tabela-comerce">
+          <table border="0" class="tabela-comerce" id="sala-<?php echo $i; ?>">
               <tbody>
               <tr>
                   <td class="titulo">Módulos<br>Sala <?php echo $i; ?></td>
@@ -88,11 +88,11 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
               ?>
               <tr>
                   <td><?php echo $cod_modulo; ?></td>
-                  <td><input type="checkbox" name="modulo[]" id="modulo-<?php echo $cod_modulo; ?>" value="<?php echo $post->ID; ?>"></td>
-                  <td><label for="modulo-<?php echo $cod_modulo; ?>"><?php the_title(); ?></label></td>
-                  <td><label><input type="radio" disabled name="modulo-<?php echo $cod_modulo; ?>-hosp" id="modulo-<?php echo $cod_modulo; ?>-sgl" value="<?php echo $valor_apto_solteiro; ?>"><?php echo money_format('%.2n', $valor_apto_solteiro) ?></label></td>
-                  <td><label><input type="radio" disabled name="modulo-<?php echo $cod_modulo; ?>-hosp" id="modulo-<?php echo $cod_modulo; ?>-dbl" value="<?php echo $valor_apto_duplo; ?>"><?php echo money_format('%.2n', $valor_apto_duplo) ?></label></td>
-                  <td><label><input type="radio" disabled name="modulo-<?php echo $cod_modulo; ?>-hosp" id="modulo-<?php echo $cod_modulo; ?>-sh" value="<?php echo $valor_sem_hospedagem; ?>"><?php echo money_format('%.2n', $valor_sem_hospedagem) ?></label></td>
+                  <td><input type="checkbox" name="" id="" value=""></td>
+                  <td><label for=""><?php the_title(); ?></label></td>
+                  <td><label><input type="radio" disabled name="" id="" value="<?php echo $valor_apto_solteiro; ?>"><?php echo money_format('%.2n', $valor_apto_solteiro) ?></label></td>
+                  <td><label><input type="radio" disabled name="" id="" value="<?php echo $valor_apto_duplo; ?>"><?php echo money_format('%.2n', $valor_apto_duplo) ?></label></td>
+                  <td><label><input type="radio" disabled name="" id="" value="<?php echo $valor_sem_hospedagem; ?>"><?php echo money_format('%.2n', $valor_sem_hospedagem) ?></label></td>
                   <td><?php echo substr($data_inicio_modulo_1,0,5); ?> das <?php echo substr($horario_inicio_modulo_1,0,2); ?>h às <?php echo substr($horario_termino_modulo_1,0,2); ?>h<br>
                       <?php if(!empty($data_inicio_modulo_2)) { ?>
                       <?php echo substr($data_inicio_modulo_2,0,5); ?> das <?php echo substr($horario_inicio_modulo_2,0,2); ?>h às <?php echo substr($horario_termino_modulo_2,0,2); ?>h
@@ -107,11 +107,11 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
               ?>
                   <tr>
                       <td></td>
-                      <td><input type="checkbox" name="modulo[]" id="modulo-todos-<?php echo $i; ?>" value="modulo-todos-<?php echo $i; ?>"></td>
-                      <td><label for="modulo-todos-<?php echo $i; ?>">Todos os Módulos</label></td>
-                      <td><label><input type="radio" disabled name="modulo-todos-<?php echo $i; ?>-hosp" id="modulo-<?php echo $i; ?>-sgl" value="<?php echo $valor_final_apto_solteiro; ?>"><?php echo money_format('%.2n', $valor_final_apto_solteiro) ?></label></td>
-                      <td><label><input type="radio" disabled name="modulo-todos-<?php echo $i; ?>-hosp" id="modulo-<?php echo $i; ?>-dbl" value="<?php echo $valor_final_apto_duplo; ?>"><?php echo money_format('%.2n', $valor_final_apto_duplo) ?></label></td>
-                      <td><label><input type="radio" disabled name="modulo-todos-<?php echo $i; ?>-hosp" id="modulo-<?php echo $i; ?>-sh" value="<?php echo $valor_final_sem_hospedagem; ?>"><?php echo money_format('%.2n', $valor_final_sem_hospedagem) ?></label></td>
+                      <td><input type="checkbox" name="" id="" value=""></td>
+                      <td><label for="">Todos os Módulos</label></td>
+                      <td><label><input type="radio" disabled name="" id="" value="<?php echo $valor_final_apto_solteiro; ?>"><?php echo money_format('%.2n', $valor_final_apto_solteiro) ?></label></td>
+                      <td><label><input type="radio" disabled name="" id="" value="<?php echo $valor_final_apto_duplo; ?>"><?php echo money_format('%.2n', $valor_final_apto_duplo) ?></label></td>
+                      <td><label><input type="radio" disabled name="" id="" value="<?php echo $valor_final_sem_hospedagem; ?>"><?php echo money_format('%.2n', $valor_final_sem_hospedagem) ?></label></td>
                       <td>Aproveite o desconto de <?php echo get_post_meta($curso_id, 'num_desc_vista', true) ?>% todos os módulos</td>
                   </tr>
               <?php } else {
