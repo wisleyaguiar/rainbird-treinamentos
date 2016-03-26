@@ -331,18 +331,18 @@
 
         if(checkbox.is(':checked') && checkbox.attr('name') === 'modulo_todos') {
             $('#sala-' + checkbox.val() + ' input[type=checkbox]').attr('checked',false).attr('disabled',true);
-            $('#sala-' + checkbox.val() + 'input[type=radio]').attr("disabled",true).attr("checked",false);
+            $('#sala-' + checkbox.val() + ' input[type=radio]').attr("disabled",true).attr("checked",false);
             checkbox.attr('checked',true).attr('disabled',false);
-            $('#sala-' + checkbox.val() + 'input[name=modulo-todos-' + checkbox.val() + '-valor]').attr("disabled",false);
+            $('#sala-' + checkbox.val() + ' input[name=modulo-todos-' + checkbox.val() + '-valor]').attr("disabled",false);
         }
         else if(checkbox.is(':checked')) {
             $('input[name=modulo-' + checkbox.val() + '-valor]').attr("disabled",false);
         }
         else if(checkbox.is(':checked')===false && checkbox.attr('name') === 'modulo_todos') {
             $('#sala-' + checkbox.val() + ' input[type=checkbox]').attr('checked',false).attr('disabled',false);
-            $('#sala-' + checkbox.val() + 'input[type=radio]').attr("disabled",true).attr("checked",false);
+            $('#sala-' + checkbox.val() + ' input[type=radio]').attr("disabled",true).attr("checked",false);
             checkbox.attr('checked',false);
-            $('#sala-' + checkbox.val() + 'input[name=modulo-todos-' + checkbox.val() + '-valor]').attr("disabled",true);
+            $('#sala-' + checkbox.val() + ' input[name=modulo-todos-' + checkbox.val() + '-valor]').attr("disabled",true);
         } else {
             $('input[name=modulo-' + checkbox.val() + '-valor]').attr("disabled",true).attr("checked",false);
         }
