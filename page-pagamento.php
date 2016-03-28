@@ -28,7 +28,7 @@ setlocale(LC_MONETARY, 'pt_BR');
       <?php $cursos = get_post_meta($id_inscricao,'ins_id_modulos_curso',false);
             $valores = get_post_meta($id_inscricao,'ins_valores_curso',false); ?>
       <?php foreach ($cursos as $curso) { ?>
-      <p><?php echo $curso; ?><?php echo get_post_meta($curso,'cod_modulo',true); ?> - <?php echo get_post($curso)->post_title; ?></p>
+      <p><?php echo $curso[0]; ?><?php echo get_post_meta($curso,'cod_modulo',true); ?> - <?php echo get_post($curso)->post_title; ?></p>
       <?php } ?>
 
       <p><strong style="font-size: 15px;color: #10724c">Total da sua compra:</strong><br>
