@@ -84,8 +84,8 @@ function processar_inscricao_callback() {
                     // The Loop
                     if ( $query_modulos->have_posts() ) {
                         while ($query_modulos->have_posts()) {
-                            add_post_meta($id_inscricao, 'ins_modulos_curso', get_the_title());
-                            add_post_meta($id_inscricao, 'ins_id_modulos_curso', $post->ID);
+                            update_post_meta($id_inscricao, 'ins_modulos_curso', get_the_title());
+                            update_post_meta($id_inscricao, 'ins_id_modulos_curso', $post->ID);
                         }
                     }
                     add_post_meta($id_inscricao,'ins_valores_curso', $_POST['modulo-todos-' . $modulo_todos . '-valor']);
