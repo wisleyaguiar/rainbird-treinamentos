@@ -48,7 +48,7 @@ function processar_inscricao_callback() {
                 $modulos = $_POST['modulo'];
                 $modulo_todos = $_POST['modulo_todos'];
 
-                /*if (!isset($modulo_todos) && $modulo_todos == "") {
+                if (!isset($modulo_todos) && $modulo_todos == "") {
                     $total_valores = 0;
                     for ($i=1;$i<=$salas;$i++) {
                         for($j=0;$j<count($modulos[$i]);$j++) {
@@ -61,36 +61,13 @@ function processar_inscricao_callback() {
                     }
                     add_post_meta($id_inscricao,'ins_total_pagamento',$total_valores,true);
                 } else {
-                    $args = array (
-                        'post_type'              => array( 'modulo' ),
-                        'post_status'            => array( 'publish' ),
-                        'posts_per_page'         => '-1',
-                        'order'                  => 'ASC',
-                        'orderby'                => 'menu_order',
-                        'meta_query'             => array(
-                            array(
-                                'key'       => 'curso_associado',
-                                'value'     => $curso_id,
-                            ),
-                            array(
-                                'key'       => 'sala_modulo',
-                                'value'     => $modulo_todos,
-                            ),
-                        ),
-                    );
-                    // The Query
-                    $query_modulos = new WP_Query( $args );
+                    
+                    update_post_meta($id_inscricao, 'ins_modulos_curso', 'Todos', false);
+                    update_post_meta($id_inscricao, 'ins_id_modulos_curso', 0, false);
 
-                    // The Loop
-                    if ( $query_modulos->have_posts() ) {
-                        while ($query_modulos->have_posts()) {
-                            update_post_meta($id_inscricao, 'ins_modulos_curso', get_the_title(), false);
-                            update_post_meta($id_inscricao, 'ins_id_modulos_curso', $post->ID, false);
-                        }
-                    }
                     add_post_meta($id_inscricao,'ins_valores_curso', $_POST['modulo-todos-' . $modulo_todos . '-valor'], false);
                     add_post_meta($id_inscricao,'ins_total_pagamento',$_POST['modulo-todos-' . $modulo_todos . '-valor'],true);
-                }*/
+                }
                 // Salvando outros dados
                 add_post_meta($id_inscricao,'ins_num',(1000 + $id_inscricao),true);
                 add_post_meta($id_inscricao,'ins_nome_curso',get_post($curso_id)->post_title,true);
