@@ -52,9 +52,9 @@ function processar_inscricao_callback() {
                     $total_valores = 0;
                     for ($i=1;$i<=$salas;$i++) {
                         for($j=0;$j<count($modulos[$i]);$j++) {
-                            update_post_meta($id_inscricao, 'ins_modulos_curso', get_post($modulos[$i][$j])->post_title);
-                            update_post_meta($id_inscricao, 'ins_id_modulos_curso', $modulos[$i][$j]);
-                            update_post_meta($id_inscricao, 'ins_valores_curso', $_POST['modulo-' . $modulos[$i][$j] . '-valor']);
+                            update_post_meta($id_inscricao, 'ins_modulos_curso', get_post($modulos[$i][$j])->post_title, false);
+                            update_post_meta($id_inscricao, 'ins_id_modulos_curso', $modulos[$i][$j], false);
+                            update_post_meta($id_inscricao, 'ins_valores_curso', $_POST['modulo-' . $modulos[$i][$j] . '-valor'], false);
 
                             $total_valores = $total_valores + $_POST['modulo-' . $modulos[$i][$j] . '-valor'];
                         }
@@ -84,11 +84,11 @@ function processar_inscricao_callback() {
                     // The Loop
                     if ( $query_modulos->have_posts() ) {
                         while ($query_modulos->have_posts()) {
-                            update_post_meta($id_inscricao, 'ins_modulos_curso', get_the_title());
-                            update_post_meta($id_inscricao, 'ins_id_modulos_curso', $post->ID);
+                            update_post_meta($id_inscricao, 'ins_modulos_curso', get_the_title(), false);
+                            update_post_meta($id_inscricao, 'ins_id_modulos_curso', $post->ID, false);
                         }
                     }
-                    add_post_meta($id_inscricao,'ins_valores_curso', $_POST['modulo-todos-' . $modulo_todos . '-valor']);
+                    add_post_meta($id_inscricao,'ins_valores_curso', $_POST['modulo-todos-' . $modulo_todos . '-valor'], false);
                     add_post_meta($id_inscricao,'ins_total_pagamento',$_POST['modulo-todos-' . $modulo_todos . '-valor'],true);
                 }
                 // Salvando outros dados
