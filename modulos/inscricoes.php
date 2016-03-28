@@ -179,19 +179,19 @@ function inscricoes_meta_boxes( $meta_boxes ) {
                 'id'   => 'ins_modulos_curso',
                 'name' => __( 'Nome dos Módulos', 'textdomain' ),
                 'type' => 'text',
-                'clone' => true,
+                'clone' => false,
             ),
             array(
                 'id'   => 'ins_id_modulos_curso',
                 'name' => __( 'IDs dos Módulos', 'textdomain' ),
                 'type' => 'text',
-                'clone' => true,
+                'clone' => false,
             ),
             array(
                 'id'   => 'ins_valores_curso',
                 'name' => __( 'Valores', 'textdomain' ),
                 'type' => 'text',
-                'clone' => true,
+                'clone' => false,
             ),
             array(
                 'id'   => 'ins_total_pagamento',
