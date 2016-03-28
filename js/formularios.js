@@ -420,7 +420,7 @@
                         title: "Sucesso"
                     });
                     $('.preloading').hide();
-                    window.location = '/treinamentos/pagamento/?id_inscricao=' . resp.msg;
+                    window.location = '/treinamentos/pagamento/?id_inscricao=' + resp.msg;
                 }
             });
         }
