@@ -25,8 +25,8 @@ setlocale(LC_MONETARY, 'pt_BR');
 
       <p><strong style="font-size: 15px;color: #10724c">Módulos Selecionados:</strong></p>
 
-      <?php $cursos = get_post_meta($id_inscricao,'ins_id_modulos_curso',false);
-            $valores = get_post_meta($id_inscricao,'ins_valores_curso', false); ?>
+      <?php $cursos = get_post_meta($id_inscricao,'ins_id_modulos_curso',true);
+            $valores = get_post_meta($id_inscricao,'ins_valores_curso', true); ?>
       <?php foreach ($cursos as $curso) { ?>
       <p><?php echo get_post_meta($curso,'cod_modulo',true); ?> - <?php echo get_post($curso)->post_title; ?></p>
       <?php } ?>
