@@ -18,16 +18,22 @@ setlocale(LC_MONETARY, 'pt_BR');
   <div style="width:612px; float:left; margin-left: 154px; padding-top: 30px; margin-right: 20px;">
     <h1 style="color: #10724c; font-size: 20px;">Conclusão de sua inscrição - Pagamento</h1>
 
-    <?php if(isset($_POST)&&is_array($_POST)&&!empty($_POST)) {
-        $curso_id = $_POST['curso_id'];
+    <?php if(isset($_GET['id_inscricao'])&&!empty($_GET['id_inscricao'])) {
+        $id_inscricao = $_GET['id_inscricao'];
     ?>
-      <p><strong style="font-size: 15px; color: #10724c">Treinamento escolhido:</strong><br><?php echo get_post($curso_id)->post_title; ?></p>
+      <p><strong style="font-size: 15px; color: #10724c">Treinamento escolhido:</strong><br><?php echo get_post_meta($id_inscricao,'ins_nome_curso',true); ?></p>
 
       <p><strong style="font-size: 15px;color: #10724c">Módulos Selecionados:</strong></p>
 
-      <?php print_r($_POST); ?>
+      <?php $cursos = get_post_meta($id_inscricao,'ins_id_modulos_curso',false);
+            $valores = get_post_meta($id_inscricao,'ins_valores_curso', false); ?>
+      <?php foreach ($cursos as $curso) { ?>
+      <p><?php echo get_post_meta($curso,'cod_modulo',true); ?> - <?php echo get_post($curso)->post_title; ?></p>
+      <?php } ?>
 
-      <p><strong style="font-size: 15px;color: #10724c">Total da sua compra:</strong><br></p>
+      <p><strong style="font-size: 15px;color: #10724c">Total da sua compra:</strong><br>
+          <?php echo money_format('%.2n', get_post_meta($id_inscricao,'ins_total_pagamento',true)) ?>
+      </p>
 
       <p><strong style="font-size: 15px;color: #10724c">Formas de Pagamento:</strong></p>
       <form action="<?php echo home_url('/'); ?>" method="post" id="formPagamento">

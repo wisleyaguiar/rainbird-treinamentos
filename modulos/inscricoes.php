@@ -77,7 +77,7 @@ function processar_inscricao_callback() {
                 add_post_meta($id_inscricao,'ins_status_inscricao','03',true);
 
                 $resposta['erro'] = false;
-                $resposta['msg'] = "Processando inscrição.";
+                $resposta['msg'] = $id_inscricao;
 
             }
         } else {
