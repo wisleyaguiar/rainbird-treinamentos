@@ -350,7 +350,7 @@
     });
     
     // Submissão formulário de inscrição
-    $('#formEscolhaModulos').submit(function(e){
+    $('#formEscolhaModulos2').submit(function(e){
         e.preventDefault();
 
         if(!$('input[type=checkbox]').is(':checked')) {
