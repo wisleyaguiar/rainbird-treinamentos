@@ -48,7 +48,7 @@ function processar_inscricao_callback() {
                 $modulos = $_POST['modulo'];
                 $modulo_todos = $_POST['modulo_todos'];
 
-                if (!isset($modulo_todos) && $modulo_todos == "") {
+                /*if (!isset($modulo_todos) && $modulo_todos == "") {
                     $total_valores = 0;
                     for ($i=1;$i<=$salas;$i++) {
                         for($j=0;$j<count($modulos[$i]);$j++) {
@@ -90,7 +90,7 @@ function processar_inscricao_callback() {
                     }
                     add_post_meta($id_inscricao,'ins_valores_curso', $_POST['modulo-todos-' . $modulo_todos . '-valor'], false);
                     add_post_meta($id_inscricao,'ins_total_pagamento',$_POST['modulo-todos-' . $modulo_todos . '-valor'],true);
-                }
+                }*/
                 // Salvando outros dados
                 add_post_meta($id_inscricao,'ins_num',(1000 + $id_inscricao),true);
                 add_post_meta($id_inscricao,'ins_nome_curso',get_post($curso_id)->post_title,true);
