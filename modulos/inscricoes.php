@@ -52,9 +52,9 @@ function processar_inscricao_callback() {
                     $total_valores = 0;
                     for ($i=1;$i<=$salas;$i++) {
                         for($j=0;$j<count($modulos[$i]);$j++) {
-                            update_post_meta($id_inscricao, 'ins_modulos_curso', get_post($modulos[$i][$j])->post_title, false);
-                            update_post_meta($id_inscricao, 'ins_id_modulos_curso', $modulos[$i][$j], false);
-                            update_post_meta($id_inscricao, 'ins_valores_curso', $_POST['modulo-' . $modulos[$i][$j] . '-valor'], false);
+                            update_post_meta($id_inscricao, 'ins_modulos_curso', get_post($modulos[$i][$j])->post_title,true);
+                            update_post_meta($id_inscricao, 'ins_id_modulos_curso', $modulos[$i][$j],true);
+                            update_post_meta($id_inscricao, 'ins_valores_curso', $_POST['modulo-' . $modulos[$i][$j] . '-valor'],true);
 
                             $total_valores = $total_valores + $_POST['modulo-' . $modulos[$i][$j] . '-valor'];
                         }
@@ -62,10 +62,10 @@ function processar_inscricao_callback() {
                     add_post_meta($id_inscricao,'ins_total_pagamento',$total_valores,true);
                 } else {
 
-                    update_post_meta($id_inscricao, 'ins_modulos_curso', 'Todos da sala ' . $modulo_todos, false);
-                    update_post_meta($id_inscricao, 'ins_id_modulos_curso', $modulo_todos, false);
+                    update_post_meta($id_inscricao, 'ins_modulos_curso', 'Todos da sala ' . $modulo_todos,true);
+                    update_post_meta($id_inscricao, 'ins_id_modulos_curso', $modulo_todos,false);
 
-                    add_post_meta($id_inscricao,'ins_valores_curso', $_POST['modulo-todos-' . $modulo_todos . '-valor'], false);
+                    add_post_meta($id_inscricao,'ins_valores_curso', $_POST['modulo-todos-' . $modulo_todos . '-valor'],true);
                     add_post_meta($id_inscricao,'ins_total_pagamento',$_POST['modulo-todos-' . $modulo_todos . '-valor'],true);
                 }
                 // Salvando outros dados
@@ -179,19 +179,19 @@ function inscricoes_meta_boxes( $meta_boxes ) {
                 'id'   => 'ins_modulos_curso',
                 'name' => __( 'Nome dos Módulos', 'textdomain' ),
                 'type' => 'text',
-                'clone' => false,
+                'clone' => true,
             ),
             array(
                 'id'   => 'ins_id_modulos_curso',
                 'name' => __( 'IDs dos Módulos', 'textdomain' ),
                 'type' => 'text',
-                'clone' => false,
+                'clone' => true,
             ),
             array(
                 'id'   => 'ins_valores_curso',
                 'name' => __( 'Valores', 'textdomain' ),
                 'type' => 'text',
-                'clone' => false,
+                'clone' => true,
             ),
             array(
                 'id'   => 'ins_total_pagamento',
