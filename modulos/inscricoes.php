@@ -10,13 +10,18 @@ add_action( 'wp_ajax_processar_inscricao', 'processar_inscricao_callback' );
 add_action( 'wp_ajax_nopriv_processar_inscricao', 'processar_inscricao_callback' );
 
 function processar_inscricao_callback() {
+    global $post;
+    global $wpdb;
+
     // Recebendo variáveis
-    
+    $tipo_curso = trim(strip_tags($_POST['tipo_curso']));
+    $curso_id = trim(strip_tags($_POST['curso_id']));
+    $user_cad = trim(strip_tags($_POST['user_cad']));
 
     $resposta['msg'] = "Erros encontrados:";
     $erros = 0;
 
-    if(empty($nomeCompleto)){
+    if(empty($tipo_curso) || empty($curso_id) || empty($user_cad)){
         $erros++;
         $resposta['msg'] .= "Campos obrigatórios não preenchidos.";
     }
@@ -24,18 +29,78 @@ function processar_inscricao_callback() {
     if($erros>0) {
         $resposta['erro'] = true;
     } else {
-        
-        // verifica se o nome de usuário ou email já foram usados
-        if(is_wp_error()){
-            $resposta['erro'] = true;
-            $resposta['msg'] = "";// . $user_id->get_error_message();
+
+        $dados_inscricao = array(
+            'post_content'  => '',
+            'post_title'    => '',
+            'post_status'   => 'pending',
+            'post_author'   => $user_cad,
+            'post_type'     => 'inscricao'
+        );
+
+        $id_inscricao = wp_insert_post( $dados_inscricao, true );
+
+        if(!is_wp_error($id_inscricao)) {
+            // Verifica o tipo de curso
+            if ($tipo_curso == 'tipo_modulo') {
+                // Variáveis deste tipo de curso
+                $salas = trim(strip_tags($_POST['salas']));
+                $modulos = $_POST['modulo'];
+                $modulo_todos = $_POST['modulo_todos'];
+
+                if (!isset($modulo_todos) && $modulo_todos == "") {
+                    $total_valores = 0;
+                    for ($i=1;$i<=$salas;$i++) {
+                        for($j=0;$j<count($modulos[$i]);$j++) {
+                            add_post_meta($id_inscricao, 'ins_modulos_curso', get_post($modulos[$i][$j])->post_title);
+                            add_post_meta($id_inscricao, 'ins_id_modulos_curso', $modulos[$i][$j]);
+                            add_post_meta($id_inscricao, 'ins_valores_curso', $_POST['modulo-' . $modulos[$i][$j] . '-valor']);
+
+                            $total_valores = $total_valores + $_POST['modulo-' . $modulos[$i][$j] . '-valor'];
+                        }
+                    }
+                    add_post_meta($id_inscricao,'ins_total_pagamento',$total_valores,true);
+                } else {
+                    $args = array (
+                        'post_type'              => array( 'modulo' ),
+                        'post_status'            => array( 'publish' ),
+                        'posts_per_page'         => '-1',
+                        'order'                  => 'ASC',
+                        'orderby'                => 'menu_order',
+                        'meta_query'             => array(
+                            array(
+                                'key'       => 'curso_associado',
+                                'value'     => $curso_id,
+                            ),
+                            array(
+                                'key'       => 'sala_modulo',
+                                'value'     => $modulo_todos,
+                            ),
+                        ),
+                    );
+                    // The Query
+                    $query_modulos = new WP_Query( $args );
+
+                    // The Loop
+                    if ( $query_modulos->have_posts() ) {
+                        while ($query_modulos->have_posts()) {
+                            add_post_meta($id_inscricao, 'ins_modulos_curso', get_the_title());
+                            add_post_meta($id_inscricao, 'ins_id_modulos_curso', $post->ID);
+                        }
+                    }
+                    add_post_meta($id_inscricao,'ins_valores_curso', $_POST['modulo-todos-' . $modulo_todos . '-valor']);
+                    add_post_meta($id_inscricao,'ins_total_pagamento',$_POST['modulo-todos-' . $modulo_todos . '-valor'],true);
+                }
+                // Salvando outros dados
+                add_post_meta($id_inscricao,'ins_num',(1000 + $id_inscricao),true);
+                add_post_meta($id_inscricao,'ins_nome_curso',get_post($curso_id)->post_title,true);
+                add_post_meta($id_inscricao,'ins_id_curso',$curso_id,true);
+                add_post_meta($id_inscricao,'ins_tipo_curso',$tipo_curso,true);
+                add_post_meta($id_inscricao,'ins_salas_curso',$salas,true);
+            }
         } else {
-            // Salvando os outros dados
-            
-
-            $resposta['erro'] = false;
-            $resposta['msg'] = "Cadastro realizado com sucesso!";
-
+            $resposta['erro'] = true;
+            $resposta['msg'] = "Não foi possível finalizar a inscrição. Erro: " . $id_inscricao->get_error_message();
         }
     }
     echo json_encode($resposta);
@@ -76,7 +141,7 @@ function custom_post_type_inscricoes() {
         'label'                 => __( 'Inscrição', 'rainbird-treinamentos' ),
         'description'           => __( 'Inscrições de Eventos e Cursos', 'rainbird-treinamentos' ),
         'labels'                => $labels,
-        'supports'              => array( 'title', 'author', 'page-attributes', ),
+        'supports'              => array( 'author', 'page-attributes', ),
         'hierarchical'          => false,
         'public'                => false,
         'show_ui'               => true,
@@ -96,3 +161,124 @@ function custom_post_type_inscricoes() {
 
 }
 add_action( 'init', 'custom_post_type_inscricoes', 0 );
+
+// Campos de inscrições
+add_filter( 'rwmb_meta_boxes', 'inscricoes_meta_boxes' );
+function inscricoes_meta_boxes( $meta_boxes ) {
+    $meta_boxes[] = array(
+        'title'      => __( 'Dados da Inscrição', 'rainbird-treinamentos' ),
+        'post_types' => 'inscricao',
+        'fields'     => array(
+            array(
+                'id'   => 'Numero de Inscrição',
+                'name' => __( 'ins_num', 'textdomain' ),
+                'type' => 'number',
+            ),
+            array(
+                'id'   => 'Nome do Curso/Treinamento',
+                'name' => __( 'ins_nome_curso', 'textdomain' ),
+                'type' => 'text',
+            ),
+            array(
+                'id'   => 'ID Curso/Treinamento',
+                'name' => __( 'ins_id_curso', 'textdomain' ),
+                'type' => 'text',
+            ),
+            array(
+                'id'   => 'Tipo do Curso/Treinamento',
+                'name' => __( 'ins_tipo_curso', 'textdomain' ),
+                'type' => 'text',
+            ),
+            array(
+                'id'   => 'Salas',
+                'name' => __( 'ins_salas_curso', 'textdomain' ),
+                'type' => 'number',
+            ),
+            array(
+                'id'   => 'Nome dos Módulos',
+                'name' => __( 'ins_modulos_curso', 'textdomain' ),
+                'type' => 'text',
+                'clone' => true,
+            ),
+            array(
+                'id'   => 'IDs dos Módulos',
+                'name' => __( 'ins_id_modulos_curso', 'textdomain' ),
+                'type' => 'text',
+                'clone' => true,
+            ),
+            array(
+                'id'   => 'Valores',
+                'name' => __( 'ins_valores_curso', 'textdomain' ),
+                'type' => 'text',
+                'clone' => true,
+            ),
+            array(
+                'id'   => 'Total de Pagamento',
+                'name' => __( 'ins_total_pagamento', 'textdomain' ),
+                'type' => 'text',
+            ),
+            array(
+                'name'        => __( 'Forma de Pagamento', 'your-prefix' ),
+                'id'          => "ins_forma_pagamento",
+                'type'        => 'select',
+                // Array of 'value' => 'Label' pairs for select box
+                'options'     => array(
+                    '00' => __( 'Pagamento não escolhido', 'your-prefix' ),
+                    '01' => __( 'À vista (TEF e CDC)', 'your-prefix' ),
+                    '02' => __( 'Boleto', 'your-prefix' ),
+                    '03' => __( 'Cartão de Crédito', 'your-prefix' ),
+                ),
+                // Select multiple values, optional. Default is false.
+                'multiple'    => false,
+                'placeholder' => __( 'Select an Item', 'your-prefix' ),
+            ),
+            array(
+                'name'        => __( 'Status Pagamento', 'your-prefix' ),
+                'id'          => "ins_status_pagamento",
+                'type'        => 'select',
+                // Array of 'value' => 'Label' pairs for select box
+                'options'     => array(
+                    '00' => __( 'Pagamento efetuado', 'your-prefix' ),
+                    '01' => __( 'Pagamento não finalizado', 'your-prefix' ),
+                    '02' => __( 'Erro no processo de consulta', 'your-prefix' ),
+                    '03' => __( 'Pagamento não localizado', 'your-prefix' ),
+                    '04' => __( 'Boleto emitido com sucesso', 'your-prefix' ),
+                    '05' => __( 'Pagamento efetuado, aguardando compensação', 'your-prefix' ),
+                    '06' => __( 'Pagamento não compensado', 'your-prefix' ),
+                ),
+                // Select multiple values, optional. Default is false.
+                'multiple'    => false,
+                'placeholder' => __( 'Select an Item', 'your-prefix' ),
+            ),
+            array(
+                'name'       => __( 'Data de Pagamento', 'your-prefix' ),
+                'id'         => "ins_data_pagamento",
+                'type'       => 'date',
+                // jQuery date picker options. See here http://api.jqueryui.com/datepicker
+                'js_options' => array(
+                    'appendText'      => __( 'Formato do banco (ddmmyyyy)', 'your-prefix' ),
+                    'dateFormat'      => __( 'ddmmyyyy', 'your-prefix' ),
+                    'changeMonth'     => true,
+                    'changeYear'      => true,
+                    'showButtonPanel' => true,
+                ),
+            ),
+            array(
+                'name'        => __( 'Status da Inscrição', 'your-prefix' ),
+                'id'          => "ins_status_inscricao",
+                'type'        => 'select',
+                // Array of 'value' => 'Label' pairs for select box
+                'options'     => array(
+                    '00' => __( 'Confirmada', 'your-prefix' ),
+                    '01' => __( 'Suspensa', 'your-prefix' ),
+                    '02' => __( 'Cancelada', 'your-prefix' ),
+                    '03' => __( 'Pendente', 'your-prefix' ),
+                ),
+                // Select multiple values, optional. Default is false.
+                'multiple'    => false,
+                'placeholder' => __( 'Select an Item', 'your-prefix' ),
+            ),
+        ),
+    );
+    return $meta_boxes;
+}

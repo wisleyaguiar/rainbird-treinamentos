@@ -30,11 +30,11 @@ setlocale(LC_MONETARY, 'pt_BR');
       <p><strong style="font-size: 15px;color: #10724c">Total da sua compra:</strong><br></p>
 
       <p><strong style="font-size: 15px;color: #10724c">Formas de Pagamento:</strong></p>
-      <form action="page-inscsucesso.php" method="post" id="formPagamento">
+      <form action="<?php echo home_url('/'); ?>" method="post" id="formPagamento">
           <table width="100%" border="0">
               <tbody>
               <tr>
-                  <td width="5%"><input type="radio" name="formapagamento" id="formapagamento_1" value="boleto"></td>
+                  <td width="5%"><input type="radio" name="formapagamento" id="formapagamento_1" value="02"></td>
                   <td><label for="formapagamento_1"><strong>Boleto Bancário</strong></label></td>
               </tr>
               <tr>
@@ -42,7 +42,7 @@ setlocale(LC_MONETARY, 'pt_BR');
                   <td><label for="formapagamento_1"><img src="<?php echo get_template_directory_uri(); ?>/images/treinamentos/boleto.png" alt="Boleto" height="50%"></td>
               </tr>
               <tr>
-                  <td><input type="radio" name="formapagamento" id="formapagamento_2" value="cartao-credito"></td>
+                  <td><input type="radio" name="formapagamento" id="formapagamento_2" value="03"></td>
                   <td><label for="formapagamento_2"><strong>Cartão de Crédito</strong></label></td>
               </tr>
               <tr>
@@ -50,7 +50,7 @@ setlocale(LC_MONETARY, 'pt_BR');
                   <td><label for="formapagamento_2"><img src="<?php echo get_template_directory_uri(); ?>/images/treinamentos/cartoes-credito.png" alt="Cartões de Crédito" height="50%"></td>
               </tr>
               <tr>
-                  <td><input type="radio" name="formapagamento" id="formapagamento_3" value="debito"></td>
+                  <td><input type="radio" name="formapagamento" id="formapagamento_3" value="01"></td>
                   <td><label for="formapagamento_3"><strong>Débito em Conta</strong></label></td>
               </tr>
               <tr>

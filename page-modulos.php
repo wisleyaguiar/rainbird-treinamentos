@@ -162,11 +162,11 @@ setlocale(LC_MONETARY, 'pt_BR'); ?>
           <?php } else { ?>
             <p>Tipo de Curso não definido.</p>
           <?php } ?>
-          <input type="hidden" name="user_cad" id="user_cad" value="<?php echo get_current_user_id(); ?>">
           <input type="hidden" name="tipo_curso" id="tipo_curso" value="<?php echo $tipo_curso; ?>">
-          <input type="hidden" name="action" id="action" value="processar_inscricao">
           <input type="hidden" name="curso_id" id="curso_id" value="<?php echo $curso_id; ?>">
-          
+          <input type="hidden" name="user_cad" id="user_cad" value="<?php echo get_current_user_id(); ?>">
+          <input type="hidden" name="action" id="action" value="processar_inscricao">
+                    
       </form>
     <?php } else { ?>
         <h1 style="color: #10724c; font-size: 20px;">Nenhum curso/treinamento escolhido.</h1>
