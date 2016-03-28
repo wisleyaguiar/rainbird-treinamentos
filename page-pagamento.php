@@ -25,12 +25,11 @@ setlocale(LC_MONETARY, 'pt_BR');
 
       <p><strong style="font-size: 15px;color: #10724c">Módulos Selecionados:</strong></p>
 
-      <?php $value = get_post_meta( $id_inscricao, 'ins_id_modulos_curso', false );
-        if ( !empty( $value ) ) {
-            foreach ( $value as $subvalue ) {
-                echo $subvalue;
-            }
-        } ?>
+      <?php $cursos = get_post_meta($id_inscricao,'ins_id_modulos_curso',false);
+            $valores = get_post_meta($id_inscricao,'ins_valores_curso',false); ?>
+      <?php $i=0; foreach ($cursos as $curso) { ?>
+      <p><?php echo get_post_meta($curso[$i],'cod_modulo',true); ?> - <?php echo get_post($curso[$i])->post_title; ?></p>
+      <?php $i++; } ?>
 
       <p><strong style="font-size: 15px;color: #10724c">Total da sua compra:</strong><br>
           <?php echo money_format('%.2n', get_post_meta($id_inscricao,'ins_total_pagamento',true)) ?>
