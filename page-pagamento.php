@@ -29,7 +29,7 @@ setlocale(LC_MONETARY, 'pt_BR');
             $valores = get_post_meta($id_inscricao,'ins_valores_curso',true); ?>
 
       <?php $i=0; foreach ($cursos as $curso) { ?>
-          <?php echo get_post_meta($curso,'cod_modulo', true); ?> - <?php echo get_post($curso)->post_title; ?>: <?php echo $valores[$i]; ?><br>
+          <?php echo get_post_meta($curso,'cod_modulo', true); ?> - <?php echo get_post($curso)->post_title; ?>: <?php echo money_format('%.2n', $valores[$i]); ?><br>
       <?php $i++;} ?></p>
 
       <p><strong style="font-size: 15px;color: #10724c">Total da sua compra:</strong><br>
