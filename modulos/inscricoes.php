@@ -61,7 +61,7 @@ function processar_inscricao_callback() {
                     }
                     add_post_meta($id_inscricao,'ins_total_pagamento',$total_valores,true);
                 } else {
-                    
+
                     update_post_meta($id_inscricao, 'ins_modulos_curso', 'Todos', false);
                     update_post_meta($id_inscricao, 'ins_id_modulos_curso', 0, false);
 
@@ -179,19 +179,19 @@ function inscricoes_meta_boxes( $meta_boxes ) {
                 'id'   => 'ins_modulos_curso',
                 'name' => __( 'Nome dos Módulos', 'textdomain' ),
                 'type' => 'text',
-                'clone' => true,
+                'clone' => false,
             ),
             array(
                 'id'   => 'ins_id_modulos_curso',
                 'name' => __( 'IDs dos Módulos', 'textdomain' ),
                 'type' => 'text',
-                'clone' => true,
+                'clone' => false,
             ),
             array(
                 'id'   => 'ins_valores_curso',
                 'name' => __( 'Valores', 'textdomain' ),
                 'type' => 'text',
-                'clone' => true,
+                'clone' => false,
             ),
             array(
                 'id'   => 'ins_total_pagamento',
