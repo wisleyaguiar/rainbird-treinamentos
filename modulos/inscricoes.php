@@ -69,7 +69,7 @@ function processar_inscricao_callback() {
                 } else {
 
                     add_post_meta($id_inscricao, 'ins_modulos_curso', 'Todos da sala ' . $modulo_todos,true);
-                    add_post_meta($id_inscricao, 'ins_id_modulos_curso', $modulo_todos,false);
+                    add_post_meta($id_inscricao, 'ins_id_modulos_curso', $modulo_todos,true);
 
                     add_post_meta($id_inscricao,'ins_valores_curso', $_POST['modulo-todos-' . $modulo_todos . '-valor'],true);
                     add_post_meta($id_inscricao,'ins_total_pagamento',$_POST['modulo-todos-' . $modulo_todos . '-valor'],true);
