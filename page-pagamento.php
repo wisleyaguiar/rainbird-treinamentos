@@ -24,8 +24,8 @@ setlocale(LC_MONETARY, 'pt_BR');
       <p><strong style="font-size: 15px; color: #10724c">Treinamento escolhido:</strong><br><?php echo get_post_meta($id_inscricao,'ins_nome_curso',true); ?></p>
 
       <p><strong style="font-size: 15px;color: #10724c">Módulos Selecionados:</strong></p>
-        
-      <?php $value = get_post_meta( get_the_ID(), 'ins_id_modulos_curso', false );
+
+      <?php $value = get_post_meta( $id_inscricao, 'ins_id_modulos_curso', false );
         if ( !empty( $value ) ) {
             foreach ( $value as $subvalue ) {
                 echo $subvalue;
