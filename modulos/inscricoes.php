@@ -62,9 +62,9 @@ function processar_inscricao_callback() {
                             $total_valores = $total_valores + $_POST['modulo-' . $modulos[$i][$j] . '-valor'];
                         }
                     }
-                    add_post_meta($id_inscricao, 'ins_modulos_curso', $ins_modulos_curso,true);
-                    add_post_meta($id_inscricao, 'ins_id_modulos_curso', $ins_id_modulos_curso,true);
-                    add_post_meta($id_inscricao, 'ins_valores_curso', $ins_valores_curso,true);
+                    add_post_meta($id_inscricao,'ins_modulos_curso', $ins_modulos_curso,true);
+                    add_post_meta($id_inscricao,'ins_id_modulos_curso', $ins_id_modulos_curso,true);
+                    add_post_meta($id_inscricao,'ins_valores_curso', $ins_valores_curso,true);
                     add_post_meta($id_inscricao,'ins_total_pagamento',$total_valores,true);
                 } else {
 
