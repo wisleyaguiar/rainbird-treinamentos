@@ -24,12 +24,13 @@ setlocale(LC_MONETARY, 'pt_BR');
       <p><strong style="font-size: 15px; color: #10724c">Treinamento escolhido:</strong><br><?php echo get_post_meta($id_inscricao,'ins_nome_curso',true); ?></p>
 
       <p><strong style="font-size: 15px;color: #10724c">Módulos Selecionados:</strong></p>
-
-      <?php $cursos = rwmb_meta( 'ins_id_modulos_curso' );
-            $valores = get_post_meta($id_inscricao,'ins_valores_curso',false); ?>
-      <?php foreach ($cursos as $curso) { ?>
-      <p><?php echo $curso; ?><?php echo get_post_meta($curso,'cod_modulo',true); ?> - <?php echo get_post($curso)->post_title; ?></p>
-      <?php } ?>
+        
+      <?php $value = get_post_meta( get_the_ID(), 'ins_id_modulos_curso', false );
+        if ( !empty( $value ) ) {
+            foreach ( $value as $subvalue ) {
+                echo $subvalue;
+            }
+        } ?>
 
       <p><strong style="font-size: 15px;color: #10724c">Total da sua compra:</strong><br>
           <?php echo money_format('%.2n', get_post_meta($id_inscricao,'ins_total_pagamento',true)) ?>
