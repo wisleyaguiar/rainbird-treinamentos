@@ -74,6 +74,7 @@ function processar_inscricao_callback() {
                 add_post_meta($id_inscricao,'ins_id_curso',$curso_id,true);
                 add_post_meta($id_inscricao,'ins_tipo_curso',$tipo_curso,true);
                 add_post_meta($id_inscricao,'ins_salas_curso',$salas,true);
+                add_post_meta($id_inscricao,'ins_status_inscricao','03',true);
 
                 $resposta['erro'] = false;
                 $resposta['msg'] = "Processando inscrição.";
