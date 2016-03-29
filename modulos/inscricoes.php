@@ -85,8 +85,10 @@ function processar_inscricao_callback() {
                         ),
                     ) );
 
+                    $total_valores = 0;
                     $ins_modulos_curso = array();
                     $ins_id_modulos_curso = array();
+                    $ins_valores_curso = array();
 
                     // The Loop
 
@@ -95,9 +97,10 @@ function processar_inscricao_callback() {
                             $the_query->the_post();
                             $ins_modulos_curso[] = get_the_title();
                             $ins_id_modulos_curso[] = $post->ID;
+                            $ins_valores_curso[] = get_post_meta($post->ID,$_POST['modulo-todos-' . $modulo_todos . '-valor'],true);
+
+                            $total_valores = $total_valores + get_post_meta($post->ID,$_POST['modulo-todos-' . $modulo_todos . '-valor'],true);
                         }
-                    } else {
-                        // no posts found
                     }
                     /* Restore original Post Data */
                     wp_reset_postdata();
@@ -105,8 +108,12 @@ function processar_inscricao_callback() {
                     add_post_meta($id_inscricao, 'ins_modulos_curso', $ins_modulos_curso,true);
                     add_post_meta($id_inscricao, 'ins_id_modulos_curso', $ins_id_modulos_curso,true);
 
-                    add_post_meta($id_inscricao,'ins_valores_curso', $_POST['modulo-todos-' . $modulo_todos . '-valor'],true);
-                    add_post_meta($id_inscricao,'ins_total_pagamento',$_POST['modulo-todos-' . $modulo_todos . '-valor'],true);
+                    add_post_meta($id_inscricao,'ins_valores_curso', $ins_valores_curso,true);
+
+                    $percentual_desconto = get_post_meta($curso_id, 'num_desc_vista', true) / 100;
+                    $valor_final = $total_valores - ($percentual_desconto * $total_valores);
+
+                    add_post_meta($id_inscricao,'ins_total_pagamento',$valor_final,true);
                 }
                 // Salvando outros dados
                 add_post_meta($id_inscricao,'ins_num',(1000 + $id_inscricao),true);
